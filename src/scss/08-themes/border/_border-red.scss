@@ -1,0 +1,11 @@
+/* ==========================================================================
+   08 - THEMES / BORDER / DARK RED
+   ========================================================================== */
+
+.uhb-t-border-red {
+  --color-border: #{$uhb-color-emergency-services-red};
+
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-emergency-services-red}", '#', '%23')));;
+  }
+}

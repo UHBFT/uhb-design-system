@@ -1,0 +1,28 @@
+/* ============================================================================
+   06-COMPONENTS -> #ERROR-MESSAGE
+   ========================================================================= */
+
+/**
+ * The error message component tells users if there has been a validation
+ * error.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/error-message.htm
+ */
+
+
+/**
+ * Error message
+ */
+
+.uhb-c-error-message {
+  @include uhb-font-size('body');
+  color: $uhb-color-error;
+  display: block;
+  font-weight: $uhb-font-weight-bold;
+  margin-top: uhb-spacing(3);
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(4);
+  }
+}

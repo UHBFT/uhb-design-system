@@ -1,0 +1,32 @@
+/* ============================================================================
+   07-UTILITIES -> #DISPLAY
+   ========================================================================= */
+
+/**
+ * The display utility classes set the 'display' property of an element at any
+ * breakpoint.
+ */
+
+
+$display-properties: (
+  block,
+  inline-block,
+  flex,
+  inline-flex
+);
+
+@each $property in $display-properties {
+  .uhb-u-display-#{$property} {
+    display: #{$property} !important;
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+    @if ($breakpoint-name != null) {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-display-#{$property}\@#{$breakpoint-name} {
+          display: #{$property} !important;
+        }
+      }
+    }
+  }
+}

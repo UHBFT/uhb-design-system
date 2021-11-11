@@ -1,0 +1,25 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #REM-TO-PX
+//   ======================================================================= */
+
+///
+/// Converts a rem value to a px value.
+///
+/// @param {Number [rem]} $value - value with rem unit
+///
+/// @returns {Number [px]}
+///
+/// @example scss
+///   uhb-rem-to-px(2rem)
+///
+
+@function uhb-rem-to-px($value) {
+  
+  // If $value has a unit, convert it to a unitless value
+  @if (not unitless($value)) {
+    $value: $value / ($value * 1);
+  }
+  
+  @return $value * $uhb-global-font-size;
+
+}

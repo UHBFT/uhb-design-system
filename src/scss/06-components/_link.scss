@@ -1,0 +1,87 @@
+/* ============================================================================
+   06-COMPONENTS -> #LINK
+   ========================================================================= */
+  
+/**
+ * The link component offers additional styling over the default element.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/link.htm
+ */
+
+
+/**
+ * Link
+ */
+
+.uhb-c-link {
+  @include uhb-link-primary;
+}
+
+
+/**
+ * Link meta
+ */
+
+.uhb-c-link__meta {
+  @include uhb-font-size('body-small');
+  display: block;
+  width: 100%;
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Inverse link
+ *
+ * Changes the link colour to white.
+ */
+
+.uhb-c-link--inverse {
+  @include uhb-link-style-inverse;
+}
+
+
+/**
+ * Skip link
+ *
+ * Visually hides the link off screen until it is focused.
+ *
+ * 1. Visually hides the skip link.
+ * 2. Positions the skip link within the viewport when it receives active and
+ *    focus states.
+ */
+
+.uhb-c-link--skip {
+  left: -9999px; // [1]
+  padding: uhb-spacing(2);
+  position: absolute;
+
+  // [2]
+  &:active,
+  &:focus {
+    left: uhb-spacing(3);
+    top: uhb-spacing(3);
+    z-index: 2;
+  }
+  
+  @include uhb-media-query($from: 'md') {
+    &:active,
+    &:focus {
+      left: uhb-spacing(4);
+      top: uhb-spacing(4);
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    &:active,
+    &:focus {
+      left: uhb-spacing(5);
+      top: uhb-spacing(5);
+    }
+  }
+}

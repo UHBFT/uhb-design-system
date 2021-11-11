@@ -1,0 +1,17 @@
+///* ==========================================================================
+//   01-SETTINGS -> #BREAKPOINTS
+//   ======================================================================= */
+
+// 
+// The breakpoints settings file contains the minimum widths at which the
+// layout can change.
+//
+
+
+$uhb-breakpoints: (
+  null: 0px,
+  sm:   600px,
+  md:   752px,
+  lg:   1000px,
+  xl:   1280px
+);

@@ -1,0 +1,30 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #SPACING
+//   ======================================================================= */
+
+///
+/// Returns the value associated with a key from $uhb-spacing-scale.
+///
+/// @param {Number} $scale-point - point taken from $uhb-spacing-scale
+///
+/// @returns {Number [px]}
+///
+/// @example scss
+///   margin: uhb-spacing(3)
+///
+
+@function uhb-spacing($scale-point) {
+
+  // Check if $scale-point is a number
+  @if ((type-of($scale-point) != 'number')) {
+    @error 'Expected a number but received a #{type-of($scale-point)}.';
+  }
+  
+  // Check if $scale-point exists
+  @if not (map-has-key($uhb-spacing-scale, $scale-point)) {
+    @error 'Spacing point not found. Please use a spacing point from the following: #{$uhb-spacing-scale}".';
+  }
+  
+  @return map-get($uhb-spacing-scale, $scale-point);
+
+}

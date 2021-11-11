@@ -1,0 +1,95 @@
+// /* ============================================================================
+//    07-UTILITIES -> #BORDER
+//    ========================================================================= */
+  
+/**
+ * The border utility classes set the 'border' property of an element.
+ */
+
+
+/**
+ * Add border
+ */
+
+.uhb-u-border {
+  border: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+.uhb-u-border-top {
+  border-top: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+.uhb-u-border-right {
+  border-right: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+.uhb-u-border-bottom {
+  border-bottom: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+.uhb-u-border-left {
+  border-left: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+.uhb-u-border-x {
+  border-left: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+  border-right: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+.uhb-u-border-y {
+  border-bottom: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+  border-top: $uhb-global-border-width solid $uhb-color-pale-grey !important;
+}
+
+
+/**
+ * Remove border
+ */
+
+.uhb-u-border-clear {
+  border: 0 !important;
+}
+
+.uhb-u-border-top-clear {
+  border-top: 0 !important;
+}
+
+.uhb-u-border-right-clear {
+  border-right: 0 !important;
+}
+
+.uhb-u-border-bottom-clear {
+  border-bottom: 0 !important;
+}
+
+.uhb-u-border-left-clear {
+  border-left: 0 !important;
+}
+
+.uhb-u-border-x-clear {
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+.uhb-u-border-y-clear {
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+}
+
+
+/**
+ * Add colour to border
+ */
+
+.uhb-u-border-black {
+  border-color: $uhb-color-black !important;
+}
+
+.uhb-u-border-primary {
+  border-color: $uhb-color-primary !important;
+  border-color: var(--color-primary) !important;
+}
+
+.uhb-u-border-white {
+  border-color: $uhb-color-white !important;
+}

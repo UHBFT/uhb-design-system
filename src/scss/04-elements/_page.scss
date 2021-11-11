@@ -1,0 +1,77 @@
+/* ============================================================================
+   04-ELEMENTS -> #PAGE
+   ========================================================================= */
+
+/**
+ * Sets the default styles for page elements. 
+ */
+
+
+/**
+ * Root
+ */
+ 
+:root {
+  --color-border: #{$uhb-color-border};
+  --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-primary)};
+  --color-primary: #{$uhb-color-primary};
+  --color-primary-hover: #{$uhb-color-primary-hover}; 
+  --color-primary-active: #{$uhb-color-primary-active};
+  --color-action-button: #{$uhb-color-action-button};
+  --color-action-button-hover: #{$uhb-color-action-button-hover};
+  --color-action-button-active: #{$uhb-color-action-button-active};
+  --global-bar-color: #{$uhb-global-bar-color};
+  --global-bar-highlight-color: #{$uhb-global-bar-highlight-color};
+  --global-bar-highlight-item-color: #{$uhb-global-bar-highlight-item-color};
+}
+
+
+/**
+ * HTML
+ *
+ * 1. Sets vertical scrollbar to always be visible and prevent jumps between
+ *    pages without enough content to fill the them.
+ * 2. Disable scroll state.
+ */
+
+html {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll; // [1]
+  
+  // [2]
+  &.is-locked {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+
+/**
+ * Body
+ *
+ * 1. Set 'display' property to 'flex' to allow the uhb-o-page object to fill
+ *     all remaining space.
+ * 2. Force the body to always be 100% viewport height.
+ */
+
+body {
+  color: $uhb-color-text;
+  display: flex; // [1]
+  flex-direction: column; // [1]
+  font-family: $uhb-font-family;
+  font-size: $uhb-global-font-size;
+  font-weight: $uhb-font-weight-light;
+  min-height: 100%; // [2]
+  line-height: $uhb-global-line-height;
+  overflow-x: hidden;
+}

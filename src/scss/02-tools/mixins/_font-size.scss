@@ -1,0 +1,48 @@
+// ============================================================================
+// 02-TOOLS -> MIXINS -> #TYPOGRAPHY
+// ============================================================================
+
+///
+/// Adds font-size and line-height styles at each specified breakpoint and
+/// print
+///
+/// @param {String} $size - Font size you want to add
+///
+/// @example scss
+///   .element {
+///     @include uhb-font-size('h3');
+///   }
+///
+
+@mixin uhb-font-size($size, $weight: null) {
+
+  @if not (map-has-key($uhb-font-size-scale, $size)) and not ($size == 'print') {
+    @error 'Font size not found. Please use a key from the following: #{$uhb-font-size-scale}.';
+  }
+
+  $font-map: map-get($uhb-font-size-scale, $size);
+
+  @if ($weight != null) {
+    font-weight: $weight;
+  }
+
+  @each $breakpoint, $size-map in map-get($uhb-font-size-scale, $size) {
+    $font-size: map-get($size-map, 'font-size');
+    $line-height: map-get($size-map, 'line-height');
+
+    @if ($breakpoint == 'default') {
+      font-size: uhb-px-to-rem($font-size);
+      line-height: uhb-line-height($line-height, $font-size);
+    } @else if ($breakpoint == 'print') {
+      @include uhb-media-query($media-type: 'print') {
+        font-size: uhb-px-to-rem($font-size);
+        line-height: uhb-line-height($line-height, $font-size);
+      }
+    } @else {
+      @include uhb-media-query($from: $breakpoint) {
+        font-size: uhb-px-to-rem($font-size);
+        line-height: uhb-line-height($line-height, $font-size);
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/* ============================================================================
+   07-UTILITIES -> #SPACING
+   ========================================================================= */
+
+/**
+ * The spacing utility classes set responsive margin or padding properties for
+ * an element at default, md and xl breakpoints.
+ */
+
+
+///
+/// Generates resposnive spacing utility classes for margin or padding
+///
+/// @param {String} $property - property to generate utility classes for
+///
+/// @example scss
+///   @include _uhb-generate-spacing-utilities('margin');
+///
+
+$spacing-directions: (
+  'top',
+  'right',
+  'bottom',
+  'left'
+);
+
+@mixin _uhb-generate-spacing-utilities($property) {
+  @each $spacing-point, $responsive-scale in $uhb-spacing-responsive-scale {
+    .uhb-u-#{$property}-#{$spacing-point} {
+      @include _uhb-responsive-spacing($spacing-point, $property, 'all');
+    }
+
+    @each $direction in $spacing-directions {
+      .uhb-u-#{$property}-#{$direction}-#{$spacing-point} {
+        @include _uhb-responsive-spacing($spacing-point, $property, $direction);
+      }
+
+      @if ($property == 'margin') {
+        .uhb-u-#{$property}-#{$direction}-auto {
+          #{$property}-#{$direction}: auto;
+        }
+      }
+    }
+  }  
+}
+
+@include _uhb-generate-spacing-utilities('margin');
+@include _uhb-generate-spacing-utilities('padding');

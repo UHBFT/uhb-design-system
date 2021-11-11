@@ -1,0 +1,97 @@
+/* ============================================================================
+   06-COMPONENTS -> #PAGINATION
+   ========================================================================= */
+
+/**
+ * The pagination component allows users to navigate through content that is
+ * split over multiple pages.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/pagination.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$pagination-link-size-xs: 40px; 
+$pagination-link-size-md: 48px;
+
+
+/**
+ * Pagination
+ */
+
+.uhb-c-pagination {
+  @include uhb-responsive-margin(7, 'top');
+}
+
+
+/**
+ * Pagination list
+ *
+ * 1. Use negative margin to remove excess spacing from pagination items.
+ */
+
+.uhb-c-pagination__list {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: - uhb-spacing(3); // [1]
+  margin-left: - uhb-spacing(3); // [1]
+  margin-top: 0;
+
+  @include uhb-media-query($from: 'md') {
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}
+
+
+/**
+ * Pagination item
+ *
+ * 1. Sets the current pagination item styles.
+ */
+
+.uhb-c-pagination__item {
+  margin-top: 0;
+  padding-bottom: uhb-spacing(3);
+  padding-left: uhb-spacing(3);
+  
+  &::before {
+    content: none;
+  }
+
+  // [1]
+  &.is-current {
+    .uhb-c-pagination__link {
+      @include uhb-link-current;
+    }
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding-bottom: 0;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+
+/**
+ * Pagination link
+ */
+
+.uhb-c-pagination__link {
+  justify-content: center;
+  height: $pagination-link-size-xs;
+  width: $pagination-link-size-xs;
+
+  @include uhb-media-query($from: 'md') {
+    height: $pagination-link-size-md;
+    width: $pagination-link-size-md;
+  }
+}

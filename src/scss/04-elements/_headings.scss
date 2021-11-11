@@ -1,0 +1,56 @@
+/* ============================================================================
+   04-ELEMENTS -> #HEADINGS
+   ========================================================================= */
+
+/**
+ * Sets the default styles for h1–h6 elements.
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. CSS custom property used as progressive enhancement for themes.
+ * 3. Add margin-top if heading follows another element.
+ */
+
+
+%heading { 
+  color: $uhb-color-primary; // [1]
+  color: var(--color-primary); // [2]
+  margin-bottom: uhb-spacing(3);
+
+  @include uhb-media-query($from: 'md') {
+    margin-bottom: uhb-spacing(4);
+  }
+
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [3]
+  }
+}
+
+h1 {
+  @extend %heading;
+  @include uhb-font-size('h1', $uhb-font-weight-bold);
+}
+
+h2 {
+  @extend %heading;
+  @include uhb-font-size('h2', $uhb-font-weight-bold);
+}
+
+h3 {
+  @extend %heading;
+  @include uhb-font-size('h3', $uhb-font-weight-bold);
+}
+
+h4 {
+  @extend %heading;
+  @include uhb-font-size('h4', $uhb-font-weight-bold);
+}
+
+h5 {
+  @extend %heading;
+  @include uhb-font-size('h5', $uhb-font-weight-bold);
+}
+
+h6 {
+  @extend %heading;
+  @include uhb-font-size('h6', $uhb-font-weight-bold);
+}

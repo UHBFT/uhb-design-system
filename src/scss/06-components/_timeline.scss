@@ -1,0 +1,127 @@
+/* ============================================================================
+   06-COMPONENTS -> #TIMELINE
+   ========================================================================= */
+
+/**
+ * The timeline component displays a list of information in chronological
+ * order.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/timelibe.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$timeline-point-size: 12px;
+
+
+/**
+ * Timeline
+ *
+ * 1. Add 'margin-top' to the timeline component if it follows another element.
+ * 2. Add 'margin-top' to an element if it follows the timeline component.
+ */
+
+.uhb-c-timeline {
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [1]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [2]
+  }
+}
+
+
+/**
+ * Timeline item
+ *
+ * 1. 'Magic number' to horizontally position the timeline point.
+ * 2. 'Magic number' to vertically position the timeline point.
+ * 3. Height is equal to 100% + the margin-bottom of a timeline item so the
+ *    line connects to the next items point.
+ * 4. 'Magic number' to horizontally position the timeline line.
+ * 5. 'Magic number' to vertically position the timeline line.
+ */
+
+.uhb-c-timeline__item {
+  @include uhb-responsive-margin(7, 'top');
+
+  &::before {
+    background-color: $uhb-color-warm-yellow;;
+    border-radius: 50%;
+    content: '';
+    height: $timeline-point-size;
+    left: 10px; // [1]
+    top: 14px; // [2]
+    width: $timeline-point-size;
+  }
+
+  &::after {
+    border-left: $uhb-global-border-width solid $uhb-color-warm-yellow; 
+    content: '';
+    height: calc(100% + #{uhb-spacing(5)}); // [3]
+    left: 14px; // [4]
+    position: absolute;
+    top: 20px; // [2]
+  }
+
+  &:last-child {
+    &::after {
+      content: none;
+    }
+  }
+
+  @include uhb-media-query($from: 'md') {
+    &::before {
+      left: uhb-spacing(3);
+    }
+
+    &::after {
+      height: calc(100% + #{uhb-spacing(6)}); // [3]
+      left: 20px; // [4]
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    &::after {
+      height: calc(100% + #{uhb-spacing(7)}); // [3]
+    }
+  }
+}
+
+
+/**
+ * Timeline heading
+ */
+
+.uhb-c-timeline__heading {
+  @include uhb-font-size('body');
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Inverse timeline
+ *
+ * Inverts the timeline colours so on a background other than white.
+ */
+
+.uhb-c-timeline--inverse {
+  color: $uhb-color-white;
+
+  .uhb-c-timeline__heading {
+    color: inherit;
+  }
+
+  .uhb-c-timeline__link {
+    @include uhb-link-style-inverse;
+  }
+}

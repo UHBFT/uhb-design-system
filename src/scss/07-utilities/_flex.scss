@@ -1,0 +1,63 @@
+/* ============================================================================
+   07-UTILITIES -> #FLEX
+   ========================================================================= */
+
+/**
+ * The flex utility classes set flexbox properties of an element at any
+ * breakpoint.
+ */
+
+
+/**
+ * Align items
+ */
+
+ $flex-align-properties: (
+  top:    flex-start,
+  middle: center,
+  bottom: flex-end
+);
+
+@each $class-name, $property in $flex-align-properties {
+  @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+    @if ($breakpoint-name == null) {
+      .uhb-u-flex-#{$class-name} {
+        align-items: #{$property} !important;
+      }
+    } @else {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-flex-#{$class-name}\@#{$breakpoint-name} {
+          align-items: #{$property} !important;
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Justify content
+ */
+
+$flex-justify-properties: (
+  left:   flex-start,
+  center: center,
+  right:  flex-end
+);
+
+@each $class-name, $property in $flex-justify-properties {
+  @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+    @if ($breakpoint-name == null) {
+      .uhb-u-flex-#{$class-name} {
+        justify-content: #{$property} !important;
+      }
+    } @else {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-flex-#{$class-name}\@#{$breakpoint-name} {
+          justify-content: #{$property} !important;
+        }
+      }
+    }
+  }
+}
+

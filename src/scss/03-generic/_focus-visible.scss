@@ -1,0 +1,15 @@
+/* ============================================================================
+   03-GENERIC -> #FOCUS-VISIBLE
+   ========================================================================= */
+
+/**
+ * Disables default focus styles when the focus-visible polyfill is loaded.
+ *
+ * @source
+ * https://github.com/WICG/focus-visible
+ */
+
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: 0;
+}

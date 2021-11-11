@@ -1,0 +1,32 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #TRANSITION
+//   ======================================================================= */
+
+///
+/// Adds transition styles to a list of properties
+///
+/// @param {String | List} $properties
+/// @param {Number [ms]} $duration [$uhb-global-transition-duration]
+/// @param {String | List} $timing [$uhb-global-transition-timing]
+///
+/// @example scss
+///   .element {
+///     @include uhb-transition('color', 'height');  
+///   }
+///
+
+@mixin uhb-transition($properties, $duration: $uhb-global-transition-duration, $timing: $uhb-global-transition-timing) {
+
+  @if (length($properties) == 1) {
+    transition: #{$properties} $duration $timing;
+  } 
+  
+  // Use longhand properties if there is more than one transition property as
+  // they are clearer to read.
+  @else if (length($properties) > 1) {
+    transition-duration: $duration;
+    transition-property: #{$properties};
+    transition-timing-function: $timing;
+  }
+  
+}

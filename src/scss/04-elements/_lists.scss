@@ -1,0 +1,127 @@
+/* ============================================================================
+   04-ELEMENTS -> #LISTS
+   ========================================================================= */
+
+/**
+ * Sets the default styles for dl, ol, and ul list elements.
+ */
+
+
+/**
+ * Shared list styles
+ *
+ * 1. Remove the default list-style so it can be replaced with custom markers.
+ */
+
+%list {
+  list-style-type: none; // [1]
+  padding-left: 0;
+}
+
+%list-item {
+  margin-left: 0;
+  margin-top: uhb-spacing(2);
+  padding-left: uhb-spacing(5);
+  position: relative;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding-left: uhb-spacing(6);
+  }
+}
+
+%list-item-nested {
+  & > ol,
+  & > ul {
+    margin-top: uhb-spacing(2);
+  }
+}
+
+%list-item-marker {
+  &::before {
+    height: $uhb-icon-size;
+    left: uhb-spacing(1);
+    position: absolute;
+    text-align: left;
+    width: $uhb-icon-size;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    &::before {
+      left: uhb-spacing(2);
+    }
+  }
+}
+
+
+/**
+ * Details list
+ */
+
+ dl {
+  @extend %list;
+}
+
+dl > dt {
+  font-weight: $uhb-font-weight-bold;
+}
+
+dl > dd {
+  @extend %list-item;
+}
+
+
+/**
+ * Ordered list
+ *
+ * 1. Set custom counter for ordered list number.
+ * 2. Increment custom counter for each ordered list item.
+ * 3. Add custom counter number to pseudo element content.
+ */
+
+ol {
+  @extend %list;
+  counter-reset: ordered-list-item; // [1]
+}
+
+ol > li {
+  @extend %list-item;
+  @extend %list-item-marker;
+  @extend %list-item-nested;
+  counter-increment: ordered-list-item; // [2]
+
+  &::before {
+    content: counter(ordered-list-item) '. '; // [3]
+  }
+}
+
+
+/**
+ * Unordered list
+ *
+ * 1. Set chevron icon as the list marker.
+ */
+
+ul {
+  @extend %list;
+}
+
+ul > li {
+  @extend %list-item;
+  @extend %list-item-marker;
+  @extend %list-item-nested;
+  
+  &::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-border}', '#', '%23' ))); // [1]
+    background-position: center;
+    background-repeat: no-repeat;
+    content: '';
+  }
+}

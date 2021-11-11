@@ -1,0 +1,30 @@
+/* ============================================================================
+   05-OBJECTS -> #SECTION
+   ========================================================================= */
+
+/**
+ * The section object wraps content and adds spacing to the top and bottom.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/layout.htm
+ */
+
+
+/**
+ * Section
+ */
+
+.uhb-o-section {
+  @include uhb-responsive-padding(7, ('bottom', 'top'));
+}
+
+
+/**
+ * Section content
+ *
+ * 1. Remove the 'margin-top' property from the first child.
+ */
+
+.uhb-o-section__content {
+  @include uhb-first-child-margin; // [1]
+}

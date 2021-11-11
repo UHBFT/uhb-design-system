@@ -1,0 +1,29 @@
+/* ============================================================================
+   07-UTILITIES -> #HIDE
+   ========================================================================= */
+
+/**
+ * The hide utility classes set the 'display' property of an element to 'none' 
+ * at any breakpoint.
+ */
+
+
+@each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+  @if ($breakpoint-name == null) {
+    .uhb-u-hide {
+      display: none;
+    }
+  } @else {
+    @include uhb-media-query($from: $breakpoint-name) {
+      .uhb-u-hide\@#{$breakpoint-name} {
+        display: none;
+      }
+    }
+
+    @include uhb-media-query($to: $breakpoint-name) {
+      .uhb-u-hide\@max-#{$breakpoint-name} {
+        display: none;
+      }
+    }
+  }
+}

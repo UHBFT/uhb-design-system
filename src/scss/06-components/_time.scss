@@ -1,0 +1,124 @@
+/* ============================================================================
+   06-COMPONENTS -> #TIME
+   ========================================================================= */
+  
+/**
+ * The time component allows users to enter a time in HH:MM format.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/time.htm
+ */
+
+
+/**
+ * Time
+ */
+
+.uhb-c-time {
+  @include uhb-media-query($from: 'sm') {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    width: 70%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: 50%;
+  }
+}
+
+
+/**
+ * Time item
+ * 
+ * 1. Creates equal width inputs that align with the date component inputs.
+ * 2. 'Magic number' to vertically position the ':' separator.
+ */
+
+.uhb-c-time__item {
+  position: relative;
+  
+  @include uhb-media-query($to: 'sm') {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: uhb-spacing(3);
+  }
+
+  @include uhb-media-query($from: 'sm') {
+    display: block;
+    width: 50%;
+
+    &:first-child {
+      margin-right: $uhb-grid-gutter-default;
+
+      &::after {
+        @include uhb-font-size('body');
+        bottom: uhb-spacing(2);
+        color: $uhb-color-text;
+        content: ':';
+        height: $uhb-icon-size;
+        left: 100%;
+        position: absolute;
+        text-align: center;
+        width: uhb-spacing(3);
+      }
+    }
+  }
+
+  @include uhb-media-query($from: 'md') {
+    width: calc(33.333% - #{$uhb-grid-gutter-md}); // [1]
+
+    &:first-child {
+      margin-right: $uhb-grid-gutter-md;
+
+      &::after {
+        bottom: 12px; // [2]
+        width: $uhb-grid-gutter-md;
+      }
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: calc(33.333% - #{$uhb-grid-gutter-xl}); // [1]
+
+    &:first-child {
+      margin-right: $uhb-grid-gutter-xl;
+
+      &::after {
+        width: $uhb-grid-gutter-xl;
+      }
+    }
+  }
+}
+
+
+/**
+ * Time label
+ */
+
+.uhb-c-time__label {
+  @include uhb-media-query($to: 'sm') {
+    width: 50%;
+  }
+}
+
+
+/**
+ * Time input
+ *
+ * 1. Override the default 'margin-top' property of the input component.
+ */
+
+.uhb-c-time__input {
+  @include uhb-media-query($to: 'sm') {
+    margin-top: 0 !important; // [1]
+    width: 50%;
+  }
+}

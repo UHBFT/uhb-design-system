@@ -1,0 +1,56 @@
+/* ============================================================================
+   06-COMPONENTS -> #SHORTCUT
+   ========================================================================= */
+  
+/**
+ * The shortcut component is a clickable icon with text that links users to a
+ * page.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/shortcut.htm
+ */
+
+
+/**
+ * Shortcut
+ */
+
+.uhb-c-shortcut {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+
+  &:hover {
+    .uhb-c-shortcut__link {
+      @include uhb-link-primary-hover;
+    }
+  }
+
+  &:active {
+    .uhb-c-shortcut__link {
+      @include uhb-link-primary-active;
+    }
+  }
+}
+
+
+/**
+ * Shortcut icon
+ */
+
+.uhb-c-shortcut__icon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/**
+ * Shortcut link
+ */
+
+.uhb-c-shortcut__link {
+  @include uhb-font-size('body');
+  text-align: center;
+}

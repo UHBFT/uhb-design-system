@@ -1,0 +1,87 @@
+///* ==========================================================================
+//   01-SETTINGS -> #SPACING
+//   ======================================================================= */
+
+// 
+// The spacing settings file contains variables that are used to maintain 
+// consistent spacing throughout the project.
+//
+
+
+//
+// Single spacing unit
+//
+// Base spacing amount.
+//
+
+$uhb-spacing-unit: 8px !default;
+
+
+//
+// Spacing scale
+//
+// Multiples of the $uhb-spacing-unit value.
+//
+
+$uhb-spacing-scale: (
+  0: 0 * $uhb-spacing-unit,   // 0px
+  1: 0.5 * $uhb-spacing-unit, // 4px
+  2: 1 * $uhb-spacing-unit,   // 8px
+  3: 2 * $uhb-spacing-unit,   // 16px
+  4: 3 * $uhb-spacing-unit,   // 24px
+  5: 4 * $uhb-spacing-unit,   // 32px
+  6: 5 * $uhb-spacing-unit,   // 40px
+  7: 6 * $uhb-spacing-unit,   // 48px
+  8: 7 * $uhb-spacing-unit,   // 56px
+  9: 8 * $uhb-spacing-unit,   // 64px
+) !default;
+
+
+//
+// Responsive spacing scale
+//
+// Multiples of the $uhb-spacing-unit value that change at various breakpoints.
+//
+
+$uhb-spacing-responsive-scale: (
+  0 : (
+    null: map-get($uhb-spacing-scale, 0),
+    md:   map-get($uhb-spacing-scale, 0),
+    xl:   map-get($uhb-spacing-scale, 0)
+  ),
+  1 : (
+    null: map-get($uhb-spacing-scale, 1),
+    md:   map-get($uhb-spacing-scale, 1),
+    xl:   map-get($uhb-spacing-scale, 1)
+  ),
+  2 : (
+    null: map-get($uhb-spacing-scale, 2),
+    md:   map-get($uhb-spacing-scale, 2),
+    xl:   map-get($uhb-spacing-scale, 2)
+  ),
+  3 : (
+    null: map-get($uhb-spacing-scale, 2),
+    md:   map-get($uhb-spacing-scale, 3),
+    xl:   map-get($uhb-spacing-scale, 3)
+  ),
+  4 : (
+    null: map-get($uhb-spacing-scale, 3),
+    md:   map-get($uhb-spacing-scale, 4),
+    xl:   map-get($uhb-spacing-scale, 4)
+  ),
+  5 : (
+    null: map-get($uhb-spacing-scale, 3),
+    md:   map-get($uhb-spacing-scale, 4),
+    xl:   map-get($uhb-spacing-scale, 5)
+  ),
+  6 : (
+    null: map-get($uhb-spacing-scale, 4),
+    md:   map-get($uhb-spacing-scale, 5),
+    xl:   map-get($uhb-spacing-scale, 6)
+  ),
+  7 : (
+    null: map-get($uhb-spacing-scale, 5),
+    md:   map-get($uhb-spacing-scale, 6),
+    xl:   map-get($uhb-spacing-scale, 7)
+  ),
+) !default;

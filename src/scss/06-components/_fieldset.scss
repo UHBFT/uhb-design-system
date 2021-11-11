@@ -1,0 +1,56 @@
+/* ============================================================================
+   06-COMPONENTS -> #FIELDSET
+   ========================================================================= */
+  
+/**
+ * The fieldset component groups related form elements.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/fieldset.htm
+ */
+
+
+/**
+ * Fieldset
+ */
+
+.uhb-c-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+/**
+ * Fieldset legend
+ *
+ * 1. Add 'margin-top' to an element if it follows the fieldset legend element..
+ */
+
+.uhb-c-fieldset__legend {
+  @include uhb-font-size('body');
+  display: block;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+
+  & + * {
+    margin-top: uhb-spacing(3); // [1]
+  }
+
+  @include uhb-media-query($from: 'md') {
+    & + * {
+      margin-top: uhb-spacing(4); // [1]
+    }
+  }
+}
+
+
+/**
+ * Fieldset required
+ */
+
+.uhb-c-fieldset__required {
+  color: $uhb-color-error;
+  font-weight: $uhb-font-weight-bold;
+}

@@ -1,0 +1,158 @@
+/* ============================================================================
+   06-COMPONENTS -> #FOOTER
+   ========================================================================= */
+
+/**
+ * The footer component provides additional navigation links and information.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/footer.htm
+ */
+
+
+/**
+ * Footer
+ */
+
+.uhb-c-footer {
+  @include uhb-responsive-padding(5, ('bottom', 'top'));
+  background-color: $uhb-color-pale-grey;
+  border-top: $uhb-global-border-width solid $uhb-color-border;
+  border-top-color: var(--color-border);
+}
+
+
+/**
+ * Footer left
+ */
+
+.uhb-c-footer__left {
+  text-align: left;
+}
+
+
+/**
+ * Footer right
+ */
+
+.uhb-c-footer__right {
+  text-align: left;
+
+  @include uhb-media-query($from: 'lg') {
+    text-align: right;
+  }
+}
+
+/**
+ * Footer vision
+ *
+ * 1. 'Magic number' used for vision logo sizing.
+ */
+
+.uhb-c-footer__vision {
+  display: block;
+  height: 45px; // [1]
+  width: 200px; // [1]
+
+  @include uhb-media-query($from: "md") {
+    height: 64px; // [1]
+    width: 280px; // [1]
+  }
+
+  @include uhb-media-query($from: "xl") {
+    height: 72px; // [1]
+    width: 320px; // [1]
+  }
+}
+
+
+/**
+ * Footer social
+ */
+
+.uhb-c-footer__social {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+/**
+ * Footer social item
+ */
+
+.uhb-c-footer__social-item {
+  margin-right: uhb-spacing(3);
+  margin-top: 0;
+  padding-left: 0;
+
+  &::before {
+    content: none;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+
+
+/**
+ * Footer nav
+ */
+
+.uhb-c-footer__nav {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @include uhb-media-query($to: 'xl') {
+    display: none;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    text-align: right;
+  }
+}
+
+
+/**
+ * Footer nav item
+ *
+ * 1. Current footer navigation item styles.
+ */
+
+.uhb-c-footer__nav-item {
+  @include uhb-font-size('body-small');
+  margin-right: uhb-spacing(3);
+  margin-top: 0;
+  padding-left: 0;
+
+  &::before {
+    content: none;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  // [1]
+  &.is-current {
+    .uhb-c-footer__nav-link {
+      @include uhb-link-current;
+    }
+  }
+}
+
+
+/**
+ * Footer copyright
+ */
+
+.uhb-c-footer__copyright {
+  @include uhb-font-size('body-small');
+
+  @include uhb-media-query($from: 'xl') {
+    text-align: right;
+  }
+}

@@ -1,0 +1,9 @@
+/* ==========================================================================
+   08 - THEMES / BUTTON BRIGHT BLUE
+   ========================================================================== */
+
+.uhb-t-button-bright-blue {
+  --color-action-button: #{$uhb-color-bright-blue};
+  --color-action-button-hover: #{$uhb-color-blue};
+  --color-action-button-active: #{$uhb-color-dark-blue};
+}

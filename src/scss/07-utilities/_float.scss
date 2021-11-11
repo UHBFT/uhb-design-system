@@ -1,0 +1,30 @@
+/* ============================================================================
+   07-UTILITIES -> #FLOAT
+   ========================================================================= */
+
+/**
+ * The float utility classes set the 'float' property of an element at any
+ * breakpoint.
+ */
+
+
+$float-properties: (
+  left,
+  right
+);
+
+@each $property in $float-properties {
+  .uhb-u-float-#{$property} {
+    float: #{$property};
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+    @if ($breakpoint-name != null) {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-float-#{$property}\@#{$breakpoint-name} {
+          float: #{$property};
+        }
+      }
+    }
+  }
+}

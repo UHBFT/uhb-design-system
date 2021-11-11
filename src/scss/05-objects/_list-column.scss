@@ -1,0 +1,116 @@
+/* ============================================================================
+   05-OBJECTS -> #LIST-COLUMNS
+   ========================================================================= */
+
+/**
+ * The column list object splits a list into columns.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/lists.htm
+ */
+
+
+/**
+ * List columns
+ *
+ * 1. Remove 'margin-top' from the second child at md.
+ */
+
+.uhb-o-list-columns {
+  @include uhb-media-query($from: 'md') {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    & > li {
+      width: 50%;
+  
+      &:nth-child(2) {
+        margin-top: 0; // [1]
+      }
+    }
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * 3 column list
+ *
+ * Splits a list into 3 columns.
+ *
+ * 1. Remove 'margin-top' from the third child at lg.
+ */
+
+.uhb-o-list-columns--3 {
+  @include uhb-media-query($from: 'lg') {
+    & > li {
+      width: 33.333%;
+  
+      &:nth-child(3) {
+        margin-top: 0; // [1]
+      }
+    }
+  }
+}
+
+
+/**
+ * 4 column list
+ *
+ * Splits a list into 4 columns
+ *
+ * 1. Remove 'margin-top' from the third child at lg.
+ * 2. Remove 'margin-top' from the fourth child at xl.
+ */
+
+.uhb-o-list-columns--4 {
+  @include uhb-media-query($from: 'lg') {
+    & > li {
+      width: 33.333%;
+  
+      &:nth-child(3) {
+        margin-top: 0; // [1]
+      }
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    & > li {
+      width: 25%;
+  
+      &:nth-child(4) {
+        margin-top: 0; // [2]
+      }
+    }
+  }
+}
+
+
+/**
+ * Spaced column list
+ *
+ * Adds spacing inbetween list items
+ */
+
+.uhb-o-list-columns--spaced {
+  @include uhb-media-query($from: 'md') {
+    margin-left: -$uhb-grid-gutter-md;
+
+    & > li {
+      padding-left: $uhb-grid-gutter-md;
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: -$uhb-grid-gutter-xl;
+
+    & > li {
+      padding-left: $uhb-grid-gutter-xl;
+    }
+  }
+}

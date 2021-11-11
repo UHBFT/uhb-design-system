@@ -1,0 +1,9 @@
+/* ==========================================================================
+   08 - THEMES / BUTTON PINK
+   ========================================================================== */
+
+.uhb-t-button-pink {
+  --color-action-button: #{$uhb-color-pink};
+  --color-action-button-hover: #{$uhb-color-dark-pink};
+  --color-action-button-active: #{$uhb-color-darkest-pink};
+}

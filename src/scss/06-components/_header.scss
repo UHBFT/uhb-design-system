@@ -1,0 +1,846 @@
+/* ============================================================================
+   06-COMPONENTS -> #HEADER
+   ========================================================================= */
+
+/**
+ * The header component provides the main navigation for users and allows them
+ * to search the website.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/header.htm
+ */
+
+
+/**
+ * Header
+ */
+
+.uhb-c-header {
+  background-color: $uhb-color-pale-grey;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+/**
+ * Header global
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-header__global {
+  background-color: $uhb-global-bar-color; // [1]
+  background-color: var(--global-bar-color); // [2]
+  display: none;
+  position: relative;
+
+  @include uhb-media-query($from: 'xl') {
+    display: block;
+  }
+}
+
+
+/**
+ * Header global inner
+ */
+
+.uhb-c-header__global-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/**
+ * Header global list
+ */
+
+.uhb-c-header__global-list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+}
+
+
+/**
+ * Header global item
+ *
+ * 1. Remove default list-item marker.
+ */
+
+.uhb-c-header__global-item {
+  margin-left: uhb-spacing(3);
+  margin-top: 0;
+  padding-bottom: uhb-spacing(3);
+  padding-left: 0;
+  padding-top: uhb-spacing(2);
+  
+  &::before {
+    content: none; // [1]
+  }
+  
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.is-current {
+    .uhb-c-header__global-link {
+      @include uhb-link-current;
+    }
+  }
+}
+
+
+/**
+ * Header global link
+ */
+
+.uhb-c-header__global-link {
+  @include uhb-font-size('caption');
+  @include uhb-link-style-inverse;
+  font-weight: $uhb-font-weight-light;
+}
+
+
+/**
+ * Header container
+ *
+ * 1. Adds 'margin-top' to header elements that follow eachother.
+ */
+
+.uhb-c-header__container {
+  @include uhb-responsive-padding(5, ('bottom', 'top'));
+  position: relative;
+
+  & > {
+    * + * {
+      @include uhb-responsive-margin(7, 'top'); // [1]
+    }
+  }
+}
+
+
+/**
+ * Header content
+ */
+
+.uhb-c-header__content {
+  @include uhb-media-query($from: 'xl') {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+
+/**
+ * Header logo
+ *
+ * 1. 'Magic number' used for NHS logo sizing.
+ * 2. 'Magic number' used for NHS logo text.
+ */
+
+.uhb-c-header__logo {
+  @include uhb-focused-logo;
+  display: inline-block;
+  height: auto;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  width: auto;
+}
+
+.uhb-c-header__logo-nhs {
+  height: 24px; // [1]
+  width: 60px; // [1]
+
+  @include uhb-media-query($from: 'md') {
+    height: 32px; // [1]
+    width: 80px; // [1]
+  }
+}
+
+.uhb-c-header__logo-nhs-background {
+  fill: $uhb-color-blue;
+
+  @include uhb-media-query($media-type: 'print') {
+    fill: $uhb-color-blue;
+  }
+}
+
+.uhb-c-header__logo-nhs-text {
+  fill: $uhb-color-white;
+
+  @include uhb-media-query($media-type: 'print') {
+    fill: $uhb-color-white;
+  }
+}
+
+.uhb-c-header__logo-organisation-name {
+  color: #000;
+  display: block;
+  font-weight: $uhb-font-weight-bold;
+  font-size: 17px; // [2]
+  font-weight: bold;
+  letter-spacing: 0.1px;
+  line-height: 17px; // [2]
+  margin-top: -2px; // [2]
+
+  @include uhb-media-query($from: 'md') {
+    font-size: 22px; // [2]
+    line-height: 23px; // [2]
+  }
+
+  @include uhb-media-query($media-type: 'print') {
+    color: #000;
+  }
+}
+
+.uhb-c-header__logo-organisation-name-split {
+  display: block;
+
+  @include uhb-media-query($from: 'md') {
+    display: inline-block;
+    margin-left: 6px;
+  }
+}
+
+.uhb-c-header__logo-organisation-descriptor {
+  color: $uhb-color-blue;
+  display: block;
+  font-weight: $uhb-font-weight-bold;
+  font-size: 12px; // [2]
+  font-weight: bold;
+  line-height: 18px; // [2]
+
+  @include uhb-media-query($from: 'md') {
+    font-size: 15px; // [2]
+    line-height: 21px; // [2]
+  }
+
+  @include uhb-media-query($media-type: 'print') {
+    color: $uhb-color-blue;
+  }
+}
+
+
+/**
+ * Header search
+ *
+ * 1. Open state.
+ */
+
+.uhb-c-header__search {
+  &::before {
+    @include uhb-transition(('opacity', 'visibility'));
+    background-color: rgba($uhb-color-white, 0.7);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    visibility: hidden;
+  }
+
+  // [1]
+  &.is-open {
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .uhb-c-header__search-container {
+      transform: translateX(0);
+      visibility: visible;
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: uhb-width(4);
+
+    &::before {
+      content: none;
+      transition: none;
+    }
+  }
+}
+
+
+/**
+ * Header search open
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ * 3. 'Magic number' used to position the open button.
+ */
+
+.uhb-c-header__search-open {
+  background-color: $uhb-color-action-button; // [1]
+  background-color: var(--color-action-button); // [2]
+  position: fixed;
+  right: 72px; // [3]
+  top: uhb-spacing(3);
+  z-index: map-get($uhb-global-z-indexes, 'action-button');
+
+  &:hover {
+    background-color: $uhb-color-action-button-hover; // [1]
+    background-color: var(--color-action-button-hover); // [2]
+  }
+
+  &:active {
+    background-color: $uhb-color-action-button-active; // [1]
+    background-color: var(--color-action-button-active); // [2]
+  }
+
+  @include uhb-media-query($from: 'md') {
+    right: 88px; // [3]
+    top: uhb-spacing(4);
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    display: none;
+  }
+}
+
+
+/**
+ * Header search container
+ *
+ * 1. 'Magic number' to add 'padding-top'.
+ * 2. Override properties to display navigation at xl.
+ */
+
+ .uhb-c-header__search-container {
+  @include uhb-transition(('transform', 'visibility'));
+  padding-left: uhb-spacing(3);
+  padding-right: uhb-spacing(3);
+  padding-top: 80px; // [1]
+  transform: translateX(100%);
+  visibility: hidden;
+  width: uhb-width(10);
+  z-index: map-get($uhb-global-z-indexes, 'menu-overlay');
+
+  @include uhb-media-query($to: 'xl') {
+    background-color: $uhb-color-primary;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding-left: uhb-spacing(4);
+    padding-right: uhb-spacing(4);
+    padding-top: 104px; // [1]
+    width: uhb-width(8);
+  }
+
+  @include uhb-media-query($from: 'lg') {
+    width: uhb-width(6);
+  }
+
+  // [2]
+  @include uhb-media-query($from: 'xl') {
+    padding: 0;
+    transform: translateX(0)!important;
+    transition: none;
+    visibility: visible!important;
+    width: auto;
+  }
+}
+
+
+/**
+ * Header search close
+ */
+
+.uhb-c-header__search-close {
+  background-color: $uhb-color-active-background;
+  margin-top: 0;
+  position: fixed;
+  right: uhb-spacing(3);
+  top: uhb-spacing(3);
+
+  @include uhb-media-query($from: 'md') {
+    right: uhb-spacing(4);
+    top: uhb-spacing(4);
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    display: none;
+  }
+
+  .uhb-c-icon--close {
+    fill: $uhb-color-active-text;
+  }
+}
+
+
+/**
+ * Header navigation
+ *
+ * 1. Open state.
+ */
+
+.uhb-c-header__navigation {
+  &::before {
+    @include uhb-transition(('opacity', 'visibility'));
+    background-color: rgba($uhb-color-white, 0.7);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    visibility: hidden;
+  }
+
+  // [1]
+  &.is-open {
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .uhb-c-header__navigation-container {
+      transform: translateX(0);
+      visibility: visible;
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    &::before {
+      content: none;
+      transition: none;
+    }
+  }
+}
+
+
+/**
+ * Header navigation open
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-header__navigation-open {
+  background-color: $uhb-color-action-button; // [1]
+  background-color: var(--color-action-button); // [2]
+  position: fixed;
+  right: uhb-spacing(3);
+  top: uhb-spacing(3);
+  z-index: map-get($uhb-global-z-indexes, 'action-button');
+
+  &:hover {
+    background-color: $uhb-color-action-button-hover; // [1]
+    background-color: var(--color-action-button-hover); // [2]
+  }
+
+  &:active {
+    background-color: $uhb-color-action-button-active; // [1]
+    background-color: var(--color-action-button-active); // [2]
+  }
+
+  @include uhb-media-query($from: 'md') {
+    right: uhb-spacing(4);
+    top: uhb-spacing(4);
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    display: none;
+  }
+}
+
+
+/**
+ * Header navigation container
+ *
+ * 1. Override properties to display navigation at xl.
+ */
+
+.uhb-c-header__navigation-container {
+  @include uhb-transition(('transform', 'visibility'));
+  transform: translateX(100%);
+  visibility: hidden;
+  width: uhb-width(10);
+  z-index: map-get($uhb-global-z-indexes, 'menu-overlay');
+
+  @include uhb-media-query($to: 'xl') {
+    background-color: $uhb-color-primary;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    width: uhb-width(8);
+  }
+
+  @include uhb-media-query($from: 'lg') {
+    width: uhb-width(6);
+  }
+
+  // [1]
+  @include uhb-media-query($from: 'xl') {
+    transform: translateX(0) !important;
+    transition: none;
+    visibility: visible !important;
+    width: 100%;
+  }
+}
+
+
+/**
+ * Header navigation close
+ */
+
+.uhb-c-header__navigation-close {
+  background-color: $uhb-color-active-background;
+  margin-top: 0;
+  position: fixed;
+  right: uhb-spacing(3);
+  top: uhb-spacing(3);
+
+  @include uhb-media-query($from: 'md') {
+    right: uhb-spacing(4);
+    top: uhb-spacing(4);
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    display: none;
+  }
+
+  .uhb-c-icon--close {
+    fill: $uhb-color-active-text;
+  }
+}
+
+
+/**
+ * Header navigation list
+ *
+ * 1. 'Magic number' to add 'padding-top'.
+ * 2. Fallback value for browsers that don't support CSS custom properties.
+ * 3. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-header__navigation-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  padding-bottom: uhb-spacing(4);
+  padding-top: uhb-spacing(4);
+
+  &:first-of-type {
+    padding-top: 80px; // [1]
+  }
+
+  &:nth-child(odd) {
+    background-color: $uhb-color-primary-active; // [2]
+    background-color: var(--color-primary-active); // [3]
+  }
+
+  @include uhb-media-query($from: 'md') {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &:first-of-type {
+      padding-top: 104px; // [1]
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 100%;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+
+    &:nth-child(odd) {
+      background-color: transparent;
+    }  
+  }
+}
+
+
+/**
+ * Header navigation item
+ *
+ * 1. Remove default list-item marker.
+ */
+
+.uhb-c-header__navigation-item {
+  padding-left: uhb-spacing(4);
+  padding-right: uhb-spacing(4);
+
+  &::before {
+    content: none; // [1]
+  }
+
+  &.is-current {
+    .uhb-c-header__navigation-link {
+      @include uhb-link-current;
+    }
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(3);
+    padding-left: uhb-spacing(5);
+    padding-right: uhb-spacing(5);
+    width: 50%;
+
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-top: 0;
+    margin-left: uhb-spacing(3);
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+}
+
+
+/**
+ * Header navigation link
+ */
+
+.uhb-c-header__navigation-link {
+  @include uhb-media-query($to: 'xl') {
+    @include uhb-link-style-inverse;
+  }
+}
+
+
+/**
+ * Header masthead
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ * 3. Add negative margin to make the masthead overlap the next element.
+ */
+
+.uhb-c-header__masthead {
+  background-color: $uhb-color-primary; // [1]
+  background-color: var(--color-primary); // [2]
+  border-bottom: 4px solid $uhb-color-border; // [1]
+  border-bottom-color: var(--color-border); // [2]
+  box-shadow: $uhb-global-box-shadow;
+  color: $uhb-color-white;
+  margin-bottom: - (uhb-spacing(5) + $uhb-global-border-width); // [3]
+  padding: uhb-spacing(3);
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-bottom: - (uhb-spacing(7) + $uhb-global-border-width); // [3]
+    padding: uhb-spacing(4);
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-bottom: - (uhb-spacing(9) + $uhb-global-border-width); // [3]
+    padding: uhb-spacing(5);
+  }
+
+  h1 {
+    color: inherit;
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Blue header
+ *
+ * Changes the header background colour to blue.
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-header--blue {
+  background-color: $uhb-color-blue; // [1]
+
+  .uhb-c-header__logo-nhs-background {
+    fill: $uhb-color-white;
+  }
+
+  .uhb-c-header__logo-nhs-text {
+    display: none;
+  }
+
+  .uhb-c-header__logo-organisation-name,
+  .uhb-c-header__logo-organisation-descriptor {
+    color: $uhb-color-white;
+  }
+
+  .uhb-c-header__navigation-link {
+    @include uhb-link-style-inverse;
+  }
+}
+
+
+/**
+ * Primary transparent header
+ *
+ * Changes the header background colour to transparent blue.
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-header--transparent-blue {
+  background-color: transparent;
+
+  &::before {
+    background-color: rgba($uhb-color-blue, .66);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .uhb-c-header__logo-nhs-background {
+    fill: $uhb-color-white;
+  }
+
+  .uhb-c-header__logo-nhs-text {
+    fill: $uhb-color-blue;
+  }
+
+  .uhb-c-header__logo-organisation-name,
+  .uhb-c-header__logo-organisation-descriptor {
+    color: $uhb-color-white;
+  }
+
+  .uhb-c-header__navigation-link {
+    @include uhb-media-query($from: 'xl') {
+      @include uhb-link-style-inverse;
+    }
+  }
+}
+
+/**
+ * White header
+ *
+ * Changes the header background colour to white.
+ *
+ */
+
+.uhb-c-header--white {
+  background-color: $uhb-color-white;
+}
+
+
+/**
+ * Transparent white header
+ *
+ * Changes the header background colour to transparent white.
+ *
+ */
+
+.uhb-c-header--transparent-white {
+  background-color: transparent;
+
+  &::before {
+    background-color: rgba($uhb-color-white, .66);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+
+/**
+ * Highlighted global list
+ *
+ * Highlights the final item in a global list.
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-header__global-list--highlight {
+  background-color: $uhb-global-bar-highlight-color; // [1]
+  background-color: var(--global-bar-highlight-color); // [2]
+  margin-left: auto;
+  padding-left: uhb-spacing(3);
+
+  .uhb-c-header__global-item:last-child {
+    background-color: $uhb-global-bar-highlight-item-color; // [1]
+    background-color: var(--global-bar-highlight-item-color); // [2]
+    padding-left: uhb-spacing(3);
+    padding-right: uhb-spacing(3);
+  }
+}
+
+
+/**
+ * Highlighted navigation list
+ *
+ * Highlights the final item in a navigation list.
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+ .uhb-c-header__navigation-list--highlight {
+  @include uhb-media-query($to: 'md') {
+    .uhb-c-header__navigation-item:last-child {
+      margin-top: uhb-spacing(5);
+      padding-bottom: uhb-spacing(5);
+      padding-top: uhb-spacing(5);
+    }
+  }
+
+  @include uhb-media-query($from: 'md', $to: 'xl') {
+    .uhb-c-header__navigation-item:last-child {
+      margin-top: uhb-spacing(6);
+      padding-bottom: uhb-spacing(6);
+      padding-top: uhb-spacing(6);
+    }
+  }
+
+  @include uhb-media-query($to: 'xl') {
+    background-color: $uhb-global-bar-color!important; // [1]
+    background-color: var(--global-bar-color)!important; // [2]
+    padding-bottom: 0;
+
+    .uhb-c-header__navigation-item:last-child {
+      background-color: $uhb-global-bar-highlight-item-color!important; // [1]
+      background-color: var(--global-bar-highlight-item-color)!important; // [2]
+      width: 100%;
+    }
+  }
+}

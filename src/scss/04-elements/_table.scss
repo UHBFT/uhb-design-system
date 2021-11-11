@@ -1,0 +1,66 @@
+/* ============================================================================
+   04-ELEMENTS -> #TABLE
+   ========================================================================= */
+
+/**
+ * Sets the default styles for the table element. 
+ *
+ * 1. 'Magic number' used as 12px is not a point on the $uhb-spacing-map scale.
+ * 2. Fallback value for browsers that don't support CSS custom properties.
+ * 3. CSS custom property used as progressive enhancement for themes.
+ */
+
+
+/**
+ * Settings
+ */
+
+$table-border-color: $uhb-color-white;
+$table-border-width: $uhb-global-border-width / 2;
+
+
+table {
+  border-collapse: collapse;
+}
+
+thead,
+tr {
+  border-bottom: $table-border-width solid $table-border-color;
+}
+
+tr {
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+td,
+th {
+  @include uhb-font-size('body');
+  border-right: $table-border-width solid $table-border-color;
+  padding: uhb-spacing(2) uhb-spacing(1);
+  text-align: left;
+  vertical-align: top;
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding: uhb-spacing(2) 12px; // [2]
+  }
+}
+
+th {
+  background-color: $uhb-color-primary; // [2]
+  background-color: var(--color-primary); // [3]
+  color: $table-border-color;
+}
+
+td {
+  background-color: $uhb-color-pale-grey;
+}

@@ -1,0 +1,13 @@
+/* ============================================================================
+   07-UTILITIES -> #VISUALLY-HIDDEN
+   ========================================================================= */
+
+/**
+ * The visually hidden utility class hides an element visually but keeps it in
+ * the DOM for screen readers.
+ */
+
+
+.uhb-u-visually-hidden {
+  @include uhb-visually-hidden;
+}

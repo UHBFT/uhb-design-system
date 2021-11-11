@@ -1,0 +1,19 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #TOP-BOTTOM-MARGIN
+//   ======================================================================= */
+
+///
+/// Removes the margin-top from an elements first child and margin-bottom from
+/// its last.
+///
+/// @example scss
+///  span {
+///    @include uhb-first-child-margin;
+///  }
+///
+
+@mixin uhb-first-child-margin() {
+  & > :first-child {
+    margin-top: 0;
+  }
+}

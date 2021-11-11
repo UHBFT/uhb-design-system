@@ -1,0 +1,157 @@
+///* ==========================================================================
+//   01-SETTINGS -> #TYPOGRAPHY
+//   ======================================================================= */
+
+//
+// The typography settings file contains variables that are used to to set
+// typography related properties.
+//
+
+ 
+//
+// Font family
+//
+
+$uhb-font-family: Frutiger W01, Arial, Sans-serif;
+
+
+//
+// Font weights
+//
+
+$uhb-font-weight-light:   300 !default;
+$uhb-font-weight-regular: 400 !default;
+$uhb-font-weight-bold:    600 !default;
+
+
+//
+// Font size scale
+//
+// Scale of font-size and line-height pairs that adapt according to the
+// breakpoint.
+//
+
+$uhb-font-size-scale: (
+  h1: (
+    null: (
+      font-size:   40px,
+      line-height: 48px,
+    ),
+    md: (
+      font-size:   48px,
+      line-height: 56px,
+    ),
+    print: (
+      font-size:   40pt,
+      line-height: 48pt,
+    ) 
+  ),
+  h2: (
+    null: (
+      font-size:   40px,
+      line-height: 48px,
+    ),
+    md: (
+      font-size:   48px,
+      line-height: 56px,
+    ),
+    print: (
+      font-size:   40pt,
+      line-height: 48pt,
+    ) 
+  ),
+  h3: (
+    null: (
+      font-size:   32px,
+      line-height: 40px,
+    ),
+    md: (
+      font-size:   40px,
+      line-height: 48px,
+    ),
+    print: (
+      font-size:   32pt,
+      line-height: 40pt,
+    ) 
+  ),
+  h4: (
+    null: (
+      font-size:   28px,
+      line-height: 32px,
+    ),
+    md: (
+      font-size:   32px,
+      line-height: 40px,
+    ),
+    print: (
+      font-size:   28pt,
+      line-height: 32pt,
+    ) 
+  ),
+  h5: (
+    null: (
+      font-size:   24px,
+      line-height: 32px,
+    ),
+    md: (
+      font-size:   28px,
+      line-height: 32px,
+    ),
+    print: (
+      font-size:   24pt,
+      line-height: 32pt,
+    ) 
+  ),
+  h6: (
+    null: (
+      font-size:   20px,
+      line-height: 24px,
+    ),
+    md: (
+      font-size:   24px,
+      line-height: 32px,
+    ),
+    print: (
+      font-size:   20pt,
+      line-height: 24pt,
+    ) 
+  ),
+  body: (
+    null: (
+      font-size:   16px,
+      line-height: 24px,
+    ),
+    md: (
+      font-size:   20px,
+      line-height: 24px,
+    ),
+    print: (
+      font-size:   16pt,
+      line-height: 24pt,
+    ) 
+  ),
+  body-small: (
+    null: (
+      font-size:   16px,
+      line-height: 24px,
+    ),
+    print: (
+      font-size:   16pt,
+      line-height: 24pt,
+    ),
+  ),
+  caption: (
+    null: (
+      font-size:   14px,
+      line-height: 24px,
+    ),
+    md: (
+      font-size:   16px,
+      line-height: 24px,
+    ),
+    print: (
+      font-size:   16pt,
+      line-height: 24pt,
+    ) 
+  )
+) !default;

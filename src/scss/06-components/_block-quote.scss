@@ -1,0 +1,147 @@
+/* ============================================================================
+   06-COMPONENTS -> #BLOCK-QUOTE
+   ========================================================================= */
+
+/**
+ * The block quote component displays a quotation from an external source.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/block-quote.htm
+ */
+
+
+/**
+ * Settings
+ */ 
+
+$block-quote-triangle-size: uhb-spacing(3);
+$block-quote-icon-size:     $uhb-icon-size * 2;
+
+
+/**
+ * Block quote source
+ *
+ * 1. Add triangle under block quote. 
+ * 2. Add 'margin-top' to the block quote component if it follows another
+ *    element.
+ * 3. Add 'margin-top' to an element if it follows the block quote component.
+ */
+
+.uhb-c-block-quote {
+  background-color: $uhb-color-pale-grey;
+  position: relative;
+
+  // [1]
+  &::after {
+    bottom: - $block-quote-triangle-size;
+    border-color: $uhb-color-pale-grey transparent transparent transparent;
+    border-style: solid;
+    border-width: $block-quote-triangle-size $block-quote-triangle-size 0 0;
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [2]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [3]
+  }
+}
+
+
+/**
+ * Block quote content
+ */
+
+.uhb-c-block-quote__content {
+  @include uhb-responsive-padding(5);
+}
+
+
+/**
+ * Block quote quote
+ *
+ * 1. Add quotation mark icon.
+ */
+
+.uhb-c-block-quote__quote {
+  font-weight: $uhb-font-weight-bold;
+
+  // [1]
+  &::before { 
+    background-image: url(uhb-replace-string($uhb-icon-quote, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-primary}", '#', '%23')));
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    display: block;
+    height: $block-quote-icon-size;
+    width: $block-quote-icon-size;
+  }
+}
+
+
+/**
+ * Block quote source
+ */
+
+.uhb-c-block-quote__source {
+  @include uhb-font-size('caption');
+  margin-top: uhb-spacing(2);
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Left block quote
+ *
+ * Floats the block quote to the left of the page.
+ */
+
+ .uhb-c-block-quote--left {
+  @include uhb-media-query($from: 'sm') {
+    float: left;
+    margin-right: $uhb-grid-gutter-default;
+    width: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-right: $uhb-grid-gutter-md;
+    width: 33.33%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-right: $uhb-grid-gutter-xl;
+  }
+}
+
+
+/**
+ * Right block quote
+ *
+ * Floats the block quote to the right of the page.
+ */
+
+.uhb-c-block-quote--right {
+  @include uhb-media-query($from: 'sm') {
+    float: right;
+    margin-left: $uhb-grid-gutter-default;
+    width: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-left: $uhb-grid-gutter-md;
+    width: 33.33%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: $uhb-grid-gutter-xl;
+  }
+}

@@ -1,0 +1,33 @@
+/* ============================================================================
+   04-ELEMENTS -> #LINK
+   ========================================================================= */
+
+/**
+ * Sets the default styles for the a element.
+ *
+ * 1. Add custom focus styles to all a elements.
+ * 2. Fallback value for browsers that don't support CSS custom properties.
+ * 3. Custom property used as progressive enhancement for themes.
+ * 4. Display the URL for print.
+ * 5. Use pt unit for print.
+ */
+ 
+
+a {
+  @include uhb-focused-link; // [1]
+  color: $uhb-color-primary; // [2]
+  color: var(--color-primary); // [3]
+
+  &:visited {
+    color: $uhb-color-primary; // [2]
+    color: var(--color-primary); // [3]
+  }
+
+  @include uhb-media-query($media-type: 'print') {
+    &::after {
+      color: $uhb-color-text;
+      content: ' (Link: ' attr(href) ')'; // [4]
+      font-size: 16pt; // [5]
+    }
+  }
+}

@@ -1,0 +1,136 @@
+/* ============================================================================
+   05-OBJECTS -> #GRID
+   ========================================================================= */
+  
+/**
+ * The grid object allows column-based layouts to be created.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/layout.htm
+ */
+
+
+/**
+ * Grid
+ */
+
+.uhb-o-grid {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -$uhb-grid-gutter-default;
+  margin-top: 0;
+  min-width: 100%;
+
+  @include uhb-media-query($from: 'md') {
+    margin-left: -$uhb-grid-gutter-md;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: -$uhb-grid-gutter-xl;
+  }
+}
+
+
+/**
+ * Grid item
+ *
+ * 1. Remove 'margin-top' property if an li element is a grid item.
+ */
+
+.uhb-o-grid__item {
+  padding-left: $uhb-grid-gutter-default;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: none;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding-left: $uhb-grid-gutter-md;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    padding-left: $uhb-grid-gutter-xl;
+  }
+}
+
+li.uhb-o-grid__item {
+  margin-top: 0; // [1]
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================== */
+
+/**
+ * Equal height grid
+ *
+ * Makes all content within the grid an equal height.
+ */
+
+.uhb-o-grid--equal-height > .uhb-o-grid__item {
+  display: flex;
+}
+
+
+/**
+ * Gutterless grid
+ *
+ * Removes the gutter from a grid and its items.
+ */
+
+.uhb-o-grid--gutterless {
+  margin-left: 0;
+}
+
+.uhb-o-grid--gutterless > .uhb-o-grid__item {
+  padding-left: 0;
+}
+
+
+/**
+ * Spaced grid
+ *
+ * Adds vertical spacing between grid items.
+ */
+
+.uhb-o-grid--spaced {
+  margin-bottom: -$uhb-grid-spacing-default;
+
+  @include uhb-media-query($from: 'md') {
+    margin-bottom: -$uhb-grid-spacing-md;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-bottom: -$uhb-grid-spacing-xl;
+  }
+}
+
+.uhb-o-grid--spaced > .uhb-o-grid__item {
+  margin-bottom: 0;
+  padding-bottom: $uhb-grid-spacing-default;
+
+  @include uhb-media-query($from: 'md') {
+    padding-bottom: $uhb-grid-spacing-md;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    padding-bottom: $uhb-grid-spacing-xl;
+  }
+}
+
+
+/**
+ * Vertically aligned grid
+ *
+ * Vertically centers grid items.
+ */
+
+.uhb-o-grid--middle > .uhb-o-grid__item {
+  vertical-align: middle;
+}

@@ -1,0 +1,30 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #BREAKPOINT-WIDTH
+//   ======================================================================= */
+
+///
+/// Returns the value associated with a key from the $uhb-breakpoints map.
+///
+/// @param {String} $breakpoint - key of breakpoint
+///
+/// @returns {Number [px]} pixel value
+///
+/// @example scss
+///   uhb-get-breakpoint-value('md')
+///
+
+@function uhb-breakpoint-width($breakpoint) {
+
+  // Check if $breakpoint exists
+  @if not (map-has-key($uhb-breakpoints, $breakpoint)) {
+    @error 'Breakpoint not found. Please use a key from the following options: #{$uhb-breakpoints}.';
+  }
+
+  @if ($breakpoint == 'xl') {
+    // Adds the grid gutter value to xl width in order to avoid layout jump.
+    @return (map-get($uhb-breakpoints, $breakpoint)) + ($uhb-grid-gutter-md * 2);
+  } @else {
+    @return map-get($uhb-breakpoints, $breakpoint);
+  }
+
+}

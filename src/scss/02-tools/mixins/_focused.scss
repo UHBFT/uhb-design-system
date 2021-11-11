@@ -1,0 +1,192 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #FOCUSED
+//   ======================================================================= */
+
+///
+/// Adds :focus-visible styles to a button component using the focus-visible 
+/// polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-button;
+///   }
+///
+
+@mixin uhb-focused-button {
+  .js-focus-visible &.focus-visible {
+    background-color: $uhb-color-focus-background!important;
+    color: $uhb-color-focus-text!important;
+    outline: $uhb-global-border-width solid transparent;
+    text-decoration: none;
+    transition: none;
+
+    &::before {
+      box-shadow: 0 $uhb-global-border-width $uhb-color-focus-text;
+      opacity: 1!important;
+    }
+
+    & > * {
+      color: inherit!important;
+    }
+
+    & > .uhb-c-icon {
+      fill: $uhb-color-focus-text!important;
+      transition-duration: 0!important;
+    }
+  }
+}
+
+
+///
+/// Adds :focus-visible styles to a link using the focus-visible polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-link;
+///   }
+///
+
+@mixin uhb-focused-link {
+  .js-focus-visible &.focus-visible {
+    background-color: $uhb-color-focus-background!important;
+    box-shadow: 0 $uhb-global-border-width $uhb-color-focus-text;
+    color: $uhb-color-focus-text!important;
+    outline: $uhb-global-border-width solid transparent;
+    text-decoration: none;
+
+    &::before,
+    &::after {
+      content: none!important;
+    }
+
+    & > * {
+      color: inherit!important;
+    }
+
+    & > .uhb-c-icon {
+      fill: $uhb-color-focus-text!important;
+      transition-duration: 0!important;
+    }
+  }
+}
+
+
+///
+/// Adds :focus-visible styles to a text input (input and textarea) using the
+/// focus-visible polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-text-input;
+///   }
+///
+/// 1. Adds an additional yellow border to clearly show the input has focus.
+///
+
+@mixin uhb-focused-text-input {
+  border-color: $uhb-color-focus-text;
+  box-shadow: 0 0 0 $uhb-global-border-width $uhb-color-focus-background; // [1]
+  outline: $uhb-global-border-width solid transparent;
+}
+
+
+///
+/// Adds :focus-visible styles to a text input (input and textarea) using the
+/// focus-visible polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-text-input;
+///   }
+///
+/// 1. Adds an additional yellow border to clearly show the input has focus.
+///
+
+@mixin uhb-focused-checkbox {
+  border: 4px solid $uhb-color-focus-text;
+  box-shadow: 0 0 0 $uhb-global-border-width $uhb-color-focus-background;
+}
+
+
+///
+/// Adds :focus-visible styles to a text input (input and textarea) using the
+/// focus-visible polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-text-input;
+///   }
+///
+/// 1. Adds an additional yellow border to clearly show the input has focus.
+///
+
+@mixin uhb-focused-radio {
+  border: 4px solid $uhb-color-focus-text;
+  box-shadow: 0 0 0 $uhb-global-border-width $uhb-color-focus-background;
+}
+
+
+///
+/// Adds :focus-visible styles to a select input using the focus-visible
+/// polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-select-input;
+///   }
+///
+/// 1. Adds an additional yellow border to clearly show the input has focus.
+/// 2. Set select input to overlay the toggle and show focus state.
+///
+
+@mixin uhb-focused-select-input {
+  border-color: $uhb-color-focus-text;
+  box-shadow: 0 0 0 $uhb-global-border-width $uhb-color-focus-background; // [1]
+  outline: $uhb-global-border-width solid transparent;
+  z-index: 1; // [2]
+}
+
+
+///
+/// Adds :focus-visible styles to a select input using the focus-visible
+/// polyfill
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-select-input;
+///   }
+///
+/// 1. Adds an additional yellow border to clearly show the input has focus.
+///
+
+@mixin uhb-focused-side-nav-input {
+  .js-focus-visible &.focus-visible {
+    @include uhb-focused-select-input;
+  }
+}
+
+
+///
+/// Adds :focus-visible styles to the UHB logo
+///
+/// @example scss
+///   .element {
+///     @include uhb-focused-logo;
+///   }
+///
+
+@mixin uhb-focused-logo {
+  .js-focus-visible &.focus-visible {
+    .uhb-c-header__logo-nhs-background {
+      fill: $uhb-color-blue!important;
+    }
+
+    .uhb-c-header__logo-nhs-text {
+      fill: $uhb-color-white!important;
+    }
+
+    & > * {
+      color: $uhb-color-focus-text!important;
+    }
+  }
+}

@@ -1,0 +1,289 @@
+/* ============================================================================
+   06-COMPONENTS -> #BUTTON
+   ========================================================================= */
+
+/**
+ * The button component triggers an action or acts as a call to action.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/button.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$button-border-radius:  12px; 
+$uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
+
+
+/**
+ * Button
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ * 3. Box shadow is placed on a pseuo-element to reduce re-paints during
+ *    animations.
+ * 4. Adds active state styles.
+ * 5. Adds disabled state styles.
+ * 6. 'Magic number' used for padding-bottom and padding-top values.
+ */
+
+.uhb-c-button {
+  @include uhb-focused-button;
+  @include uhb-font-size('body');
+  @include uhb-transition(('background-color', 'color', 'visibility'));
+  align-items: center;
+  appearance: none;
+  background-color: $uhb-color-primary; // [1]
+  background-color: var(--color-primary); // [2]
+  border: 0;
+  border-radius: $button-border-radius;
+  color: $uhb-color-white;
+  cursor: pointer;
+  font-weight: $uhb-font-weight-light;
+  display: inline-flex;
+  margin-top: uhb-spacing(3);
+  padding: uhb-spacing(2) uhb-spacing(4);
+  position: relative;
+  text-decoration: none;
+  width: auto;
+  z-index: 0;
+
+  &:hover {
+    background-color: $uhb-color-primary-hover; // [1]
+    background-color: var(--color-primary-hover); // [2]
+
+    &::before {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    background-color: $uhb-color-primary-active; // [1]
+    background-color: var(--color-primary-active); // [2]
+
+    &::before {
+      opacity: 0;
+    }
+  }
+  
+  &:visited {
+    color: $uhb-color-white;
+  }
+
+  // [3]
+  &::before {
+    @include uhb-transition(('opacity'));
+    border-radius: $button-border-radius;
+    box-shadow: $uhb-box-shadow-button;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  // [4]
+  &.is-active {
+    background-color: $uhb-color-active-background;
+    color: $uhb-color-active-text;
+
+    .uhb-c-icon {
+      fill: $uhb-color-active-text;
+    }
+  }
+
+  // [5]
+  &.is-disabled,
+  &[disabled],
+  &[disabled="disabled"] {
+    background-color: $uhb-color-disabled-text !important;
+    color: $uhb-color-disabled-text;
+    pointer-events: none !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none!important;
+    }
+
+    &::after {
+      opacity: 0!important;
+    }
+
+    .uhb-c-icon {
+      fill: $uhb-color-disabled-text !important;
+    }
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(4);
+    padding: 12px uhb-spacing(5); // [6]
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    padding-left: uhb-spacing(6);
+    padding-right: uhb-spacing(6);
+  }
+
+  .uhb-c-icon {
+    color: currentColor;
+    margin-right: uhb-spacing(1);
+
+    @include uhb-media-query($from: 'md') {
+      margin-right: uhb-spacing(2);
+    }
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Inverse button
+ *
+ * Inverts the colours of the button to a white background with primary colour
+ * text.
+ */
+
+.uhb-c-button--inverse {
+  background-color: $uhb-color-white;
+  color: $uhb-color-primary; // [1]
+  color: var(--color-primary); // [2]
+
+  &:hover {
+    background-color: $uhb-color-paler-grey;
+  }
+
+  &:active {
+    background-color: $uhb-color-pale-grey;
+    color: $uhb-color-primary-active; // [1]
+    color: var(--color-primary-active); // [2]
+  }
+
+  &:visited {
+    color: $uhb-color-primary; // [1]
+    color: var(--color-primary); // [2]
+  }
+}
+
+
+/**
+ * Action button
+ *
+ * Circular buttons with an icon and no text.
+ *
+ * 1. 'Magic number' for padding to create a 48px x 48px button.
+ */
+
+.uhb-c-button--action {
+  @include uhb-target-size('::after');
+  border-radius: 50%;
+  margin-top: 0;
+  padding: uhb-spacing(2);
+
+  &::before {
+    border-radius: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding: 12px; // [1]
+  }
+
+  .uhb-c-icon {
+    margin-right: 0;
+  }
+}
+
+
+/**
+ * Social media buttons
+ *
+ * Custom colour themes to match social media colours
+ */
+
+.uhb-c-button--facebook {
+  background-color: #005EB8;
+
+  &:hover {
+    background-color: darken(#005EB8, 10%);
+  }
+
+  &:active {
+    background-color: darken(#005EB8, 15%);
+  }
+
+  .uhb-c-icon {
+    fill: $uhb-color-white;
+  }
+}
+
+.uhb-c-button--instagram {
+  background-color: #AE2573;
+
+  &:hover {
+    background-color: darken(#AE2573, 10%);
+  }
+
+  &:active {
+    background-color: darken(#AE2573, 15%);
+  }
+
+  .uhb-c-icon {
+    fill: $uhb-color-white;
+  }
+}
+
+.uhb-c-button--linkedin {
+  background-color: $uhb-color-white;
+
+  &:hover {
+    background-color: $uhb-color-paler-grey;
+  }
+
+  &:active {
+    background-color: $uhb-color-pale-grey;
+  }
+
+  .uhb-c-icon {
+    fill: #2867B2;
+  }
+}
+
+.uhb-c-button--twitter {
+  background-color: #0072CE;
+
+  &:hover {
+    background-color: darken(#0072CE, 10%);
+  }
+
+  &:active {
+    background-color: darken(#0072CE, 15%);
+  }
+
+  .uhb-c-icon {
+    fill: $uhb-color-white;
+  }
+}
+
+.uhb-c-button--youtube {
+  background-color: #DA291C;
+
+  &:hover {
+    background-color: darken(#DA291C, 10%);
+  }
+
+  &:active {
+    background-color: darken(#DA291C, 15%);
+  }
+
+  .uhb-c-icon {
+    fill: $uhb-color-white;
+  }
+}

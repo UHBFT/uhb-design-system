@@ -1,0 +1,29 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #LINE-HEIGHT
+//   ======================================================================= */
+
+///
+/// Converts a px line-height value into a relative value.
+///
+/// @param {Number [px]} $line-height 
+/// @param {Number [px]} $font-size
+///
+/// @returns {Number} line-height as a relative value
+///
+/// @example scss
+///   uhb-line-height(16px, 24px)
+///
+/// Original code taken from NHS Frontend:
+/// https://github.com/nhsuk/nhsuk-frontend
+///
+
+@function uhb-line-height($line-height, $font-size) {
+
+  @if not (unitless($line-height)) and (unit($line-height) == unit($font-size)) {
+    $ten-to-the-power-five: 100;
+    $line-height: round(($line-height / $font-size) * $ten-to-the-power-five) / $ten-to-the-power-five;
+  }
+
+  @return $line-height;
+
+}

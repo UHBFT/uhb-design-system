@@ -1,0 +1,14 @@
+/* ============================================================================
+   07-UTILITIES -> #FONT-SIZE
+   ========================================================================= */
+
+/**
+ * The font-size utility classes change the font-size of text.
+ */
+
+
+@each $font-size in map-keys($uhb-font-size-scale) {
+  .uhb-u-font-size-#{$font-size} {
+    @include uhb-font-size($font-size);
+  }
+}

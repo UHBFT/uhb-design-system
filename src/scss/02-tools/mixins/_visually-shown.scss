@@ -1,0 +1,25 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #VISUALLY-SHOWN
+//   ======================================================================= */
+
+///
+/// Displays an element previously hidden by the visually-hidden mixin.
+///
+/// @param {String} $display-property [block] - display property to revert to
+///
+/// @example scss
+///  span {
+///    @include uhb-visually-shown('flex');
+///  }
+///
+
+@mixin uhb-visually-shown($display-property: 'block') {
+  clip: auto;
+  -webkit-clip-path: initial;
+  clip-path: initial;
+  display: $display-property;
+  height: auto;
+  overflow: auto;
+  position: relative;
+  width: auto;
+}

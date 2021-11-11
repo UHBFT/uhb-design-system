@@ -1,0 +1,25 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #HEX-TO-RGB
+//   ======================================================================= */
+
+///
+/// Converts a hex colour code to an RGB colour code.
+///
+/// @param {String} $hex - hex colour code
+///
+/// @returns {String} - RGB colour code
+///
+/// @example scss
+///   uhb-hex-to-rgb(#ffffff)
+///
+
+@function uhb-hex-to-rgb($hex) {
+
+  // Check if $hex is a colour value
+  @if ((type-of($hex) != 'color')) {
+    @error 'Expected a color but received a #{type-of($hex)}.';
+  }
+
+  @return red($hex),green($hex),blue($hex);
+
+}

@@ -1,0 +1,160 @@
+///* ==========================================================================
+//   01-SETTINGS -> #COLOURS
+//   ======================================================================= */
+
+//
+// The colours settings file contains the base project colours and assigned
+// colours that are regularly used.
+//
+
+
+
+
+///* NHS COLOURS
+//   ======================================================================= */
+
+//
+// Colours taken from the NHS England identity guidelines: 
+// https://www.england.nhs.uk/nhsidentity/identity-guidelines/colours/
+//
+// Additional 'darkest' and 'paler' colours have been added to achieve
+// accessible contrast levels.
+//
+
+
+//
+// NHS blues
+//
+
+$uhb-color-darkest-blue:           #000054;
+$uhb-color-dark-blue:              #003087;
+$uhb-color-blue:                   #005EB8;
+$uhb-color-bright-blue:            #0072CE;
+$uhb-color-light-blue:             #41B6E6;
+$uhb-color-aqua-blue:              #00A9CE;
+
+
+//
+// NHS neutrals
+//
+
+$uhb-color-darkest-black:          #000C00;
+$uhb-color-black:                  #231f20;
+$uhb-color-dark-grey:              #425563;
+$uhb-color-mid-grey:               #768692;
+$uhb-color-pale-grey:              #E8EDEE;
+$uhb-color-paler-grey:             #F9FEFF;
+$uhb-color-white:                  #FFFFFF;
+
+
+//
+// NHS support greens
+//
+
+$uhb-color-darkest-green:          #003414;
+$uhb-color-dark-green:             #006747;
+$uhb-color-green:                  #009639;
+$uhb-color-light-green:            #78BE20;
+$uhb-color-darkest-aqua-green:     #004033;
+$uhb-color-dark-aqua-green:        #007166;
+$uhb-color-aqua-green:             #00A499;
+
+
+//
+// NHS highlights
+//
+
+$uhb-color-purple:                 #330072;
+$uhb-color-dark-pink:              #7C2855;
+$uhb-color-darkest-pink:           #490522;
+$uhb-color-pink:                   #AE2573;
+$uhb-color-darkest-red:            #570205;
+$uhb-color-dark-red:               #8A1538;
+$uhb-color-emergency-services-red: #DA291C;
+$uhb-color-orange:                 #ED8B00;
+$uhb-color-warm-yellow:            #FFB81C;
+$uhb-color-yellow:                 #FAE100;
+
+
+
+
+///* ASSIGNED COLOURS
+//   ======================================================================= */
+
+//
+// Action button
+//
+
+$uhb-color-action-button:        $uhb-color-aqua-green;
+$uhb-color-action-button-hover:  $uhb-color-dark-aqua-green;
+$uhb-color-action-button-active: $uhb-color-darkest-aqua-green;
+
+
+//
+// Active state
+//
+
+$uhb-color-active-background: $uhb-color-white;
+$uhb-color-active-text:       $uhb-color-emergency-services-red;
+
+
+//
+// Border
+//
+
+$uhb-color-border: $uhb-color-warm-yellow;
+
+
+//
+// Disabled state
+//
+
+$uhb-color-disabled-background: $uhb-color-pale-grey;
+$uhb-color-disabled-text:       $uhb-color-dark-grey;
+
+
+//
+// Error
+//
+
+$uhb-color-error: $uhb-color-emergency-services-red;
+
+
+//
+// Focus state
+//
+
+$uhb-color-focus-background: $uhb-color-warm-yellow;
+$uhb-color-focus-text:       $uhb-color-black;
+
+
+//
+// Forms
+//
+
+$uhb-color-form-border: $uhb-color-dark-grey;
+
+
+//
+// Primary
+//
+
+$uhb-color-primary:        $uhb-color-blue;
+$uhb-color-primary-hover:  $uhb-color-dark-blue;
+$uhb-color-primary-active: $uhb-color-darkest-blue;
+
+
+//
+// Text
+//
+
+$uhb-color-text: $uhb-color-dark-grey;
+
+
+//
+// Global bar
+//
+
+$uhb-global-bar-color:                $uhb-color-bright-blue;
+$uhb-global-bar-highlight-color:      $uhb-color-blue;
+$uhb-global-bar-highlight-item-color: $uhb-color-pink;

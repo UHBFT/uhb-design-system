@@ -1,0 +1,143 @@
+/* ============================================================================
+   06-COMPONENTS -> #ACCORDION
+   ========================================================================= */
+
+/**
+ * The accordion component allows users to expand and collapse additional
+ * content related to a heading.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/accordion.htm
+ */
+
+
+/**
+ * Accordion
+ *
+ * 1. Add 'margin-top' to the accordion component if it follows another
+ *    element.
+ * 2. Add 'margin-top' to an element if it follows the accordion component.
+ */
+
+.uhb-c-accordion {
+  clear: both;
+
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [1]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [2]
+  }
+}
+
+
+/**
+ * Accordion item
+ *
+ * 1. Expanded accordion item styles.
+ * 2. Hide vertical rect of the icon to create minus icon.
+ */
+
+.uhb-c-accordion__item {
+  @include uhb-responsive-margin(5, 'top');
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  // [1]
+  &.is-expanded {
+    &::after {
+      width: 100%;
+    }
+
+    & .uhb-c-icon--expand {
+      fill: $uhb-color-active-text;
+  
+      .vertical {
+        transform: scaleY(0); // [2]
+      }
+    }
+  }
+}
+
+
+/**
+ * Accordion toggle
+ *
+ * 1. Remove padding for print.
+ * 2. Hide icon for print.
+ */
+
+.uhb-c-accordion__toggle {
+  @include uhb-link-primary($display: 'flex');
+
+  @include uhb-media-query($media-type: 'print') {
+    padding: 0 !important; // [1]
+  }
+
+  .uhb-c-icon--expand {
+    left: uhb-spacing(1);
+
+    .vertical {
+      @include uhb-transition(('transform'));
+      transform-origin: center;
+    }
+
+    @include uhb-media-query($from: 'md') {
+      left: uhb-spacing(2);
+    }
+
+    @include uhb-media-query($media-type: 'print') { 
+      display: none !important; // [2]
+    }  
+  }
+}
+
+
+/**
+ * Accordion heading
+ */
+
+.uhb-c-accordion__heading {
+  @include uhb-font-size('h5');
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+
+/**
+ * Accordion content
+ *
+ * 1. Force content to be displayed for print.
+ */
+
+.uhb-c-accordion__content {
+  @include uhb-clearfix;
+  @include uhb-transition(('height', 'opacity', 'overflow'));
+
+  // [1]
+  @include uhb-media-query($media-type: 'print') {
+    display: block !important;
+    height: auto !important;
+  }
+}
+
+
+/**
+ * Accordion content inner
+ *
+ * 1. Force content to be displayed for print.
+ */
+
+.uhb-c-accordion__content-inner {
+  @include uhb-responsive-padding(7, 'top');
+  @include uhb-transition(('visibility'));
+  
+  // [1]
+  @include uhb-media-query($media-type: 'print') {
+    padding-top: uhb-spacing(3) !important;
+    visibility: visible !important;
+  }
+}

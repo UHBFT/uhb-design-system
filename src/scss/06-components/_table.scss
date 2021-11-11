@@ -1,0 +1,331 @@
+/* ============================================================================
+   06-COMPONENTS -> #TABLE
+   ========================================================================= */
+
+/**
+ * The table component...
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/table.htm
+ */
+
+
+/*
+ * Table responsive cell
+ *
+ * 1. Add border-bottom to each td to match style of tr.
+ * 2. display: table to position pseduo-element and responsive cell.
+ * 3. Fallback value used for browsers that don't support CSS custom properties.
+ * 4. CSS custom property used as progressive enhancement for themes.
+ * 5. Set 'data-table-heading' attribute as pseudo-element content.
+ * 6. Align text content to the top of the pseudo-element.
+ * 7. Give pseudo-element a width regardless of text content length.
+ */
+
+.uhb-c-table__responsive-heading {
+  border-bottom: $table-border-width solid $uhb-color-white; // [1]
+  border-right: 0;
+  display: table; // [2]
+  width: 100%;
+
+  &::before {
+    @include uhb-font-size('body');
+    background-color: $uhb-color-primary; // [3]
+    background-color: var(--color-primary); // [4]
+    border-right: $table-border-width solid $uhb-color-white;
+    color: $uhb-color-white;
+    content: attr(data-table-heading); // [5]
+    display: table-cell;
+    font-weight: $uhb-font-weight-bold;
+    padding: uhb-spacing(2) uhb-spacing(1);
+    vertical-align: top; // [6] 
+    width: 40%; // [7] 
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+/*
+ * Table responsive content
+ *
+ * 1. display: table cell for positioning in td.
+ * 2. Fill the width of the td.
+ */
+
+.uhb-c-table__responsive-cell {
+  display: table-cell; // [1]
+  padding: uhb-spacing(2) uhb-spacing(1);
+  width: 100%; // [2]
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Responsive table
+ *
+ * 1. Applies responsive styles to a table.
+ */
+
+.uhb-c-table--responsive {
+  width: 100%;
+}
+
+.uhb-c-table--responsive thead {
+  @include uhb-visually-hidden;
+}
+
+.uhb-c-table--responsive tr {
+  border-bottom: 0;
+  display: block;
+  margin-bottom: uhb-spacing(3);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Static table at small
+ *
+ * Reverts back to a static tablle at sm.
+ *
+ * 1. Undo visually-hidden mixin.
+ */
+
+ .uhb-c-table--static\@sm {
+  @include uhb-media-query($from: 'sm') {
+    width: auto;
+  }
+}
+
+.uhb-c-table--static\@sm thead {
+  @include uhb-media-query ($from: 'sm') {
+    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
+    margin-right: 0;
+  }
+}
+
+.uhb-c-table--static\@sm tr {
+  @include uhb-media-query ($from: 'sm') {
+    border-bottom: $table-border-width solid $uhb-color-white;
+    display: table-row;
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.uhb-c-table--static\@sm .uhb-c-table__responsive-heading {
+  @include uhb-media-query($from: 'sm') {
+    border-bottom: 0;
+    border-right: $table-border-width solid $uhb-color-white;
+    display: table-cell;
+    width: auto;
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.uhb-c-table--static\@sm .uhb-c-table__responsive-cell {
+  @include uhb-media-query($from: 'sm') {
+    padding: 0;
+  }
+}
+
+
+/**
+ * Static table at medium
+ *
+ * Reverts back to a static tablle at md.
+ *
+ * 1. Undo visually-hidden mixin.
+ */
+
+.uhb-c-table--static\@md {
+  @include uhb-media-query($from: 'md') {
+    width: auto;
+  }
+}
+
+.uhb-c-table--static\@md thead {
+  @include uhb-media-query ($from: 'md') {
+    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
+    margin-right: 0;
+  }
+}
+
+.uhb-c-table--static\@md tr {
+  @include uhb-media-query ($from: 'md') {
+    border-bottom: $table-border-width solid $uhb-color-white;
+    display: table-row;
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.uhb-c-table--static\@md .uhb-c-table__responsive-heading {
+  @include uhb-media-query($from: 'md') {
+    border-bottom: 0;
+    border-right: $table-border-width solid $uhb-color-white;
+    display: table-cell;
+    width: auto;
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.uhb-c-table--static\@md .uhb-c-table__responsive-cell {
+  @include uhb-media-query($from: 'md') {
+    padding: 0;
+  }
+}
+
+
+/**
+ * Static table at large
+ *
+ * Reverts back to a static tablle at lg.
+ *
+ * 1. Undo visually-hidden mixin.
+ */
+
+ .uhb-c-table--static\@lg {
+  @include uhb-media-query($from: 'lg') {
+    width: auto;
+  }
+}
+
+.uhb-c-table--static\@lg thead {
+  @include uhb-media-query ($from: 'lg') {
+    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
+    margin-right: 0;
+  }
+}
+
+.uhb-c-table--static\@lg tr {
+  @include uhb-media-query ($from: 'lg') {
+    border-bottom: $table-border-width solid $uhb-color-white;
+    display: table-row;
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.uhb-c-table--static\@lg .uhb-c-table__responsive-heading {
+  @include uhb-media-query($from: 'lg') {
+    border-bottom: 0;
+    border-right: $table-border-width solid $uhb-color-white;
+    display: table-cell;
+    width: auto;
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.uhb-c-table--static\@lg .uhb-c-table__responsive-cell {
+  @include uhb-media-query($from: 'lg') {
+    padding: 0;
+  }
+}
+
+
+/**
+ * Static table at extra large
+ *
+ * Reverts back to a static tablle at xl.
+ *
+ * 1. Undo visually-hidden mixin.
+ */
+
+ .uhb-c-table--static\@xl {
+  @include uhb-media-query($from: 'xl') {
+    width: auto;
+  }
+}
+
+.uhb-c-table--static\@xl thead {
+  @include uhb-media-query ($from: 'xl') {
+    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
+    margin-right: 0;
+  }
+}
+
+.uhb-c-table--static\@xl tr {
+  @include uhb-media-query ($from: 'xl') {
+    border-bottom: $table-border-width solid $uhb-color-white;
+    display: table-row;
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.uhb-c-table--static\@xl .uhb-c-table__responsive-heading {
+  @include uhb-media-query($from: 'xl') {
+    border-bottom: 0;
+    border-right: $table-border-width solid $uhb-color-white;
+    display: table-cell;
+    width: auto;
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.uhb-c-table--static\@xl .uhb-c-table__responsive-cell {
+  @include uhb-media-query($from: 'xl') {
+    padding: 0;
+  }
+}
+
+
+/**
+ * Bare table
+ *
+ * Removes all visual styles from a table.
+ */
+
+.uhb-c-table--bare th,
+.uhb-c-table--bare td {
+  background-color: transparent;
+  color: $uhb-color-text;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+
+/**
+ * Striped table
+ *
+ * Adds stripes to any tbody table rows.
+ */
+
+.uhb-c-table--striped tbody tr:nth-child(odd) td {
+  background-color: $uhb-color-white;
+}

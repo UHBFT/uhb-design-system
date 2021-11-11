@@ -1,0 +1,23 @@
+/* ============================================================================
+   03-GENERIC -> #BOX-SIZING
+   ========================================================================= */
+   
+/**
+ * Sets the global 'box-sizing' property to 'border-box'.
+ *
+ * @source
+ * https://www.css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}

@@ -1,0 +1,84 @@
+/* ============================================================================
+   05-OBJECTS -> #PAGE
+   ========================================================================= */
+
+/**
+ * The page object contains landmark layout areas of a page.
+ *
+ * @demo
+ * 
+ */
+
+
+/**
+ * Page
+ *
+ * 1. Fill all remaining vertical space.
+ */
+
+.uhb-o-page {
+  @include uhb-responsive-padding(7, 'bottom');
+  flex: 1 0 auto; // [1]
+  min-height: 100%;
+  width: 100%;
+}
+
+
+/**
+ * Page lead
+ */
+
+.uhb-o-page__lead {
+  @include uhb-first-child-margin;
+  @include uhb-responsive-margin(7, 'bottom');
+}
+
+
+/**
+ * Page side bar
+ *
+ * 1. Add margin-top to the page side bar container if it follows the page
+ *    content container.
+ * 2. Remove margin-top when the content and side bar containers are not stacked.
+ */
+
+.uhb-o-page__side-bar {
+  @include uhb-first-child-margin;
+}
+
+.uhb-o-page__content + .uhb-o-page__side-bar {
+  margin-top: uhb-spacing(5); // [1]
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(6); // [1]
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-top: 0; // [2]
+  }
+}
+
+
+/**
+ * Page main
+ *
+ * 1. Add margin-top to the page content container if it follows the page side
+ *    bar container.
+ * 2. Remove margin-top when the content and side bar containers are not stacked.
+ */
+
+.uhb-o-page__content {
+  @include uhb-first-child-margin;
+}
+
+.uhb-o-page__side-bar + .uhb-o-page__content {
+  margin-top: uhb-spacing(5); // [1]
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(6); // [1]
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-top: 0; // [2]
+  }
+}

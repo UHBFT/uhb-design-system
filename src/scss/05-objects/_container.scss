@@ -1,0 +1,61 @@
+/* ============================================================================
+   05-OBJECTS -> #CONTAINER
+   ========================================================================= */
+
+/**
+ * The container object limits the width of content and centers it horizontally
+ * within the viewport when the maximum width is reached.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/layout.htm
+ */
+
+
+/**
+ * Container
+ *
+ * 1. Limit the width of the container.
+ * 2. Center the container and remove the margins when the xl breakpoint is
+ *    reached.
+ */
+
+.uhb-o-container {
+  @include uhb-clearfix();
+  margin-left: $uhb-grid-gutter-default;
+  margin-right: $uhb-grid-gutter-default;
+  max-width: $uhb-grid-max-width; // [1]
+
+  @include uhb-media-query($from: 'md') {
+    margin-left: $uhb-grid-gutter-md;
+    margin-right: $uhb-grid-gutter-md;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: auto; // [2]
+    margin-right: auto; // [2]
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Full width container
+ *
+ * Removes the maximum width of the container and allows it to fill the entire
+ * viewport.
+ *
+ * 1. Override the 'max-width' property so the container fills the whole page.
+ */
+
+.uhb-o-container--fluid {
+  max-width: 100%; // [1]
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: $uhb-grid-gutter-xl;
+    margin-right: $uhb-grid-gutter-xl;
+  }
+}

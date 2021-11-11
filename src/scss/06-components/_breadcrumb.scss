@@ -1,0 +1,112 @@
+/* ============================================================================
+   06-COMPONENTS -> #BREADCRUMB
+   ========================================================================= */
+
+/**
+ * The breadcrumb component helps users to identify their current location on 
+ * the website and quickly move between levels.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/breadcrumb.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$breadcrumb-icon-size: $uhb-icon-size;
+
+
+/**
+ * Breadcrumb
+ *
+ * 1. Hide breadcrumb component for print.
+ */
+
+.uhb-c-breadcrumb {
+  @include uhb-print-hide; // [1]
+  @include uhb-responsive-padding(7, ('bottom', 'top'));
+  background-color: $uhb-color-white;
+}
+
+
+/**
+ * Breadcrumnb list
+ */
+
+.uhb-c-breadcrumb__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+
+/**
+ * Breadcrumnb item
+ *
+ * 1. Hide all of the breadcrumb items for screen sizes < md but... (see 4).
+ * 2. Remove the default list item marker.
+ * 3. Add a chevron icon to all breadcrumb items other than the last child.
+ * 4. ...show the last two breadcrumb items only.
+ * 5. Current breadcrumb item styles.
+ * 6. Show all breadcrumb of the breadcrumb items at screen sizes >= md.
+ */
+
+.uhb-c-breadcrumb__item {  
+  @include uhb-font-size('body-small');
+  display: none; // [1]
+  margin-top: 0;
+  padding-left: 0;
+
+  &::before {
+    content: none; // [2]
+  }
+
+  // [3]
+  &:not(:last-child) { 
+    &::after {
+      background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-pale-grey}", '#', '%23')));
+      background-position: center;
+      background-repeat: no-repeat;
+      content: '';
+      display: inline-block;
+      height: $breadcrumb-icon-size;
+      margin-left: uhb-spacing(1);
+      margin-right: uhb-spacing(1);
+      width: $breadcrumb-icon-size;
+    }
+  }
+
+  &:nth-last-of-type(-n + 2) {
+    display: flex; // [4]
+  }
+
+  // [5]
+  &.is-current { 
+    .uhb-c-breadcrumb__link {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  @include uhb-media-query($from: 'md') {
+    display: flex; // [6]
+  }
+}
+
+
+/**
+ * Breadcrumnb link
+ *
+ * 1. Override the default link 'color' property.
+ */
+
+.uhb-c-breadcrumb__link {
+  color: $uhb-color-dark-grey; // [1]
+
+  &:hover {
+    color: $uhb-color-black;
+  }
+}

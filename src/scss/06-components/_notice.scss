@@ -1,0 +1,91 @@
+/* ============================================================================
+   06-COMPONENTS -> #NOTICE
+   ========================================================================= */
+
+/**
+ * The notice component communicates important information to a user at the top
+ * of a page.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/notice.htm
+ */
+
+
+/**
+ * Notice
+ *
+ * 1. 'Magic number' to add 'padding-top' to stop menu buttons overlaying
+ *    notice content.
+ * 2. Revert 'padding-top' back to default value.
+ */
+
+.uhb-c-notice {
+  @include uhb-responsive-padding(5, ('bottom', 'top'));
+	background-color: $uhb-color-blue;
+	color: $uhb-color-white;
+
+  &:first-of-type {
+    padding-top: 72px; // [1]
+  }
+
+  @include uhb-media-query($from: 'md') {
+    &:first-of-type {
+      padding-top: 96px; // [2]
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    &:first-of-type {
+      padding-top: 32px; // [2]
+    }
+  }
+}
+
+
+/**
+ * Notice heading
+ */
+
+.uhb-c-notice__heading {
+	@include uhb-font-size('h6');
+	color: inherit;
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Alert notice
+ *
+ * Changes the notice to an alert.
+ */
+
+.uhb-c-notice--alert {
+	background-color: $uhb-color-emergency-services-red;
+}
+
+
+/**
+ * Announcement notice
+ *
+ * Changes the notice to an announcement.
+ */
+
+.uhb-c-notice--announcement {
+	background-color: $uhb-color-dark-green;
+}
+
+
+/**
+ * Warning notice
+ *
+ * Changes the notice to a warning.
+ */
+
+.uhb-c-notice--warning {
+	background-color: $uhb-color-warm-yellow;
+	color: $uhb-color-dark-grey;
+}

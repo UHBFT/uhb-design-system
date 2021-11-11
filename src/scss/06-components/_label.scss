@@ -1,0 +1,31 @@
+/* ============================================================================
+   06-COMPONENTS -> #LABEL
+   ========================================================================= */
+  
+/**
+ * The label component tells a user what input is required for a form element.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/label.hm
+ */
+
+
+/**
+ * Label
+ */
+
+.uhb-c-label {
+  @include uhb-font-size('body');
+  display: block;
+}
+
+
+/**
+ * Label required
+ */
+
+.uhb-c-label__required {
+  color: $uhb-color-error;
+  font-weight: $uhb-font-weight-bold;
+  margin-left: uhb-spacing(2);
+}

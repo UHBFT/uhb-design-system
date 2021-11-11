@@ -1,0 +1,56 @@
+/* ============================================================================
+   05-OBJECTS -> #LIST-INLINE
+   ========================================================================= */
+
+/**
+ * The inline list object removes a lists styling and lays it out horizontally.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/lists.htm
+ */
+
+
+/**
+ * List inline
+ *
+ * 1. Remove the custom list marker pseudo-element.
+ */
+
+.uhb-o-list-inline {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.uhb-o-list-inline > li {
+  display: inline-block;
+  margin-top: 0;
+  padding-left: 0;
+
+  &::before {
+    content: none;
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Spaced inline list
+ *
+ * Adds horizontal spacing between each list item.
+ */
+
+.uhb-o-list-inline--spaced > li {
+  &:not(:first-child) {
+    padding-left: $uhb-grid-gutter-default;
+  }
+}

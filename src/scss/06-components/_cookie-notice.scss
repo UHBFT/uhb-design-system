@@ -1,0 +1,50 @@
+/* ============================================================================
+   06-COMPONENTS -> #COOKIE-NOTICE
+   ========================================================================= */
+
+/**
+ * The cookie notice component allows users to accept or reject cookies.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/cookie-notice.htm
+ */
+
+
+/**
+ * Cookie notice
+ *
+ * 1. Add a wash over the page.
+ * 2. Allow the cookie notice content to scroll if the viewport height is too
+ *    small to contain it.
+ * 3. Place the cookie notice above all other elements on the page.
+ */
+
+.uhb-c-cookie-notice {
+  align-items: center;
+  background-color: rgba($uhb-color-white, .66); // [1]
+  display: flex;
+  justify-content: center;
+  min-height: 100%; // [2]
+  position: absolute;
+  width: 100%;
+  z-index: map-get($uhb-global-z-indexes, 'cookie-notice'); // [3]
+}
+
+
+/**
+ * Cookie notice content
+ */
+
+.uhb-c-cookie-notice__content { 
+  @include uhb-responsive-padding(5);
+  background-color: $uhb-color-pale-grey;
+  width: uhb-width(10);
+  
+  @include uhb-media-query($from: 'md') {
+    width: uhb-width(8);
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: uhb-width(6);
+  }
+}

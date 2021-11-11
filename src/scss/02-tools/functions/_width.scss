@@ -1,0 +1,26 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #WIDTH
+//   ======================================================================= */
+
+/// 
+/// Returns the number of columns as a percentage of the total columns in the
+/// grid.
+///
+/// @param {Number} $width - number ranging from 1 to $columns
+/// @param {Number} $columns [$uhb-grid-columns] - initial number of columns
+///
+/// @returns {Number [%]}
+///
+/// @example scss
+///   @uhb-width(5);
+///
+
+@function uhb-width($width, $columns: $uhb-grid-columns) {
+
+  // Ensure $width isn't larger than the $columns value
+  @if ($width > $columns) {
+    @error '$width parameter must be qual to or smaller than #{$uhb-grid-columns}.';
+  }
+  
+  @return ((100 / $columns) * $width) * 1%;
+}

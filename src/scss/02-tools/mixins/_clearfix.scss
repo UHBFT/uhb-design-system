@@ -1,0 +1,20 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #CLEARFIX
+//   ======================================================================= */
+
+///
+/// Adds styles to clear an elements children.
+///
+/// @example scss
+///   .element {
+///     @include uhb-clearfix;
+///   }
+///
+
+@mixin uhb-clearfix() {
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}

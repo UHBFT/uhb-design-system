@@ -1,0 +1,11 @@
+/* ==========================================================================
+   08 - THEMES / BORDER / AQUA GREEN
+   ========================================================================== */
+
+.uhb-t-border-aqua-green {
+  --color-border: #{$uhb-color-aqua-green};
+
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-aqua-green}", '#', '%23')));;
+  }
+}

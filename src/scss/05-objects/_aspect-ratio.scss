@@ -1,0 +1,91 @@
+/* ============================================================================
+   05-OBJECTS -> #ASPECT-RATIO
+   ========================================================================= */
+
+/**
+ * The aspect ratio object is a resposnive container with a fixed aspect ratio
+ * based on the width of its parent element.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/aspect-ratio.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$aspect-ratio-map: (
+  '2\\/1':  (2:1),
+  '3\\/2':  (3:2),
+  '4\\/3':  (4:3),
+  '16\\/9': (16:9)
+) !default;
+
+
+/**
+ * Aspect ratio
+ *
+ * 1. Make the default aspect ratio 1:1.
+ */
+
+.uhb-o-aspect-ratio {
+  display: block;
+  overflow: hidden;
+  padding-top: 100%; // [1]
+  position: relative;
+}
+
+
+/**
+ * Aspect ratio content
+ */
+
+.uhb-o-aspect-ratio__content,
+.uhb-o-aspect-ratio > * {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Aspect ratios
+ *
+ * Generate aspect ratio classes from the $uhb-aspect-ratio map.
+ */
+
+ @each $ratio-name, $ratio-value in $aspect-ratio-map {
+
+  // Loop through each aspect ratio in the map
+  @each $x, $y in $ratio-value {
+
+    // Check $x is a number
+    @if (type-of($x) != 'number') {
+      @error 'Expected a number but received a #{type-of($x)}.';
+    }
+
+    // Check $y is a number
+    @if (type-of($y) != 'number') {
+      @error 'Expected a number but received a #{type-of($y)}.';
+    }
+
+    .uhb-o-aspect-ratio--#{$ratio-name} {
+      padding-top: ($y / $x) * 100%;
+    }
+
+  }
+
+}

@@ -1,0 +1,20 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #PRINT-HIDE
+//   ======================================================================= */
+
+///
+/// Hides an element for print.
+///
+/// @example scss
+///   .element {
+///     @include uhb-print-hide;
+///   }
+///
+
+@mixin uhb-print-hide() {
+  
+  @include uhb-media-query($media-type: 'print') {
+    display: none;
+  }
+
+}

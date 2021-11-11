@@ -1,0 +1,21 @@
+/* ============================================================================
+   07-UTILITIES -> #COLOR
+   ========================================================================= */
+
+/**
+ * The color utility classes set the 'color' property of an element.
+ */
+
+
+.uhb-u-color-black {
+  color: $uhb-color-black !important;
+}
+
+.uhb-u-color-primary {
+  color: $uhb-color-primary !important;
+  color: var(--color-primary) !important;
+}
+
+.uhb-u-color-white {
+  color: $uhb-color-white !important;
+}

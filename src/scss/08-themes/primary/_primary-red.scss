@@ -1,0 +1,18 @@
+/* ==========================================================================
+   08 - THEMES / PRIMARY / RED
+   ========================================================================== */
+
+.uhb-t-primary-red {
+  --global-bar-color: #{$uhb-color-dark-red};
+  --global-bar-highlight-color: #{$uhb-color-emergency-services-red};
+  --global-bar-highlight-item-color: #{$uhb-color-blue};
+  --header-wash-color: #{$uhb-color-bright-blue};
+  --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-emergency-services-red)};
+  --color-primary: #{$uhb-color-emergency-services-red};
+  --color-primary-hover: #{$uhb-color-dark-red};
+  --color-primary-active: #{$uhb-color-darkest-red};
+
+  .uhb-c-pull-quote::before {
+    background-image: url(uhb-replace-string($uhb-icon-speech-marks, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-emergency-services-red}", '#', '%23')));;
+  }
+}

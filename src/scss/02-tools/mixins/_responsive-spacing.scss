@@ -1,0 +1,120 @@
+// ============================================================================
+// 02-TOOLS -> MIXINS -> #RESPONSIVE-SPACING
+// ============================================================================
+
+//
+// Settings
+//
+
+$responsive-spacing-breakpoints: (
+  null,
+  md,
+  xl
+);
+
+
+///
+/// Adds responsive spacing (margin or padding) to an element by getting the 
+/// value associated with a key from the $uhb-spacing-points map
+/// (see 'source/scss/01-settings/_spacing.scss') and increasing it by a set
+/// number of points at each breakpoint
+///
+/// @param {Number} $spacing-point - multiplier for spacing unti.
+/// @param {String} $property - padding or margin property.
+/// @param {String} $direction [all] - direction to add spacing.
+///
+/// @example scss
+///   .element {
+///     @include uhb-responsive-spacing(3, 'padding', ('bottom', 'left)');
+///   }
+///
+
+@mixin _uhb-responsive-spacing($spacing-point, $property, $directions: 'all', $important: false) {
+
+  // Check if $spacing-point is a number
+  @if (type-of($spacing-point) !='number') {
+    @error 'Expected a number but received a #{type-of($spacing-point)}.';
+  }
+
+  // Check if $uhb-spacing-responsive-scale contains $spacing-point
+  @if not (map-has-key($uhb-spacing-responsive-scale, $spacing-point)) {
+    @error '#{$spacing-point} not found in the $uhb-spacing-responsive-scale.';
+  }
+
+  $responsive-scale: map-get($uhb-spacing-responsive-scale, $spacing-point);
+
+  @each $breakpoint, $spacing-value in $responsive-scale {
+
+    @if ($breakpoint == null) {
+
+      @if ($directions == 'all') {
+        #{$property}: $spacing-value if($important, !important, null);
+      } @else {
+
+        @each $direction in $directions {
+          #{$property}-#{$direction}: $spacing-value if($important, !important, null);
+        }
+
+      }
+
+    } @else {
+
+      @include uhb-media-query($from: $breakpoint) {
+
+        @if ($directions == 'all') {
+          #{$property}: $spacing-value if($important, !important, null);
+        } @else {
+
+          @each $direction in $directions {
+            #{$property}-#{$direction}: $spacing-value if($important, !important, null);
+          }
+        
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+///
+/// Adds responsive margin to an element by getting the value associated with a
+/// key from the $uhb-spacing-points map and increasing it by a set number of
+/// points at each breakpoint
+///
+/// @param {Number} $spacing-point - multiplier for spacing unti
+/// @param {List} $directions [all] - directions to add spacing
+/// @param {Boolean} $important [false] - option to override
+///
+/// @example scss
+///   .element {
+///     @include uhb-responsive-margin(3, 'bottom');
+///   }
+///
+
+@mixin uhb-responsive-margin($spacing-point, $directions: 'all', $important: false) {
+  @include _uhb-responsive-spacing($spacing-point, 'margin', $directions, $important);
+}
+
+
+///
+/// Adds responsive padding to an element by getting the value associated with
+/// a key from the $uhb-spacing-points map and increasing it by a set number of
+/// points at each breakpoint
+///
+/// @param {Number} $spacing-point - multiplier for spacing unti
+/// @param {List} $directions [all] - directions to add spacing
+/// @param {Boolean} $important [false] - option to override
+///
+/// @example scss
+///   .element {
+///     @include uhb-responsive-padding(3, 'bottom');
+///   }
+///
+
+@mixin uhb-responsive-padding($spacing-point, $directions: 'all', $important: false) {
+  @include _uhb-responsive-spacing($spacing-point, 'padding', $directions, $important);
+}

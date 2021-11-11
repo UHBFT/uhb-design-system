@@ -1,0 +1,33 @@
+/* ============================================================================
+   03-GENERIC -> #SHARED
+   ========================================================================= */
+
+/**
+ * Applies styles that are shared By multiple elements.
+ *
+ * 1. Set margin-top on text elements if they follow another element.
+ * 2. Set body font-size on text elements.
+ */
+
+
+dl,
+dt,
+ol,
+p,
+table,
+ul {
+  * + & {
+    margin-top: uhb-spacing(3); // [1]
+
+    @include uhb-media-query($from: 'md') {
+      margin-top: uhb-spacing(4); // [1]
+    }
+  } 
+}
+
+p,
+dl,
+ol,
+ul {
+  @include uhb-font-size('body'); // [2]
+}

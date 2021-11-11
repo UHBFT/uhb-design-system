@@ -1,0 +1,26 @@
+/* ============================================================================
+   07-UTILITIES -> #OFFSET
+   ========================================================================= */
+
+/**
+ * The offset utility classes set the 'margin-left' property for an element at
+ * any breakpoint. The margin-left value is the number of columns specified as
+ * a percentage of $uhb-grid-columns.
+ */
+
+
+@each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+  @for $column-number from 1 through ($uhb-grid-columns - 1) {
+    @if ($breakpoint-name == 'xs') {
+      .uhb-u-offset-#{$column-number + \/#{$uhb-grid-columns}} {
+        margin-left: uhb-width($column-number);
+      }
+    } @else {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-offset-#{$column-number + \/#{$uhb-grid-columns}\@#{$breakpoint-name}} {
+          margin-left: uhb-width($column-number);
+        }
+      }
+    }
+  }
+};

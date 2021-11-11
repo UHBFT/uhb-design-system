@@ -1,0 +1,25 @@
+///* ==========================================================================
+//   02-TOOLS -> FUNCTIONS -> #REMOVE-UNIT
+//   ======================================================================= */
+
+///
+/// Removes the unit from a number.
+///
+/// @param {Number [unit]} $value - number with unit
+///
+/// @returns {Number}
+///
+/// @example scss
+///   uhb-remove-unit(24px)
+///
+
+@function uhb-remove-unit($value) {
+  
+  // Check if $value is a number
+  @if ((type-of($value) != 'number')) {
+    @error 'Expected a number but received a #{type-of($value)}.';
+  }
+
+  @return $value / ($value * 0 + 1);
+
+}

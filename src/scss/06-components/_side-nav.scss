@@ -1,0 +1,285 @@
+/* ============================================================================
+   06-COMPONENTS -> #SIDE-NAV
+   ========================================================================= */
+
+/**
+ * The side-nav component provides access to lower levels of the websites web
+ * pages.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/side-nav.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$side-nav-a-to-z-width-xs:     40px;
+$side-nav-a-to-z-width-md:     48px;
+$side-nav-toggle-border-width: $uhb-global-border-width;
+$side-nav-toggle-height-xs:    $uhb-form-element-height-default;
+$side-nav-toggle-height-md:    $uhb-form-element-height-md;
+
+
+/**
+ * Side nav
+ */
+
+.uhb-c-side-nav {
+  // [1]
+  &.is-open {
+    .uhb -c-side-nav__toggle::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+}
+
+
+/**
+ * Side nav toggle
+ *
+ * 1. Hide side nav toggle at print.
+ * 2. Remove browser-specific styling. 
+ * 3. Set an explicit minimum-height to reduce cross-browser inconsistencies
+ *    with line-height.
+ * 4. Fallback value for browsers that don't support CSS custom properties.
+ * 5. Custom property used as progressive enhancement for themes.
+ * 6. Fill entire height (+ border width) of input if the page to accomodate
+ *    for long page titles.
+ * 7. Remove pointer events on the pseudo-elements to allow the button element
+ *    to be clicked through them.
+ * 8. Create a square container for the chevron icon that matches the height.
+ * 9. Vertically center the chevron in case the min-height of the button is
+ *    suppased.
+ * 10. Hide side nav toggle input on screen sizes >= xl when the list becomes
+ *    visible.
+ */
+
+.uhb-c-side-nav__toggle {
+  @include uhb-font-size('body');
+  @include uhb-print-hide; // [1]
+  @include uhb-focused-side-nav-input;
+  appearance: none; // [2]
+  background-color: transparent;
+  border: $side-nav-toggle-border-width solid $uhb-color-mid-grey;
+  border-radius: 0;
+  color: $uhb-color-text;
+  cursor: pointer;
+  min-height: $side-nav-toggle-height-xs; // [3]
+  margin-top: 0;
+  padding: uhb-spacing(1) 64px uhb-spacing(1) uhb-spacing(3);
+  position: relative;
+  text-align: left;
+  width: 100%;
+  z-index: 0;
+
+  &::before {
+    background-color: $uhb-color-blue;  // [4]
+    background-color: var(--color-primary); // [5]
+    content: '';
+    min-height: calc(100% + #{$side-nav-toggle-border-width * 2}); // [6]
+    pointer-events: none; // [7]
+    position: absolute;
+    right: - uhb-spacing(1);
+    top: - uhb-spacing(1);
+    width: $side-nav-toggle-height-xs; // [8]
+    z-index: 1;
+  }
+
+  &::after {
+    @include uhb-transition(('transform'));
+    background-image: url(uhb-replace-string($uhb-icon-chevron-down, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-white}", '#', '%23' )));
+    content: '';
+    height: $uhb-icon-size;
+    pointer-events: none; // [7]
+    right: uhb-spacing(1);
+    top: 50%;
+    transform: translateY(-50%); // [9]
+    position: absolute;
+    width: $uhb-icon-size;
+    z-index: 2;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    min-height: $side-nav-toggle-height-md; // [3]
+    padding: uhb-spacing(2) 72px uhb-spacing(2) uhb-spacing(4); // [1]
+
+    &::before {
+      width: 48px; // [8]
+    }
+
+    &::after {
+      right: uhb-spacing(2);
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    display: none; // [10]
+  }
+}
+
+
+/**
+ * Side nav container
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ * 3. Force height on viewports >= xl to override styles set with JavaScript.
+ * 4. Force overflow on viewports >= xl to override styles set with JavaScript.
+ */
+
+.uhb-c-side-nav__container {
+  @include uhb-transition(('height', 'visibility'));
+  
+  @include uhb-media-query($to: 'xl') {
+    background-color: $uhb-color-primary; // [1]
+    background-color: var(--color-primary); // [2]
+    margin-bottom: 0;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    height: auto!important; // [3]
+    overflow: visible!important; // [4]
+  }
+}
+
+
+/**
+ * Side nav list
+ *
+ * 1. Add styles for list active state.
+ * 2. Force visibility on viewports >= xl to override styles set with
+ *    JavaScript.
+ */
+
+.uhb-c-side-nav__list {
+  margin-top: 0;
+
+  // [1]
+  &.is-current {
+    > .uhb-c-side-nav__item .uhb-c-icon {
+      transform: rotate(0deg);
+    }
+  }
+
+  @include uhb-media-query($to: 'xl') {
+    &:first-child {
+      padding: uhb-spacing(3);
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    visibility: visible!important; // [2]
+  }
+}
+
+
+/**
+ * Side nav item
+ *
+ * 1. Add styles for item active state.
+ */
+
+.uhb-c-side-nav__item {
+  margin-top: uhb-spacing(3);
+  padding-left: 0;
+
+  &::before {
+    content: none;
+  }
+
+  // [1]
+  &.is-current {
+    > .uhb-c-side-nav__link {
+      &::after {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+
+    > .uhb-c-side-nav__list {
+      margin-left: uhb-spacing(5);
+
+      .uhb-c-icon {
+        transform: rotate(90deg);
+      }
+      
+      @include uhb-media-query($from: 'md') {
+        margin-left: uhb-spacing(6);
+      }
+    }
+  }
+
+  & > .uhb-c-side-nav__list {
+    margin-top: uhb-spacing(3);
+  }
+}
+
+
+/**
+ * Side nav link
+ *
+ * 1. Rotates the icon of child pages to signify related content.
+ */
+
+.uhb-c-side-nav__link {
+  width: 100%;
+
+  @include uhb-media-query($to: 'xl') {
+    @include uhb-link-style-inverse;
+  }
+
+  .uhb-c-icon--chevron-right {
+    flex-grow: 0;
+    flex-shrink: 0;
+    transform: rotate(-90deg); // [1]
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * A to Z side nav
+ */
+
+.uhb-c-side-nav--a-to-z {
+  .uhb-c-side-nav__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: - uhb-spacing(2);
+    margin-left: - uhb-spacing(2);
+  }
+
+  .uhb-c-side-nav__item {
+    margin-top: 0;
+    padding-bottom: uhb-spacing(2);
+    padding-left: uhb-spacing(2);
+  }
+
+  .uhb-c-side-nav__link {
+    justify-content: center;
+    width: $side-nav-a-to-z-width-xs;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    .uhb-c-side-nav__list {
+      margin-bottom: - uhb-spacing(3);
+      margin-left: - uhb-spacing(3);
+    }
+  
+    .uhb-c-side-nav__item {
+      padding-bottom: uhb-spacing(3);
+      padding-left: uhb-spacing(3);
+    }
+
+    .uhb-c-side-nav__link {
+      width: $side-nav-a-to-z-width-md;
+    }
+  }
+}

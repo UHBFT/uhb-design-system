@@ -1,0 +1,41 @@
+/* ============================================================================
+   06-COMPONENTS -> #RELATED-LINKS
+   ========================================================================= */
+
+/**
+ * The related links component displays lists of links that are related to the
+ * current page.
+ * 
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/related-content.htm
+ */
+
+
+/**
+ * Related links
+ */
+
+.uhb-c-related-links {
+  @include uhb-responsive-margin(7, 'top');
+  clear: both;
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Related links box
+ */
+
+.uhb-c-related-links--box {
+  @include uhb-responsive-padding(5);
+  background-color: $uhb-color-pale-grey;
+
+  .uhb-c-related-links__heading {
+    @include uhb-font-size('h6');
+  }
+}

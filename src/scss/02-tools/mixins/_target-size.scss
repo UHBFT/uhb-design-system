@@ -1,0 +1,34 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #TARGET-SIZE
+//   ======================================================================= */
+
+//
+// Settings
+//
+
+$target-size: 48px;
+
+
+///
+/// Increase the target size of an element.
+///
+/// @example scss
+///   .element {
+///     @include uhb-target-size;
+///   }
+///
+
+@mixin uhb-target-size($pseudo-element: '::before') {
+  @include uhb-media-query($to: 'md') {
+    &#{$pseudo-element} {
+      background-color: transparent;
+      content: '';
+      height: $target-size;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: $target-size;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+/* ============================================================================
+   06-COMPONENTS -> #POST-IT
+   ========================================================================= */
+
+/**
+ * The post-it component helps users to identify important information without
+ * having to read the whole page.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/post-it.htm
+ */
+
+
+/**
+ * Post it
+ *
+ * 1. Add 'margin-top' to the post-it component if it follows another
+ *    element.
+ * 2. Add 'margin-top' to an element if it follows the post-it component.
+ */
+
+.uhb-c-post-it {
+	@include uhb-first-child-margin;
+  @include uhb-responsive-padding(5);
+	background-color: $uhb-color-pale-grey;
+	border-left: $uhb-global-border-width solid $uhb-color-blue;
+	box-shadow: $uhb-global-box-shadow;
+
+  * + & {
+		@include uhb-responsive-margin(7, 'top'); // [1]
+	}
+
+	& + * {
+		@include uhb-responsive-margin(7, 'top'); // [2]
+	}
+}
+
+
+/**
+ * Post it heading
+ */
+
+.uhb-c-post-it__heading {
+	@include uhb-font-size('h6');
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Alert post-it
+ *
+ * Changes the post-it to an alert.
+ */
+
+.uhb-c-post-it--alert {
+	border-left-color: $uhb-color-emergency-services-red;
+
+	.uhb-c-post-it__title {
+		color: $uhb-color-emergency-services-red;
+	}
+}
+
+
+/**
+ * Announcement post-it
+ *
+ * Changes the post-it to an announcement.
+ */
+
+.uhb-c-post-it--announcement {
+	border-left-color: $uhb-color-dark-green;
+
+	.uhb-c-post-it__title {
+		color: $uhb-color-dark-green;
+	}
+}
+
+
+/**
+ * Warning post-it
+ *
+ * Changes the post-it to a warning.
+ */
+
+.uhb-c-post-it--warning {
+	border-left-color: $uhb-color-warm-yellow;
+}

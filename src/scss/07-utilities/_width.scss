@@ -1,0 +1,26 @@
+/* ============================================================================
+   07-UTILITIES -> #WIDTH
+   ========================================================================= */
+
+/**
+ * The width utility classes set the 'width' property for an element at any
+ * breakpoint. The width value is the number of columns specified as a
+ * percentage of $uhb-grid-columns.
+ */
+
+
+@each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+  @for $column-number from 1 through $uhb-grid-columns {
+    @if ($breakpoint-name == null) {
+      .uhb-u-width-#{$column-number + \/#{$uhb-grid-columns}} {
+        width: uhb-width($column-number);
+      }
+    } @else {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-width-#{$column-number + \/#{$uhb-grid-columns}\@#{$breakpoint-name}} {
+          width: uhb-width($column-number);
+        }
+      }
+    }
+  }
+};

@@ -1,0 +1,97 @@
+/* ============================================================================
+   06-COMPONENTS -> #IMAGE
+   ========================================================================= */
+
+/**
+ * The image component to display an image with a caption.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/image.htm
+ */
+
+
+/** 
+ * Image
+ *
+ * 1. Add 'margin-top' to the image component if it follows another
+ *    element.
+ * 2. Add 'margin-top' to an element if it follows the image component.
+ */
+
+.uhb-c-image {
+  @include uhb-clearfix;
+  
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [1]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [2]
+  }
+}
+
+
+/**
+ * Image caption
+ */
+
+.uhb-c-image__caption {
+  @include uhb-font-size('caption');
+  background-color: $uhb-color-pale-grey;
+  padding: uhb-spacing(3);
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Left image
+ *
+ * Floats the image to the left.
+ */
+
+.uhb-c-image--left {
+  @include uhb-media-query($from: 'sm') {
+    float: left;
+    margin-right: $uhb-grid-gutter-default;
+    margin-top: 0;
+    width: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-right: $uhb-grid-gutter-md;
+    width: 33.33%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-right: $uhb-grid-gutter-xl;
+  }
+}
+
+
+/**
+ * Right image
+ *
+ * Floats the image to the right.
+ */
+
+.uhb-c-image--right {
+  @include uhb-media-query($from: 'sm') {
+    float: right;
+    margin-left: $uhb-grid-gutter-default;
+    margin-top: 0;
+    width: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-left: $uhb-grid-gutter-md;
+    width: 33.33%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: $uhb-grid-gutter-xl;
+  }
+}

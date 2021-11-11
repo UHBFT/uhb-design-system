@@ -1,0 +1,120 @@
+/* ============================================================================
+   06-COMPONENTS -> #VIDEO
+   ========================================================================= */
+
+/**
+ * The video component is used to display an embedded video and transcript.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/video.htm
+ */
+
+
+/** 
+ * Video
+ *
+ * 1. Add 'margin-top' to the video component if it follows another element.
+ * 2. Add 'margin-top' to an element if it follows the video component.
+ */
+
+.uhb-c-video {
+  @include uhb-clearfix;
+  @include uhb-responsive-margin(7, 'bottom');
+  @include uhb-responsive-padding(5);
+  background-color: $uhb-color-pale-grey;
+
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [1]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [2]
+  }
+}
+
+
+/**
+ * Video content
+ */
+
+.uhb-c-video__content {
+  @include uhb-media-query($from: 'md') {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+
+/** 
+ * Video heading
+ */
+
+.uhb-c-video__heading {
+  @include uhb-font-size('h6');
+  width: 100%;
+}
+
+
+/** 
+ * Video container
+ */
+
+.uhb-c-video__container {
+  @include uhb-media-query($from: 'md') {
+    margin-right: $uhb-grid-gutter-md;
+    width: calc(50% - #{$uhb-grid-gutter-md / 2});
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-right: $uhb-grid-gutter-xl;
+    width: calc(50% - #{$uhb-grid-gutter-xl / 2});
+  }
+}
+
+
+/**
+ * Video description
+ */
+
+.uhb-c-video__description {
+  margin-top: uhb-spacing(3);
+  
+  @include uhb-media-query($from: 'md') {
+    margin-top: 0;
+    width: calc(50% - #{$uhb-grid-gutter-md / 2});
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: calc(50% - #{$uhb-grid-gutter-xl / 2});
+  }
+}
+
+
+/** 
+ * Video transcript
+ */
+
+.uhb-c-video__transcript {
+  @include uhb-transition(('height', 'opacity', 'visibility'));
+}
+
+
+/** 
+ * Video transcript inner
+ *
+ * 1. Adds a max-height to stop the transcript filling the whole page.
+ * 2. Allows the transcript text to scroll inside the fixed height container.
+ */
+
+.uhb-c-video__transcript-inner {
+  @include uhb-responsive-padding(5);
+  background-color: $uhb-color-white;
+  margin-top: uhb-spacing(3);
+  max-height: 240px; // [1]
+  overflow-y: scroll; // [2]
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(4);
+  }
+}

@@ -1,0 +1,142 @@
+/* ============================================================================
+   06-COMPONENTS -> #SELECT
+   ========================================================================= */
+
+/**
+ * The select component allows users to select a single option from a list of
+ * options.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/select.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$select-border-width: $uhb-global-border-width;
+$select-height-xs:    $uhb-form-element-height-default;
+$select-height-md:    $uhb-form-element-height-md;
+
+
+/**
+ * Select
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ * 3. Remove pointer events to allow the select to be clicked through the 
+ *    pseudo-elements. 
+ * 4. Add chevron icon.
+ * 5. 'Magic number' to horizontally position the chevron icon.
+ * 6. 'Magic number' to vertically position the chevron icon.
+ */
+
+.uhb-c-select {
+  background-color: $uhb-color-white;
+  color: $uhb-color-text;
+  margin-top: uhb-spacing(3);
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    background-color: $uhb-color-blue;  // [1]
+    background-color: var(--color-primary); // [2]
+    content: '';
+    height: $select-height-xs;
+    pointer-events: none; // [3]
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: $select-height-xs;
+    z-index: 1;
+  }
+
+  // [4]
+  &::after {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-down, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-white}", '#', '%23' )));
+    content: '';
+    height: $uhb-icon-size;
+    pointer-events: none; // [3]
+    right: uhb-spacing(2);
+    bottom: uhb-spacing(2);
+    position: absolute;
+    width: $uhb-icon-size;
+    z-index: 2;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(4);
+
+    &::before {
+      height: $select-height-md;
+      width: $select-height-md;
+    }
+
+    &::after {
+      right: 12px; // [5]
+      bottom: 12px; // [6]
+    }
+  }
+}
+
+
+/**
+ * Select input
+ *
+ * 1. Remove browser-specific styling.
+ * 2. Set an explicit height to reduce cross-browser inconsistencies with
+ *    line-height.
+ */
+
+.uhb-c-select__input {
+  @include uhb-font-size('body');
+  appearance: none; // [1]
+  background-color: transparent;
+  border: $select-border-width solid $uhb-color-form-border;
+  border-radius: 0;
+  color: $uhb-color-text;
+  height: $select-height-xs; // [2]
+  margin-top: 0;
+  padding: uhb-spacing(1) uhb-spacing(8) uhb-spacing(1) uhb-spacing(3);
+  position: relative;
+  width: 100%;
+  z-index: 0;
+
+  // [1]
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus {
+    @include uhb-focused-select-input;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    min-height: $select-height-md; // [2]
+    padding: uhb-spacing(2) 72px uhb-spacing(2) uhb-spacing(4); // [1]
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/*
+ * Inverse select
+ *
+ * Change the colours of the select toggle to allow it to ve used over a
+ * solid backgroubd colour.
+ */
+
+.uhb-c-select--inverse {
+  &::before {
+    background-color: $uhb-color-form-border;
+  }
+
+  &::after {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-down, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-white}", '#', '%23' )));
+  }
+}

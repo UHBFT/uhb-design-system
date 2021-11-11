@@ -1,0 +1,50 @@
+///* ==========================================================================
+//   01-SETTINGS -> #GLOBAL
+//   ======================================================================= */
+
+//
+// The global settings file contains variables that must be available for use
+// project-wide.
+//
+
+ 
+//
+// Border width
+//
+
+$uhb-global-border-width: 4px !default;
+
+
+//
+// Box shadow
+//
+
+$uhb-global-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1) !default;
+
+
+//
+// Transitions
+//
+
+$uhb-global-transition-duration: 300ms !default;
+$uhb-global-transition-timing: ease-in-out !default;
+
+
+
+//
+// Base font-size and line-height
+//
+
+$uhb-global-font-size: 16px !default;
+$uhb-global-line-height: 24px !default;
+
+
+//
+// Z-index
+//
+
+$uhb-global-z-indexes: (
+  action-button : 99,
+  menu-overlay  : 100,
+  cookie-notice : 999
+);

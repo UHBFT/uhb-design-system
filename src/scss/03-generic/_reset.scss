@@ -1,0 +1,60 @@
+/* ============================================================================
+   03-GENERIC -> #RESET
+   ========================================================================= */
+
+/**
+ * Applies a lightweight reset that removes the default styles of selected
+ * elements.
+ *
+ * 1. Set display for older browsers.
+ * 2. Remove default margin.
+ * 3. Remove default padding.
+ * 4. Remove animations for users that request not to see them.
+ */
+
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block // [1]
+}
+
+blockquote,
+body,
+dd,
+dl,
+fieldset,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+legend,
+ol,
+p, 
+pre,
+table,
+td,
+th,
+ul {
+  margin: 0; // [2]
+  padding: 0; // [3]
+}
+
+@media (prefers-reduced-motion: reduce) { // [4]
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

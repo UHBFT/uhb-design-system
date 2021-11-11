@@ -1,0 +1,112 @@
+/* ============================================================================
+   06-COMPONENTS -> #DATE
+   ========================================================================= */
+  
+/**
+ * The date component allows users to enter a date in DD/MM/YYYY format.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/date.htm
+ */
+
+ 
+/**
+ * Date
+ */
+
+.uhb-c-date {
+  margin-top: uhb-spacing(3);
+
+  @include uhb-media-query($from: 'md') {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 66.66%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: 50%;
+  }
+}
+
+
+/**
+ * Date item
+ *
+ * 1. Add a '/' separator to all date item inputs other than the last child.
+ * 2. 'Magic number' to vertically position the '/' separator.
+ */
+
+.uhb-c-date__item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  position: relative;
+
+  @include uhb-media-query($to: 'md') {
+    margin-top: uhb-spacing(3);
+  }
+
+
+  @include uhb-media-query($from: 'md') {
+    display: block;
+    width: 33.333%;
+
+    // [1]
+    &:not(:last-child) {
+      margin-right: $uhb-grid-gutter-md;
+
+      &::after {
+        @include uhb-font-size('body');
+        bottom: 12px; // [2]
+        color: $uhb-color-text;
+        content: '/'; 
+        height: $uhb-icon-size;
+        left: 100%;
+        position: absolute;
+        text-align: center;
+        width: $uhb-icon-size;
+      }
+    }
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    // [1]
+    &:not(:last-child) { 
+      margin-right: $uhb-grid-gutter-xl;
+
+      &::after {
+        width: $uhb-grid-gutter-xl;
+      }
+    }
+  }
+}
+
+
+/**
+ * Date label
+ */
+
+.uhb-c-date__label {
+  width: 50%;
+
+  @include uhb-media-query($from: 'md') {
+    width: 100%;
+  }
+}
+
+
+/**
+ * Date input
+ *
+ * 1. Override the default 'margin-top' property of the input component.
+ */
+
+.uhb-c-date__input {
+  @include uhb-media-query($to: 'md') {
+    margin-top: 0 !important; // [1]
+    width: 50%;
+  }
+}

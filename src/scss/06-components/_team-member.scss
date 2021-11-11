@@ -1,0 +1,81 @@
+/* ============================================================================
+   06-COMPONENTS -> #TEAM-MEMBER
+   ========================================================================= */
+
+/**
+ * The team member component displays a profile image with a bio and contact
+ * details.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/video.htm
+ */
+
+
+/**
+ * Settings
+ */ 
+
+$team-member-image-size-default: 120px;
+$team-member-image-size-md: 160px;
+$team-member-image-size-xl: 200px;
+
+
+/**
+ * Team member image
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-team-member__image {
+  border: $uhb-global-border-width solid $uhb-color-border; // [1]
+  border-color: var(--color-border); // [2]
+  border-radius: 50%;
+  box-shadow: $uhb-global-box-shadow;
+  height: $team-member-image-size-default;
+  width: $team-member-image-size-default;
+
+  @include uhb-media-query($from: 'md') {
+    height: $team-member-image-size-md;
+    width: $team-member-image-size-md;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    height: $team-member-image-size-xl;
+    width: $team-member-image-size-xl;
+  }
+}
+
+
+/**
+ * Team member title
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-team-member__title {
+  @include uhb-font-size('h6');
+  color: $uhb-color-primary-active; // [1]
+  color: var(--color-primary-active); // [2]
+  margin-bottom: 0;
+  margin-top: uhb-spacing(3);
+
+  @include uhb-media-query($from: 'md') {
+    margin-top: uhb-spacing(4);
+  }
+}
+
+
+/**
+ * Team member role
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-team-member__role {
+  @include uhb-font-size('h6');
+  color: $uhb-color-primary; // [1]
+  color: var(--color-primary); // [2]
+  display: block;
+}

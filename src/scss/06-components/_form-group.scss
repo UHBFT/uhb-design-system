@@ -1,0 +1,60 @@
+/* ============================================================================
+   06-COMPONENTS -> #FORM-GROUP
+   ========================================================================= */
+
+/**
+ * The form group component equally spaces form elements and provides an
+ * additional validation error state.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/form-group.htm
+ */
+
+
+/**
+ * Form group
+ *
+ * 1. Add 'margin-top' to the form group component if it follows another
+ *    form group component.
+ */
+
+.uhb-c-form-group {
+  @include uhb-first-child-margin;
+
+  & + & {
+    @include uhb-responsive-margin(7, 'top'); // [1]
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Form group error
+ *
+ * Indicate a validation error on a form group.
+ */
+
+.uhb-c-form-group--error {
+  border-left: $uhb-global-border-width solid $uhb-color-error;
+}
+
+
+/**
+ * Text input form group (width limited)
+ *
+ * Limits the width of the form group.
+ */
+
+.uhb-c-form-group--text {
+  @include uhb-media-query($from: 'md') {
+    width: 66.666%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    width: 50%;
+  }
+}

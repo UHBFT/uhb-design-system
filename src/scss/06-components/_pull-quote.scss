@@ -1,0 +1,120 @@
+/* ============================================================================
+   06-COMPONENTS -> #PULL-QUOTE
+   ========================================================================= */
+
+/**
+ * The pull quote component emphasises an excert from the main content.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/pull-quote.htm
+ */
+
+
+/**
+ * Settings
+ */ 
+
+$pull-quote-triangle-size: uhb-spacing(3);
+$pull-quote-icon-size:     $uhb-icon-size * 2;
+
+
+/**
+ * Block quote source
+ *
+ * 1. Add triangle under block quote.
+ * 2. Add quotation mark icon.
+ * 3. Add 'margin-top' to the pull-quote component if it follows another
+ *    element.
+ * 4. Add 'margin-top' to an element if it follows the pull-quote component.
+ */
+
+.uhb-c-pull-quote {
+  @include uhb-responsive-padding(5);
+  background-color: $uhb-color-pale-grey;
+  font-weight: $uhb-font-weight-bold;
+  position: relative;
+
+  // [1]
+  &::before {
+    background-image: url(uhb-replace-string($uhb-icon-quote, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-primary}", '#', '%23')));
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    display: block;
+    height: $pull-quote-icon-size;
+    width: $pull-quote-icon-size;
+  }
+ 
+  // [2]
+  &::after {
+    bottom: -$pull-quote-triangle-size;
+    border-color: $uhb-color-pale-grey transparent transparent transparent;
+    border-style: solid;
+    border-width: $pull-quote-triangle-size $pull-quote-triangle-size 0 0;
+    content: '';
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [3]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [4]
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Left pull quote
+ *
+ * Floats the pull quote to the left.
+ */
+
+.uhb-c-pull-quote--left {
+  @include uhb-media-query($from: 'sm') {
+    float: left;
+    margin-right: $uhb-grid-gutter-default;
+    width: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-right: $uhb-grid-gutter-md;
+    width: 33.33%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-right: $uhb-grid-gutter-xl;
+  }
+}
+
+
+/**
+ * Right pull quote
+ *
+ * Floats the pull quote to the right.
+ */
+
+.uhb-c-pull-quote--right {
+  @include uhb-media-query($from: 'sm') {
+    float: right;
+    margin-left: $uhb-grid-gutter-default;
+    width: 50%;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    margin-left: $uhb-grid-gutter-md;
+    width: 33.33%;
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    margin-left: $uhb-grid-gutter-xl;
+  }
+}

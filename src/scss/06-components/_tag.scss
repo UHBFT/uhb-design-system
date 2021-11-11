@@ -1,0 +1,76 @@
+/* ============================================================================
+   06-COMPONENTS -> #TAG
+   ========================================================================= */
+
+/**
+ * The tag component is used to indicate a status, property, or other metadata.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/tag.htm
+ */
+
+
+/**
+ * Tag
+ */
+
+.uhb-c-tag {
+  @include uhb-font-size('body');
+  background-color: $uhb-color-pale-grey;
+  display: inline-block;
+  padding-left: uhb-spacing(1);
+  padding-right: uhb-spacing(1);
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Blue tag
+ *
+ * Changes the tag background-color to blue.
+ */
+
+.uhb-c-tag--blue {
+  background-color: $uhb-color-blue;
+  color: $uhb-color-white;
+}
+
+
+/**
+ * Green green
+ *
+ * Changes the tag background-color to green.
+ */
+
+.uhb-c-tag--green {
+  background-color: $uhb-color-dark-green;
+  color: $uhb-color-white;
+}
+
+
+/**
+ * Pink tag
+ *
+ * Changes the tag background-color to pink.
+ */
+
+.uhb-c-tag--pink {
+  background-color: $uhb-color-pink;
+  color: $uhb-color-white;
+}
+
+
+/**
+ * Red tag
+ *
+ * Changes the tag background-color to red.
+ */
+
+.uhb-c-tag--red {
+  background-color: $uhb-color-emergency-services-red;
+  color: $uhb-color-white;
+}

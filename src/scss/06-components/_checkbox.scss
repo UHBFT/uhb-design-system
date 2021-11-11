@@ -1,0 +1,128 @@
+/* ============================================================================
+   06-COMPONENTS -> #CHECKBOX
+   ========================================================================= */
+  
+/**
+ * The checkbox component allows users to select one or more options from a
+ * list of options.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/checkbox.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$checkbox-border-width:     $uhb-global-border-width / 2;
+$checkbox-input-size:       $uhb-icon-size;
+$checkbox-input-tick-width: $uhb-global-border-width;
+
+
+/**
+ * Checkbox item
+ */
+
+.uhb-c-checkbox__item {
+  margin-top: uhb-spacing(3);
+  position: relative;
+
+  &::before {
+    content: none;
+  }
+}
+
+
+/**
+ * Checkbox input
+ */
+
+.uhb-c-checkbox__input {
+  cursor: pointer;
+  height: $checkbox-input-size;
+  left: uhb-spacing(1);
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: $checkbox-input-size;
+  z-index: 1;
+
+  @include uhb-media-query($from: 'md') {
+    left: uhb-spacing(2);
+  }
+}
+
+
+/**
+ * Checkbox label
+ *
+ * 1. 'Magic number' to set the height of checked state tick icon.
+ * 2. 'Magic number' to horizontally position the checked state tick icon. 
+ * 3. Hides the checked state tick icon by default. 
+ * 4. 'Magic number' to vertically position the checked state tick icon.
+ * 5. 'Magic number' to set the width of checked state tick icon.
+ * 6. Apply custom focus styles to the label if the input is focused.
+ * 7. Make the checked state tick visible if the input is selected.
+ */
+
+.uhb-c-checkbox__label {
+  cursor: pointer;
+  display: block;
+  touch-action: manipulation;
+
+  &::before {
+    border: $checkbox-border-width solid $uhb-color-blue;
+    content: '';
+    height: $checkbox-input-size;
+    left: uhb-spacing(1);
+    position: absolute;
+    top: 0;
+    width: $checkbox-input-size;
+    z-index: 0;
+  }
+
+  &::after {
+    background: transparent;
+    border: solid;
+    border-bottom-color: $uhb-color-white;
+    border-left-color: $uhb-color-white;
+    border-top-color: transparent;
+    border-width: 0 0 $checkbox-input-tick-width $checkbox-input-tick-width;
+    content: '';
+    height: 8px; // [1]
+    left: 10px; // [2]
+    opacity: 0; // [3]
+    position: absolute;
+    top: 7px; // [4]
+    transform: rotate(-45deg);
+    width: 12px; // [5]
+    z-index: 1;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    &::before {
+      left: uhb-spacing(2);
+    }
+
+    &::after {
+      left: 14px; // [2]
+    }
+  }
+}
+
+.uhb-c-checkbox__input:focus + .uhb-c-checkbox__label {
+  &::before {
+    @include uhb-focused-checkbox; // [6]
+  }
+}
+
+.uhb-c-checkbox__input:checked + .uhb-c-checkbox__label {
+  &::before {
+    background-color: $uhb-color-blue;
+  }
+  
+  &::after {
+    opacity: 1; // [7]
+  }
+}

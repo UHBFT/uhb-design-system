@@ -1,0 +1,51 @@
+///* ==========================================================================
+//   01-SETTINGS -> #GRID
+//   ======================================================================= */
+
+@import 'spacing';
+@import 'breakpoints';
+
+// 
+// The grid settings file contains variables that control the flexbox grid
+// system.
+//
+
+
+//
+// Grid columns
+//
+// Sets the number of columns that fit onto a single row.
+//
+
+$uhb-grid-columns: 12;
+
+
+//
+// Grid gutter
+//
+// Sets the horizontal spacing between grid columns.
+//
+
+$uhb-grid-gutter-default: map-get($uhb-spacing-scale, 3);
+$uhb-grid-gutter-md:      map-get($uhb-spacing-scale, 4);
+$uhb-grid-gutter-xl:      map-get($uhb-spacing-scale, 5);
+
+
+//
+// Grid max-width
+//
+// Sets the maximum width of the grid.
+//
+
+$uhb-grid-max-width: map-get($uhb-breakpoints, 'xl');
+
+
+//
+// Grid spacing
+//
+// Sets the vertical spacing between grid columns.
+//
+
+$uhb-grid-spacing-default: map-get($uhb-spacing-scale, 5);
+$uhb-grid-spacing-md:      map-get($uhb-spacing-scale, 6);
+$uhb-grid-spacing-xl:      map-get($uhb-spacing-scale, 7);

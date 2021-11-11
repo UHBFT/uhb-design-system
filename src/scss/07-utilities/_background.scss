@@ -1,0 +1,35 @@
+/* ============================================================================
+   07-UTILITIES -> #BACKGROUND
+   ========================================================================= */
+
+/**
+ * The background utility classes set the 'background-color' property of an
+ * element.
+ */
+
+
+.uhb-u-background-grey {
+  background-color: $uhb-color-pale-grey !important;
+}
+
+.uhb-u-background-primary {
+  background-color: $uhb-color-primary !important;
+  background-color: var(--color-primary) !important;
+}
+
+.uhb-u-background-transparent {
+  background-color: transparent !important;
+}
+
+.uhb-u-background-transparent-primary {
+  background-color: rgba($uhb-color-primary, 0.6) !important;
+  background-color: rgba(var(--color-primary-rgb), .6) !important;
+}
+
+.uhb-u-background-transparent-white {
+  background-color: rgba($uhb-color-white, .6) !important;
+}
+
+.uhb-u-background-white {
+  background-color: $uhb-color-white !important;
+}

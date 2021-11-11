@@ -1,0 +1,119 @@
+/* ============================================================================
+   06-COMPONENTS -> #RADIO
+   ========================================================================= */
+
+/**
+ * The radio component allows users to select a single option from a list of
+ * options.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/radio.htm
+ */
+
+ 
+/**
+ * Settings
+ */
+
+$radio-border-width:       $uhb-global-border-width / 2;
+$radio-input-size:         $uhb-icon-size;
+$radio-input-checked-size: $radio-input-size / 2;
+
+
+/**
+ * Radio item
+ */
+
+.uhb-c-radio__item {
+  margin-top: uhb-spacing(3);
+  position: relative;
+
+  &::before {
+    content: none;
+  }
+}
+
+
+/**
+ * Radio input
+ */
+
+.uhb-c-radio__input {
+  cursor: pointer;
+  height: $radio-input-size;
+  left: uhb-spacing(1);
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: $radio-input-size;
+  z-index: 1;
+
+  @include uhb-media-query($from: 'md') {
+    left: uhb-spacing(2);
+  }
+}
+
+
+/**
+ * Radio label
+ *
+ * 1. Hide the checked state dot by default. 
+ * 2. 'Magic number' uto position the checked state dot.
+ * 3. Apply custom focus styles to the label if the input is focused.
+ * 4. Make the checked state dot visible if the input is selected.
+ */
+
+.uhb-c-radio__label {
+  cursor: pointer;
+  display: block;
+  margin-top: 0;
+  touch-action: manipulation;
+
+  &::before {
+    border: $radio-border-width solid $uhb-color-blue;
+    border-radius: 50%;
+    content: '';
+    height: $radio-input-size;
+    left: uhb-spacing(1);
+    position: absolute;
+    top: 0;
+    width: $radio-input-size;
+    z-index: 0;
+  }
+
+  &::after {
+    background-color: $uhb-color-blue;
+    border-radius: 50%;
+    content: '';
+    height: $radio-input-checked-size;
+    left: 0;
+    opacity: 0; // [1]
+    position: absolute;
+    top: 0;
+    transform: translate(10px, 6px); // [2]
+    transform-origin: 0 0;
+    width: $radio-input-checked-size;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    &::before {
+      left: uhb-spacing(2);
+    }
+
+    &::after {
+      transform: translate(14px, 6px); // [2]
+    }
+  }
+}
+
+.uhb-c-radio__input:focus+.uhb-c-radio__label {
+  &::before {
+    @include uhb-focused-radio; // [3]
+  }
+}
+
+.uhb-c-radio__input:checked+.uhb-c-radio__label {
+  &::after {
+    opacity: 1; // [4]
+  }
+}

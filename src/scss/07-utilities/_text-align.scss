@@ -1,0 +1,31 @@
+/* ============================================================================
+   07-UTILITIES -> #TEXT-ALIGN
+   ========================================================================= */
+
+/**
+ * The text-align utility classes set the 'text-align' property of an element
+ * at any breakpoint.
+ */
+
+
+$text-align-directions: (
+  center,
+  left,
+  right
+);
+
+@each $direction in $text-align-directions {
+  .uhb-u-text-align-#{$direction} {
+    display: #{$direction};
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+    @if ($breakpoint-name != null) {
+      @include uhb-media-query($from: $breakpoint-name) {
+        .uhb-u-text-align-#{$direction}\@#{$breakpoint-name} {
+          display: #{$direction};
+        }
+      }
+    }
+  }
+}

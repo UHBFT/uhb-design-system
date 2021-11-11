@@ -1,0 +1,56 @@
+/* ============================================================================
+   06-COMPONENTS -> #INPUT
+   ========================================================================= */
+  
+/**
+ * The input component allows users to enter a single line of text.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/input.htm
+ */
+
+
+/** 
+ * Input
+ *
+ * 1. Remove browser-specific styling.
+ * 2. Set an explicit height to reduce cross-browser inconsistencies with
+ *    line-height.
+ */
+
+.uhb-c-input {
+  @include uhb-font-size('body');
+  appearance: none; // [1]
+  border: $uhb-global-border-width solid $uhb-color-form-border;
+  border-radius: 0;
+  height: $uhb-form-element-height-default; // [2]
+  margin-top: uhb-spacing(3);
+  padding: uhb-spacing(1) uhb-spacing(3);
+  width: 100%;
+
+  &:focus {
+    @include uhb-focused-text-input;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    height: $uhb-form-element-height-md; // [2]
+    margin-top: uhb-spacing(4);
+    padding: uhb-spacing(2) uhb-spacing(4);
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Error input
+ *
+ * Indicates a validation error on the input.
+ */
+
+.uhb-c-input--error {
+  border-color: $uhb-color-error;
+}

@@ -1,0 +1,17 @@
+/* ==========================================================================
+   08 - THEMES / PRIMARY / BRIGHT BLUE
+   ========================================================================== */
+
+.uhb-t-primary-bright-blue {
+  --global-bar-color: #{$uhb-color-blue};
+  --global-bar-highlight-color: #{$uhb-color-bright-blue};
+  --global-bar-highlight-item-color: #{$uhb-color-dark-blue};
+  --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-primary)};
+  --color-primary: #{$uhb-color-bright-blue};
+  --color-primary-hover: #{$uhb-color-blue};
+  --color-primary-active: #{$uhb-color-dark-blue};
+
+  .uhb-c-pull-quote::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-emergency-services-red}', '#', '%23' )));
+  }
+}

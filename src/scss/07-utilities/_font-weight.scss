@@ -1,0 +1,20 @@
+/* ============================================================================
+   07-UTILITIES -> #FONT-WEIGHT
+   ========================================================================= */
+
+/**
+ * The font-weight utility classes set the font-weight property for an element.
+ */
+
+
+.uhb-u-font-weight-light {
+  font-weight: $uhb-font-weight-light !important;
+}
+
+.uhb-u-font-weight-regular {
+  font-weight: $uhb-font-weight-regular !important;
+}
+
+.uhb-u-font-weight-bold {
+  font-weight: $uhb-font-weight-bold !important;
+}

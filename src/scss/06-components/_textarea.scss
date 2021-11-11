@@ -1,0 +1,51 @@
+/* ============================================================================
+   06-COMPONENTS -> #TEXTAREA
+   ========================================================================= */
+  
+/**
+ * The textarea component allows users to enter multiple lines of text.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/forms/textarea.htm
+ */
+
+ 
+/** 
+ * Textarea
+ *
+ * 1. Remove browser-specific styling.
+ */
+
+.uhb-c-textarea {
+  @include uhb-font-size('body');
+  appearance: none; // [1]
+  border: $uhb-global-border-width solid $uhb-color-form-border;
+  border-radius: 0;
+  margin-top: uhb-spacing(3);
+  padding: uhb-spacing(1) uhb-spacing(3);
+  width: 100%;
+
+  &:focus {
+    @include uhb-focused-text-input;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding: uhb-spacing(2) uhb-spacing(4);
+  }
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================== */
+
+/**
+ * Textarea error
+ *
+ * Indicates a validation error on the textarea.
+ */
+
+.uhb-c-textarea--error {
+  border-color: $uhb-color-error;
+}

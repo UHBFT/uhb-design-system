@@ -1,0 +1,77 @@
+///* ==========================================================================
+//   02-TOOLS -> MIXINS -> #MEDIA-QUERY
+//   ======================================================================= */
+
+///
+/// Creates a @media rule using a breakpoint key value from the 
+/// $uhb-breakpoints map.
+///
+/// @param {String} $from [null] - key of breakpoint
+/// @param {String} $to [null] - key of breakpoint
+/// @param {String} $media-type [screen] - media type
+/// @param {String} $and - additional arguments
+///
+/// @returns {String} pixel value - eg 1200px
+///
+/// @example scss
+///   .element {
+///     @include uhb-media-query($from: 'md') {
+///       padding: 24px;
+///     }
+///   }
+///
+/// 1. Check max-width is larger than min-width value.
+/// 2. Get the max-width value
+///
+
+@mixin uhb-media-query($from: null, $to: null, $media-type: 'screen', $and: false) {
+  $min-width: 0;
+  $max-width: 0;
+  $media-query-string: '';
+  
+  @if $from {
+      @if type-of($from) == 'number' {
+          $min-width: $from;
+      } @else {
+          $min-width: uhb-breakpoint-width($from);
+      }
+  }
+  
+  @if $to {
+      @if type-of($to) == 'number' {
+          $max-width: $to;
+      } @else {
+          $max-width: uhb-breakpoint-width($to) - 0.2px; // [] //
+      }
+  }
+
+  @if uhb-remove-unit($max-width) != 0 and $min-width >= $max-width { 
+    @error '$from value must be smaller than $to value.'; 
+  }
+  
+  @if uhb-remove-unit($min-width) != 0 { 
+    $media-query-string: '#{$media-query-string} and (min-width: #{$min-width})'; 
+  }
+  
+  @if uhb-remove-unit($max-width) != 0 { 
+    $media-query-string: '#{$media-query-string} and (max-width: #{$max-width})'; 
+  }
+  
+  @if ($and) {  
+    $media-query: '#{$media-query} and #{$and}'; 
+  }
+
+  @if $media-type == 'screen' {
+    @if uhb-remove-unit($min-width) == 0 and uhb-remove-unit($max-width) == 0 {
+      @content;
+    } @else {
+      @media #{$media-type $media-query-string} {
+        @content;
+      }   
+    }
+  } @else if $media-type == 'print' {
+    @media print {
+      @content;
+    }
+  }
+}

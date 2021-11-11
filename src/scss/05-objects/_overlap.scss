@@ -1,0 +1,43 @@
+/* ============================================================================
+   05-OBJECTS -> #OVERLAP
+   ========================================================================= */
+
+/**
+ * The overlap object adds padding-top to an element to allow the card
+ * component to overlap it without obstructing its content.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/overlap.htm
+ */
+
+
+/**
+ * Settings
+ *
+ * 1. Combines the default hb-o-section padding, uhb-c-card padding and border
+ *    width.
+ */
+
+$overlap-padding-xs: uhb-spacing(5) + uhb-spacing(3) + $uhb-global-border-width; // [1]
+$overlap-padding-md: uhb-spacing(6) + uhb-spacing(4) + $uhb-global-border-width; // [1]
+$overlap-padding-xl: uhb-spacing(7) + uhb-spacing(5) + $uhb-global-border-width; // [1]
+
+
+/**
+ * Overlap
+ *
+ * 1. Use !important to override padding-top and ensure overlap works as
+ *    intended.
+ */
+
+.uhb-o-overlap {
+  padding-top: $overlap-padding-xs !important; // [1]
+
+  @include uhb-media-query($from: 'md') {
+    padding-top: $overlap-padding-md !important; // [1]
+  }
+
+  @include uhb-media-query($from: 'xl') {
+    padding-top: $overlap-padding-xl !important; // [1]
+  }
+}

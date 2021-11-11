@@ -1,0 +1,79 @@
+/* ============================================================================
+   06-COMPONENTS -> #FEATURED-LIST
+   ========================================================================= */
+
+/**
+ * The featured list component 
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/featured-list.htm
+ */
+
+
+/**
+ * Featured list
+ *
+ * 1. Add 'margin-top' to the featured list component if it follows another
+ *    element.
+ * 2. Add 'margin-top' to an element if it follows the featured list component.
+ */
+
+.uhb-c-featured-list {
+  @include uhb-responsive-margin(7, 'top');
+
+  * + & {
+    @include uhb-responsive-margin(7, 'top'); // [1]
+  }
+
+  & + * {
+    @include uhb-responsive-margin(7, 'top'); // [2]
+  }
+}
+
+
+/**
+ * Featured list item
+ *
+ * 1. Make content equal height if the featured list is split into columns.
+ */
+
+.uhb-c-featured-list__item {
+  @include uhb-responsive-margin(7, 'top');
+  display: flex; // [1]
+  padding-left: 0;
+
+  &::before {
+    content: none;
+  }
+}
+
+
+/**
+ * Featured list item
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ * 3. Add ordered list counter.
+ */
+
+.uhb-c-featured-list__content {
+  border-bottom: $uhb-global-border-width solid $uhb-color-primary; // [1]
+  border-bottom-color: var(--color-primary); // [2]
+  padding-bottom: uhb-spacing(3);
+  position: relative;
+  width: 100%;
+
+  // [3]
+  &::before {
+    @include uhb-font-size('h4');
+    color: $uhb-color-primary; // [1]
+    color: var(--color-primary); // [2]
+    content: counter(ordered-list-item);
+    display: block;
+    font-weight: $uhb-font-weight-bold;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    padding-bottom: uhb-spacing(4);
+  }
+}

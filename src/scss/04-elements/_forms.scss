@@ -1,0 +1,17 @@
+/* ============================================================================
+   04-ELEMENTS -> #FORMS
+   ========================================================================= */
+
+/**
+ * Sets the default styles for form elements. 
+ *
+ * 1. Inherit font styles for form elements.
+ */
+
+
+button, 
+input,
+select,
+textarea {
+  font: inherit; // [1]
+}

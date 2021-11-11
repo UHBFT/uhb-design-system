@@ -1,0 +1,29 @@
+/* ============================================================================
+   05-OBJECTS -> #LIST-BARE
+   ========================================================================= */
+
+/**
+ * The bare list object removes indentation and markers from a list.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/design-system/foundation/lists.htm
+ */
+
+
+/**
+ * List bare
+ *
+ * 1. Remove the custom list marker pseudo-element.
+ */
+
+.uhb-o-list-bare {
+  list-style: none;
+}
+
+.uhb-o-list-bare > li{
+  padding-left: 0;
+
+  &::before {
+    content: none; // [1]
+  }
+}

@@ -1,0 +1,104 @@
+/* ============================================================================
+   06-COMPONENTS -> #ICON
+   ========================================================================= */
+
+/**
+ * The icon component provides additional meaning or a visual cue for an
+ * action.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/content/icon.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$icon-size-medium: $uhb-icon-size * 2;
+$icon-size-large:  $uhb-icon-size * 4;
+
+
+/**
+ * Icon
+ */
+
+.uhb-c-icon {
+  @include uhb-transition(('fill'));
+  display: inline-block;
+  fill: currentColor;
+  height: $uhb-icon-size;
+  pointer-events: none;
+  width: $uhb-icon-size;
+  vertical-align: middle;
+}
+
+
+
+
+/* MODIFIERS
+   ========================================================================= */
+
+/**
+ * Medium size icon
+ *
+ * Doubles the size of an icon.
+ */
+
+.uhb-c-icon--medium {
+  height: $icon-size-medium;
+  width: $icon-size-medium;
+}
+
+
+/**
+ * Large size icon size icon
+ *
+ * Doubles the size of an icon and quadruples it at md.
+ */
+
+.uhb-c-icon--large {
+  height: $icon-size-medium;
+  width: $icon-size-medium;
+
+  @include uhb-media-query($from: 'md') {
+    height: $icon-size-large;
+    width: $icon-size-large;
+  }
+}
+
+
+/**
+ * PDF document icon
+ */
+
+.uhb-c-icon--pdf {
+  fill: $uhb-color-emergency-services-red !important;
+}
+
+
+/**
+ * Word document icon
+ */
+
+.uhb-c-icon--word {
+  fill: $uhb-color-blue !important;
+}
+
+
+/**
+ * Excel document icon
+ */
+
+.uhb-c-icon--excel {
+  fill: $uhb-color-green !important;
+}
+
+
+/**
+ * PowerPoint document
+ */
+
+.uhb-c-icon--powerpoint {
+  fill: $uhb-color-pink !important;
+}

@@ -1,0 +1,103 @@
+/* ============================================================================
+   06-COMPONENTS -> #SEARCH
+   ========================================================================= */
+
+/**
+ * The search component allows users to find relevant content by entering words
+ * or phrases.
+ *
+ * @demo
+ * https://uhb.nhs.uk/design-system/components/navigation/search.htm
+ */
+
+
+/**
+ * Settings
+ */
+
+$search-input-height-default: $uhb-form-element-height-default;
+$search-input-height-md:      $uhb-form-element-height-md;
+
+
+/**
+ * Search
+ */
+
+.uhb-c-search {
+  position: relative;
+}
+
+
+/**
+ * Search input
+ *
+ * 1. Remove browser-specific styling.
+ * 2. Set 'border-radius' to give curved borders equivalent to half the inputs
+ *    height.
+ * 3. Set an explicit height to reduce cross-browser inconsistencies with
+ *    line-height.
+ */
+
+.uhb-c-search__input {
+  @include uhb-font-size('body');
+  appearance: none; // [1]
+  border: $uhb-global-border-width solid $uhb-color-mid-grey;
+  border-radius: $search-input-height-default / 2; // [2]
+  height: $search-input-height-default; // [3]
+  margin-top: 0;
+  padding: uhb-spacing(1) uhb-spacing(8) uhb-spacing(1) uhb-spacing(3);
+  width: 100%;
+
+  &:focus {
+    @include uhb-focused-text-input;
+  }
+
+  // [1]
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  // [1]
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  @include uhb-media-query($from: 'md') {
+    border-radius: $search-input-height-md / 2; // [2]
+    height: $search-input-height-md; // [3]
+    padding: uhb-spacing(2) uhb-spacing(9) uhb-spacing(2) uhb-spacing(4);
+  }
+}
+
+
+/**
+ * Search submit
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
+ */
+
+.uhb-c-search__submit {
+  background-color: $uhb-color-action-button; // [1]
+  background-color: var(--color-action-button); // [2]
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:hover {
+    background-color: $uhb-color-action-button-hover; // [1]
+    background-color: var(--color-action-button-hover); // [2]
+  }
+
+  &:active {
+    background-color: $uhb-color-action-button-active; // [1]
+    background-color: var(--color-action-button-active); // [2]
+  }
+}
