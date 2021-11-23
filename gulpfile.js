@@ -3,11 +3,12 @@ const cleanCSS = require('gulp-clean-css');
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
+sass.compiler = require('sass');
 const uglify = require('gulp-uglify');
 const webpack = require('webpack-stream');
 
 
-// Compile CSS
+// Build, autoprefix and minify SCSS
 function compileCSS () {
   return gulp.src('./src/scss/index.scss')
     .pipe(sass())
@@ -16,6 +17,8 @@ function compileCSS () {
     }))
     .pipe(gulp.dest('./dist'))
 }
+
+exports.compileCSS = compileCSS;
 
 
 // Minify and clean CSS

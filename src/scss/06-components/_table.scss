@@ -9,6 +9,17 @@
  * https://uhb.nhs.uk/design-system/components/content/table.htm
  */
 
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools' as *;
+
+
+//
+// Settings
+//
+
+$table-border-width: div($uhb-global-border-width, 2);
+
 
 /*
  * Table responsive cell

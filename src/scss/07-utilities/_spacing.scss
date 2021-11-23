@@ -8,6 +8,9 @@
  */
 
 
+@use '01-settings' as *;
+@use '02-tools' as *; 
+
 ///
 /// Generates resposnive spacing utility classes for margin or padding
 ///
@@ -24,15 +27,15 @@ $spacing-directions: (
   'left'
 );
 
-@mixin _uhb-generate-spacing-utilities($property) {
+@mixin uhb-generate-spacing-utilities($property) {
   @each $spacing-point, $responsive-scale in $uhb-spacing-responsive-scale {
     .uhb-u-#{$property}-#{$spacing-point} {
-      @include _uhb-responsive-spacing($spacing-point, $property, 'all');
+      @include uhb-responsive-spacing($spacing-point, $property, 'all');
     }
 
     @each $direction in $spacing-directions {
       .uhb-u-#{$property}-#{$direction}-#{$spacing-point} {
-        @include _uhb-responsive-spacing($spacing-point, $property, $direction);
+        @include uhb-responsive-spacing($spacing-point, $property, $direction);
       }
 
       @if ($property == 'margin') {
@@ -44,5 +47,5 @@ $spacing-directions: (
   }  
 }
 
-@include _uhb-generate-spacing-utilities('margin');
-@include _uhb-generate-spacing-utilities('padding');
+@include uhb-generate-spacing-utilities('margin');
+@include uhb-generate-spacing-utilities('padding');

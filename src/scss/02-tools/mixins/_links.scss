@@ -2,11 +2,18 @@
 //   02-TOOLS -> MIXINS -> #LINKS
 //   ======================================================================= */
 
+
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use 'transition' as *;
+@use 'media-query' as *;
+
+
 //
 // Settings
 //
 
-$link-underline-width: $uhb-global-border-width / 2;
+$link-underline-width: div($uhb-global-border-width, 2);
 
 
 ///

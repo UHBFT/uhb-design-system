@@ -11,6 +11,9 @@
  */
 
 
+@use 'sass:math' as *;
+
+
 /**
  * Settings
  */
@@ -83,7 +86,7 @@ $aspect-ratio-map: (
     }
 
     .uhb-o-aspect-ratio--#{$ratio-name} {
-      padding-top: ($y / $x) * 100%;
+      padding-top: div($y, $x) * 100%;
     }
 
   }

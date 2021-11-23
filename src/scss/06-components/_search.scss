@@ -11,6 +11,11 @@
  */
 
 
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools' as *;
+
+
 /**
  * Settings
  */
@@ -42,7 +47,7 @@ $search-input-height-md:      $uhb-form-element-height-md;
   @include uhb-font-size('body');
   appearance: none; // [1]
   border: $uhb-global-border-width solid $uhb-color-mid-grey;
-  border-radius: $search-input-height-default / 2; // [2]
+  border-radius: div($search-input-height-default, 2); // [2]
   height: $search-input-height-default; // [3]
   margin-top: 0;
   padding: uhb-spacing(1) uhb-spacing(8) uhb-spacing(1) uhb-spacing(3);
@@ -69,7 +74,7 @@ $search-input-height-md:      $uhb-form-element-height-md;
   }
 
   @include uhb-media-query($from: 'md') {
-    border-radius: $search-input-height-md / 2; // [2]
+    border-radius: div($search-input-height-md, 2); // [2]
     height: $search-input-height-md; // [3]
     padding: uhb-spacing(2) uhb-spacing(9) uhb-spacing(2) uhb-spacing(4);
   }

@@ -2,6 +2,12 @@
 //   02-TOOLS -> MIXINS -> #MEDIA-QUERY
 //   ======================================================================= */
 
+
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools/functions' as *;
+
+
 ///
 /// Creates a @media rule using a breakpoint key value from the 
 /// $uhb-breakpoints map.
@@ -30,7 +36,7 @@
   $media-query-string: '';
   
   @if $from {
-      @if type-of($from) == 'number' {
+      @if (type-of($from) == 'number') {
           $min-width: $from;
       } @else {
           $min-width: uhb-breakpoint-width($from);
@@ -38,14 +44,14 @@
   }
   
   @if $to {
-      @if type-of($to) == 'number' {
+      @if (type-of($to) == 'number') {
           $max-width: $to;
       } @else {
-          $max-width: uhb-breakpoint-width($to) - 0.2px; // [] //
+          $max-width: uhb-breakpoint-width($to) - 0.2px; // []
       }
   }
 
-  @if uhb-remove-unit($max-width) != 0 and $min-width >= $max-width { 
+  @if (uhb-remove-unit($max-width) != 0) and ($min-width >= $max-width) { 
     @error '$from value must be smaller than $to value.'; 
   }
   

@@ -6,6 +6,8 @@
  * The color utility classes set the 'color' property of an element.
  */
 
+@use '01-settings' as *; 
+
 
 .uhb-u-color-black {
   color: $uhb-color-black !important;

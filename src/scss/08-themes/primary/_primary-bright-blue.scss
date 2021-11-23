@@ -2,6 +2,10 @@
    08 - THEMES / PRIMARY / BRIGHT BLUE
    ========================================================================== */
 
+
+@use '01-settings' as *; 
+
+
 .uhb-t-primary-bright-blue {
   --global-bar-color: #{$uhb-color-blue};
   --global-bar-highlight-color: #{$uhb-color-bright-blue};

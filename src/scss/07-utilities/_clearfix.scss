@@ -6,6 +6,8 @@
  * The clearfix utility class clears an elements floated child elements.
  */
 
+@use '02-tools' as *; 
+
 
 .uhb-u-clearfix {
   @include uhb-clearfix;

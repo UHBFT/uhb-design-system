@@ -11,6 +11,11 @@
  */
 
 
+@use 'sass:math' as *; 
+@use '01-settings' as *;
+@use '02-tools' as *;
+
+
 %heading { 
   color: $uhb-color-primary; // [1]
   color: var(--color-primary); // [2]

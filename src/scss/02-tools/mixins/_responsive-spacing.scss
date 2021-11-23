@@ -2,6 +2,10 @@
 // 02-TOOLS -> MIXINS -> #RESPONSIVE-SPACING
 // ============================================================================
 
+
+@use '01-settings' as *;
+@use 'media-query' as *;
+
 //
 // Settings
 //
@@ -29,7 +33,7 @@ $responsive-spacing-breakpoints: (
 ///   }
 ///
 
-@mixin _uhb-responsive-spacing($spacing-point, $property, $directions: 'all', $important: false) {
+@mixin uhb-responsive-spacing($spacing-point, $property, $directions: 'all', $important: false) {
 
   // Check if $spacing-point is a number
   @if (type-of($spacing-point) !='number') {
@@ -96,7 +100,7 @@ $responsive-spacing-breakpoints: (
 ///
 
 @mixin uhb-responsive-margin($spacing-point, $directions: 'all', $important: false) {
-  @include _uhb-responsive-spacing($spacing-point, 'margin', $directions, $important);
+  @include uhb-responsive-spacing($spacing-point, 'margin', $directions, $important);
 }
 
 
@@ -116,5 +120,5 @@ $responsive-spacing-breakpoints: (
 ///
 
 @mixin uhb-responsive-padding($spacing-point, $directions: 'all', $important: false) {
-  @include _uhb-responsive-spacing($spacing-point, 'padding', $directions, $important);
+  @include uhb-responsive-spacing($spacing-point, 'padding', $directions, $important);
 }

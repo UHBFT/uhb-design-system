@@ -2,6 +2,12 @@
 // 02-TOOLS -> MIXINS -> #TYPOGRAPHY
 // ============================================================================
 
+
+@use '01-settings' as *; 
+@use '02-tools/functions' as *;
+@use 'media-query' as *; 
+
+
 ///
 /// Adds font-size and line-height styles at each specified breakpoint and
 /// print

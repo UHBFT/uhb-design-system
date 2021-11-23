@@ -2,6 +2,10 @@
    08 - THEMES / PRIMARY / RED
    ========================================================================== */
 
+  
+@use '01-settings' as *; 
+
+
 .uhb-t-primary-red {
   --global-bar-color: #{$uhb-color-dark-red};
   --global-bar-highlight-color: #{$uhb-color-emergency-services-red};
