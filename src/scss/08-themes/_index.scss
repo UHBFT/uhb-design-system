@@ -7,22 +7,22 @@
 // Primary
 //
 
-@import 'primary/primary-bright-blue';
-@import 'primary/primary-red';
+@forward 'primary/primary-bright-blue';
+@forward 'primary/primary-red';
 
 
 //
 // Border
 //
 
-@import 'border/border-aqua-green';
-@import 'border/border-dark-red';
-@import 'border/border-red';
+@forward 'border/border-aqua-green';
+@forward 'border/border-dark-red';
+@forward 'border/border-red';
 
 
 //
 // Button
 //
 
-@import 'button/button-bright-blue';
-@import 'button/button-pink';
+@forward 'button/button-bright-blue';
+@forward 'button/button-pink';

@@ -2,6 +2,11 @@
 //   02-TOOLS -> FUNCTIONS -> #WIDTH
 //   ======================================================================= */
 
+
+@use 'sass:math' as *;
+@use '01-settings' as *;
+
+
 /// 
 /// Returns the number of columns as a percentage of the total columns in the
 /// grid.
@@ -22,5 +27,5 @@
     @error '$width parameter must be qual to or smaller than #{$uhb-grid-columns}.';
   }
   
-  @return ((100 / $columns) * $width) * 1%;
+  @return (div(100, $columns) * $width) * 1%;
 }

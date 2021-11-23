@@ -3,18 +3,18 @@
 //   ======================================================================= */
 
 
-@import 'background';
-@import 'border';
-@import 'clearfix';
-@import 'color';
-@import 'display';
-@import 'flex';
-@import 'float';
-@import 'font-size';
-@import 'font-weight';
-@import 'hide';
-@import 'offset';
-@import 'spacing';
-@import 'text-align';
-@import 'visually-hidden';
-@import 'width';
+@forward 'background';
+@forward 'border';
+@forward 'clearfix';
+@forward 'color';
+@forward 'display';
+@forward 'flex';
+@forward 'float';
+@forward 'font-size';
+@forward 'font-weight';
+@forward 'hide';
+@forward 'offset';
+@forward 'spacing';
+@forward 'text-align';
+@forward 'visually-hidden';
+@forward 'width';

@@ -10,6 +10,11 @@
  */
 
 
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools' as *;
+
+
 /** 
  * Video
  *
@@ -63,12 +68,12 @@
 .uhb-c-video__container {
   @include uhb-media-query($from: 'md') {
     margin-right: $uhb-grid-gutter-md;
-    width: calc(50% - #{$uhb-grid-gutter-md / 2});
+    width: calc(50% - div($uhb-grid-gutter-md, 2));
   }
 
   @include uhb-media-query($from: 'xl') {
     margin-right: $uhb-grid-gutter-xl;
-    width: calc(50% - #{$uhb-grid-gutter-xl / 2});
+    width: calc(50% - div($uhb-grid-gutter-xl, 2));
   }
 }
 
@@ -82,11 +87,11 @@
   
   @include uhb-media-query($from: 'md') {
     margin-top: 0;
-    width: calc(50% - #{$uhb-grid-gutter-md / 2});
+    width: calc(50% - div($uhb-grid-gutter-md, 2));
   }
 
   @include uhb-media-query($from: 'xl') {
-    width: calc(50% - #{$uhb-grid-gutter-xl / 2});
+    width: calc(50% - div($uhb-grid-gutter-xl, 2));
   }
 }
 

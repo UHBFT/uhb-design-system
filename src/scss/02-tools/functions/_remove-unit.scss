@@ -2,6 +2,10 @@
 //   02-TOOLS -> FUNCTIONS -> #REMOVE-UNIT
 //   ======================================================================= */
 
+
+@use 'sass:math' as *;
+
+
 ///
 /// Removes the unit from a number.
 ///
@@ -20,6 +24,6 @@
     @error 'Expected a number but received a #{type-of($value)}.';
   }
 
-  @return $value / ($value * 0 + 1);
+  @return div($value, ($value * 0 + 1));
 
 }

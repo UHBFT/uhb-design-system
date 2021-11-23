@@ -2,13 +2,14 @@
 //   01-SETTINGS -> #GRID
 //   ======================================================================= */
 
-@import 'spacing';
-@import 'breakpoints';
-
 // 
 // The grid settings file contains variables that control the flexbox grid
 // system.
 //
+
+
+@use 'spacing' as *;
+@use 'breakpoints' as *;
 
 
 //

@@ -10,12 +10,16 @@
  * https://uhb.nhs.uk/design-system/components/forms/checkbox.htm
  */
 
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools' as *;
+
 
 /**
  * Settings
  */
 
-$checkbox-border-width:     $uhb-global-border-width / 2;
+$checkbox-border-width:     div($uhb-global-border-width, 2);
 $checkbox-input-size:       $uhb-icon-size;
 $checkbox-input-tick-width: $uhb-global-border-width;
 

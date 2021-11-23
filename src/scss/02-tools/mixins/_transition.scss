@@ -2,6 +2,10 @@
 //   02-TOOLS -> MIXINS -> #TRANSITION
 //   ======================================================================= */
 
+
+@use '01-settings' as *;
+
+
 ///
 /// Adds transition styles to a list of properties
 ///

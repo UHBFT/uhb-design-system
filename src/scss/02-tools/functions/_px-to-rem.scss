@@ -2,6 +2,11 @@
 //   02-TOOLS -> FUNCTIONS -> #PX-TO-REM
 //   ======================================================================= */
 
+
+@use 'sass:math' as *;
+@use '01-settings' as *;
+
+
 ///
 /// Converts a px value to a rem value.
 ///
@@ -20,6 +25,6 @@
     $value: $value * 1px;
   }
 
-  @return ($value / $uhb-global-font-size) * 1rem;
+  @return div($value, $uhb-global-font-size) * 1rem;
   
 }

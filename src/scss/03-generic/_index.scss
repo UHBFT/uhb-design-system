@@ -2,8 +2,12 @@
 //   03-GENERIC -> #INDEX
 //   ======================================================================= */
 
+//
+// Forward all generic styles.
+//
 
-@import 'reset';
-@import 'box-sizing';
-@import 'font-face';
-@import 'shared';
+
+@forward 'reset';
+@forward 'box-sizing';
+@forward 'font-face';
+@forward 'shared';

@@ -7,6 +7,9 @@
  */
 
 
+@use '01-settings' as *;
+
+
 @font-face {
   font-family:'Frutiger W01';
   font-style: normal;
@@ -20,6 +23,7 @@
 
 }
 
+
 @font-face {
   font-family: 'Frutiger W01';
   font-display: swap;
@@ -32,6 +36,7 @@
        url('https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.ttf') format('truetype'),
        url('https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.svg#7def0e34-f28d-434f-b2ec-472bde847115') format('svg');
 }
+
 
 @font-face {
   font-family: 'Frutiger W01';

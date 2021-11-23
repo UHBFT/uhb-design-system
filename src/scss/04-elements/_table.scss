@@ -11,12 +11,17 @@
  */
 
 
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools' as *;
+
+
 /**
  * Settings
  */
 
 $table-border-color: $uhb-color-white;
-$table-border-width: $uhb-global-border-width / 2;
+$table-border-width: div($uhb-global-border-width, 2);
 
 
 table {

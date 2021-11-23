@@ -3,10 +3,10 @@
 //   ======================================================================= */
 
 
-@import 'forms';
-@import 'headings';
-@import 'image';
-@import 'link';
-@import 'lists';
-@import 'page';
-@import 'table';
+@forward 'forms';
+@forward 'headings';
+@forward 'image';
+@forward 'link';
+@forward 'lists';
+@forward 'page';
+@forward 'table';

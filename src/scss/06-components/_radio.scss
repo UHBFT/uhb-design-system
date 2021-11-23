@@ -10,14 +10,18 @@
  * https://uhb.nhs.uk/design-system/components/forms/radio.htm
  */
 
+@use 'sass:math' as *;
+@use '01-settings' as *;
+@use '02-tools' as *;
+
  
 /**
  * Settings
  */
 
-$radio-border-width:       $uhb-global-border-width / 2;
+$radio-border-width:       div($uhb-global-border-width, 2);
 $radio-input-size:         $uhb-icon-size;
-$radio-input-checked-size: $radio-input-size / 2;
+$radio-input-checked-size: div($radio-input-size, 2);
 
 
 /**

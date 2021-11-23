@@ -2,14 +2,16 @@
 //   01-SETTINGS -> #FORMS
 //   ======================================================================= */
 
-@import 'global';
-
 // 
 // The forms settings file contains variables that are used across by form
 // components.
 //
 
 
-$uhb-form-border-width:           $uhb-global-border-width / 2;
+@use "sass:math";
+@use 'global' as *;
+
+
+$uhb-form-border-width:           math.div($uhb-global-border-width, 2);
 $uhb-form-element-height-default: 40px;
 $uhb-form-element-height-md:      48px;
