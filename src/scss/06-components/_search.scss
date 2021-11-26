@@ -16,9 +16,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $search-input-height-default: $uhb-form-element-height-default;
 $search-input-height-md:      $uhb-form-element-height-md;
@@ -36,11 +36,12 @@ $search-input-height-md:      $uhb-form-element-height-md;
 /**
  * Search input
  *
- * 1. Remove browser-specific styling.
- * 2. Set 'border-radius' to give curved borders equivalent to half the inputs
- *    height.
- * 3. Set an explicit height to reduce cross-browser inconsistencies with
- *    line-height.
+ * 1. Set the 'appearance' property to 'none' to remove browser-specific
+ *    styling.
+ * 2. Set the 'border-radius' property to give curved borders equivalent to
+ *    half of the inputs height.
+ * 3. Set the 'height' property to an exact value to stop cross-browser
+ *    inconsistencies with the 'line-height' property.
  */
 
 .uhb-c-search__input {

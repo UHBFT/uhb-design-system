@@ -14,9 +14,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */ 
+//
+// Settings
+// 
 
 $pull-quote-triangle-size: uhb-spacing(3);
 $pull-quote-icon-size:     $uhb-icon-size * 2;
@@ -26,10 +26,11 @@ $pull-quote-icon-size:     $uhb-icon-size * 2;
  * Block quote source
  *
  * 1. Add triangle under block quote.
- * 2. Add quotation mark icon.
- * 3. Add 'margin-top' to the pull-quote component if it follows another
+ * 2. Add the quotation mark icon.
+ * 3. Sets the 'margin-top' property if the pull quote component follows another
  *    element.
- * 4. Add 'margin-top' to an element if it follows the pull-quote component.
+ * 4. Sets the 'margin-top' property of an element if it follows the pull quote
+ *    component.
  */
 
 .uhb-c-pull-quote {

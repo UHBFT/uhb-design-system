@@ -55,7 +55,8 @@
  *
  * Visually hides the link off screen until it is focused.
  *
- * 1. Visually hides the skip link.
+ * 1. Set the 'left' property to '-9999px' to visually hide the skip link out
+ *    of the viewport.
  * 2. Positions the skip link within the viewport when it receives active and
  *    focus states.
  */

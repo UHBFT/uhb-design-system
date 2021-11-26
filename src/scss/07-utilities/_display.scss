@@ -7,9 +7,14 @@
  * breakpoint.
  */
 
+
 @use '01-settings' as *;
 @use '02-tools' as *; 
 
+
+//
+// Settings
+//
 
 $display-properties: (
   block,
@@ -17,6 +22,7 @@ $display-properties: (
   flex,
   inline-flex
 );
+
 
 @each $property in $display-properties {
   .uhb-u-display-#{$property} {

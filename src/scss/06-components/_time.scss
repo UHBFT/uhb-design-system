@@ -39,8 +39,11 @@
 /**
  * Time item
  * 
- * 1. Creates equal width inputs that align with the date component inputs.
- * 2. 'Magic number' to vertically position the ':' separator.
+ * 1. Add a separator between the time item inputs.
+ * 2. Set the 'width' property to create equal width inputs that align with the
+ *    date component.
+ * 3. 'Magic number' to set the 'bottom' property and vertically position the
+ *    separator.
  */
 
 .uhb-c-time__item {
@@ -62,6 +65,7 @@
     &:first-child {
       margin-right: $uhb-grid-gutter-default;
 
+      // [1]
       &::after {
         @include uhb-font-size('body');
         bottom: uhb-spacing(2);
@@ -77,20 +81,20 @@
   }
 
   @include uhb-media-query($from: 'md') {
-    width: calc(33.333% - #{$uhb-grid-gutter-md}); // [1]
+    width: calc(33.333% - #{$uhb-grid-gutter-md}); // [2]
 
     &:first-child {
       margin-right: $uhb-grid-gutter-md;
 
       &::after {
-        bottom: 12px; // [2]
+        bottom: 12px; // [3]
         width: $uhb-grid-gutter-md;
       }
     }
   }
 
   @include uhb-media-query($from: 'xl') {
-    width: calc(33.333% - #{$uhb-grid-gutter-xl}); // [1]
+    width: calc(33.333% - #{$uhb-grid-gutter-xl}); // [2]
 
     &:first-child {
       margin-right: $uhb-grid-gutter-xl;
@@ -117,7 +121,8 @@
 /**
  * Time input
  *
- * 1. Override the default 'margin-top' property of the input component.
+ * 1. Use '!important' to override the 'margin-top' property of the input
+ *    component.
  */
 
 .uhb-c-time__input {

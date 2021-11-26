@@ -7,16 +7,16 @@
  * based on the width of its parent element.
  *
  * @demo
- * https://www.uhb.nhs.uk/design-system/foundation/aspect-ratio.htm
+ * https://www.uhb.nhs.uk/design-system/foundation/containers.htm
  */
 
 
 @use 'sass:math' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $aspect-ratio-map: (
   '2\\/1':  (2:1),
@@ -29,7 +29,8 @@ $aspect-ratio-map: (
 /**
  * Aspect ratio
  *
- * 1. Make the default aspect ratio 1:1.
+ * 1. Set the 'padding-top' property to '100%' to make the default aspect ratio
+ *    1:1.
  */
 
 .uhb-o-aspect-ratio {

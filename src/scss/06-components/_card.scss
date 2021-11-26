@@ -52,7 +52,8 @@
 /**
  * Card content
  *
- * 1. Allows the card content to fill up all the remaining space in the card.
+ * 1. Set the 'flex' property to allow the card content to fill up all
+ *    remaining space in the card.
  */
 
 .uhb-c-card__content {
@@ -63,15 +64,13 @@
 
 /**
  * Card heading
- *
- * 1. Inherit the colour from the title to always match the theme.
  */
 
 .uhb-c-card__heading {
   @include uhb-font-size('h6');
   
   .uhb-c-link {
-    color: inherit; // [1]
+    color: inherit;
   }
 }
 
@@ -104,17 +103,14 @@
  *
  * Makes the whole surface of the card clickable.
  *
- * 1. Add pointer cursor to show the area is clickable.
- * 2. Apply primary hover and active styles to default white card.
- * 3. Apply inverse white hover and activ styles to primary and dark primary
- *    cards.
+ * 1. Set the 'cursor' property to 'pointer' to show the card is clickable.
 */
 
 .uhb-c-card--clickable {
   cursor: pointer; // [1]
 }
 
-.uhb-c-card--clickable:not(.uhb-c-card.uhb-c-card--primary):not(.uhb-c-card.uhb-c-card--dark-primary) { // [2]
+.uhb-c-card--clickable:not(.uhb-c-card.uhb-c-card--primary):not(.uhb-c-card.uhb-c-card--dark-primary) {
   &:hover {
     .uhb-c-card__link {
       @include uhb-link-primary-hover;
@@ -130,7 +126,7 @@
 
 
 .uhb-c-card--clickable.uhb-c-card--primary,
-.uhb-c-card--clickable.uhb-c-card--dark-primary { // [3]
+.uhb-c-card--clickable.uhb-c-card--dark-primary {
   &:hover {
     .uhb-c-card__link {
       @include uhb-link-inverse-hover;
@@ -146,10 +142,9 @@
 
 
 /**
- * overlap card
+ * Overlap card
  *
- * The overlap card modifier applies negative margin to a cad to overlap the
- * following section.
+ * Applies negative margin to a cad to overlap the following section.
  */
 
 $card-overlap-margin-default: uhb-spacing(5) + uhb-spacing(3) + $uhb-global-border-width; // [1]
@@ -196,8 +191,8 @@ $card-overlap-margin-xl: uhb-spacing(7) + uhb-spacing(5) + $uhb-global-border-wi
 /**
  * Dark primary card
  *
- * Changes the background colour of the card to the themes primary hover colour
- * to allow it to be placed over the primary colour.
+ * Changes the background colour of the card to the themes primary hover
+ * colour.
  *
  * 1. Fallback value for browsers that don't support CSS custom properties.
  * 2. Custom property used as progressive enhancement for themes.

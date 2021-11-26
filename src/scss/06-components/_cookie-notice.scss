@@ -17,10 +17,11 @@
 /**
  * Cookie notice
  *
- * 1. Add a wash over the page.
- * 2. Allow the cookie notice content to scroll if the viewport height is too
- *    small to contain it.
- * 3. Place the cookie notice above all other elements on the page.
+ * 1. Set the 'backgound-color' property to add a wash over the page.
+ * 2. Set the 'min-height' property to '100%' so the cookie notice content can
+ *    scroll if the viewport height is too small.
+ * 3. Set the 'z-index' property to place the cookie notice above all other
+ *    elements on the page.
  */
 
 .uhb-c-cookie-notice {

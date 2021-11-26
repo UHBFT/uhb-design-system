@@ -14,24 +14,25 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $button-border-radius:  12px; 
-$uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
 
 
 /**
  * Button
  *
- * 1. Fallback value for browsers that don't support CSS custom properties.
- * 2. Custom property used as progressive enhancement for themes.
- * 3. Box shadow is placed on a pseuo-element to reduce re-paints during
- *    animations.
- * 4. Adds active state styles.
- * 5. Adds disabled state styles.
- * 6. 'Magic number' used for padding-bottom and padding-top values.
+ * 1. Set the 'appearance' property to 'none' to remove browser-specific
+ *    styling.
+ * 2. Fallback value for browsers that don't support CSS custom properties.
+ * 3. Custom property used as progressive enhancement for themes.
+ * 4. Set the 'box-shadow' property on the '::before' pseuo-element to reduce
+ *    re-paints during animations.
+ * 5 State hook for active button styles.
+ * 6. State hook for disabled button styles.
+ * 7. 'Magic number' used to set the vertical 'padding' property.
  */
 
 .uhb-c-button {
@@ -39,9 +40,9 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
   @include uhb-font-size('body');
   @include uhb-transition(('background-color', 'color', 'visibility'));
   align-items: center;
-  appearance: none;
-  background-color: $uhb-color-primary; // [1]
-  background-color: var(--color-primary); // [2]
+  appearance: none; // [1]
+  background-color: $uhb-color-primary; // [2]
+  background-color: var(--color-primary); // [3]
   border: 0;
   border-radius: $button-border-radius;
   color: $uhb-color-white;
@@ -56,8 +57,8 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
   z-index: 0;
 
   &:hover {
-    background-color: $uhb-color-primary-hover; // [1]
-    background-color: var(--color-primary-hover); // [2]
+    background-color: $uhb-color-primary-hover; // [2]
+    background-color: var(--color-primary-hover); // [3]
 
     &::before {
       opacity: 0.6;
@@ -65,8 +66,8 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
   }
 
   &:active {
-    background-color: $uhb-color-primary-active; // [1]
-    background-color: var(--color-primary-active); // [2]
+    background-color: $uhb-color-primary-active; // [2]
+    background-color: var(--color-primary-active); // [3]
 
     &::before {
       opacity: 0;
@@ -77,11 +78,11 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
     color: $uhb-color-white;
   }
 
-  // [3]
+  // [4]
   &::before {
     @include uhb-transition(('opacity'));
     border-radius: $button-border-radius;
-    box-shadow: $uhb-box-shadow-button;
+    box-shadow: $uhb-global-box-shadow-button;
     content: '';
     height: 100%;
     left: 0;
@@ -90,7 +91,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
     width: 100%;
   }
 
-  // [4]
+  // [5]
   &.is-active {
     background-color: $uhb-color-active-background;
     color: $uhb-color-active-text;
@@ -100,7 +101,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
     }
   }
 
-  // [5]
+  // [6]
   &.is-disabled,
   &[disabled],
   &[disabled="disabled"] {
@@ -125,7 +126,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
 
   @include uhb-media-query($from: 'md') {
     margin-top: uhb-spacing(4);
-    padding: 12px uhb-spacing(5); // [6]
+    padding: 12px uhb-spacing(5); // [7]
   }
 
   @include uhb-media-query($from: 'xl') {
@@ -154,6 +155,9 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
  *
  * Inverts the colours of the button to a white background with primary colour
  * text.
+ *
+ * 1. Fallback value for browsers that don't support CSS custom properties.
+ * 2. Custom property used as progressive enhancement for themes.
  */
 
 .uhb-c-button--inverse {
@@ -183,7 +187,8 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
  *
  * Circular buttons with an icon and no text.
  *
- * 1. 'Magic number' for padding to create a 48px x 48px button.
+ * 1. 'Magic number' used to set the 'padding' property and create a 48pxx
+ *    48px button.
  */
 
 .uhb-c-button--action {
@@ -228,6 +233,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
   }
 }
 
+
 .uhb-c-button--instagram {
   background-color: #AE2573;
 
@@ -243,6 +249,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
     fill: $uhb-color-white;
   }
 }
+
 
 .uhb-c-button--linkedin {
   background-color: $uhb-color-white;
@@ -260,6 +267,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
   }
 }
 
+
 .uhb-c-button--twitter {
   background-color: #0072CE;
 
@@ -275,6 +283,7 @@ $uhb-box-shadow-button: 0 3px 4px rgba(0, 0, 0, 0.4);
     fill: $uhb-color-white;
   }
 }
+
 
 .uhb-c-button--youtube {
   background-color: #DA291C;

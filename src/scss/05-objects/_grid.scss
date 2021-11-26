@@ -3,10 +3,10 @@
    ========================================================================= */
   
 /**
- * The grid object allows column-based layouts to be created.
+ * The grid object allows responsive column-based layouts to be created.
  *
  * @demo
- * https://www.uhb.nhs.uk/design-system/foundation/layout.htm
+ * https://www.uhb.nhs.uk/design-system/foundation/grid.htm
  */
 
 
@@ -16,6 +16,9 @@
 
 /**
  * Grid
+ *
+ * 1. Set the 'margin-left' property to a negative value to remove the first
+ *    grid items left gap.
  */
 
 .uhb-o-grid {
@@ -23,16 +26,16 @@
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: -$uhb-grid-gutter-default;
+  margin-left: -$uhb-grid-gutter-default; // [1]
   margin-top: 0;
   min-width: 100%;
 
   @include uhb-media-query($from: 'md') {
-    margin-left: -$uhb-grid-gutter-md;
+    margin-left: -$uhb-grid-gutter-md; // [1]
   }
 
   @include uhb-media-query($from: 'xl') {
-    margin-left: -$uhb-grid-gutter-xl;
+    margin-left: -$uhb-grid-gutter-xl; // [1]
   }
 }
 
@@ -40,7 +43,8 @@
 /**
  * Grid item
  *
- * 1. Remove 'margin-top' property if an li element is a grid item.
+ * 1. Remove the 'margin-top' property value if an li element is a grid item.
+ * 2. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-o-grid__item {
@@ -48,9 +52,7 @@
   position: relative;
   width: 100%;
 
-  &::before {
-    content: none;
-  }
+
 
   @include uhb-media-query($from: 'md') {
     padding-left: $uhb-grid-gutter-md;
@@ -61,8 +63,13 @@
   }
 }
 
+
 li.uhb-o-grid__item {
   margin-top: 0; // [1]
+
+  &::before {
+    content: none; // [2]
+  }
 }
 
 
@@ -101,17 +108,20 @@ li.uhb-o-grid__item {
  * Spaced grid
  *
  * Adds vertical spacing between grid items.
+ *
+ * 1. Set the 'margin-bottom' property to a negative value to remove the last
+ *    grid items bottom gap.
  */
 
 .uhb-o-grid--spaced {
-  margin-bottom: -$uhb-grid-spacing-default;
+  margin-bottom: -$uhb-grid-spacing-default; // [1]
 
   @include uhb-media-query($from: 'md') {
-    margin-bottom: -$uhb-grid-spacing-md;
+    margin-bottom: -$uhb-grid-spacing-md; // [1]
   }
 
   @include uhb-media-query($from: 'xl') {
-    margin-bottom: -$uhb-grid-spacing-xl;
+    margin-bottom: -$uhb-grid-spacing-xl; // [1]
   }
 }
 

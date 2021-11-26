@@ -15,9 +15,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $breadcrumb-icon-size: $uhb-icon-size;
 
@@ -25,7 +25,7 @@ $breadcrumb-icon-size: $uhb-icon-size;
 /**
  * Breadcrumb
  *
- * 1. Hide breadcrumb component for print.
+ * 1. Hide the breadcrumb component for print.
  */
 
 .uhb-c-breadcrumb {
@@ -50,12 +50,15 @@ $breadcrumb-icon-size: $uhb-icon-size;
 /**
  * Breadcrumnb item
  *
- * 1. Hide all of the breadcrumb items for screen sizes < md but... (see 4).
- * 2. Remove the default list item marker.
+ * 1. Set the 'display' property to 'none' to hide all of the breadcrumb items
+ *    for screen sizes < md but... (see 4).
+ * 2. Set the 'content' property to 'none' to remove custom list-item marker.
  * 3. Add a chevron icon to all breadcrumb items other than the last child.
- * 4. ...show the last two breadcrumb items only.
- * 5. Current breadcrumb item styles.
- * 6. Show all breadcrumb of the breadcrumb items at screen sizes >= md.
+ * 4. ...set the 'display' property to 'flex' to show the last two breadcrumb
+ *    items only.
+ * 5. State hook for the current breadcrumb item styles.
+ * 6. Set the 'display' property to 'flex' to show all breadcrumb items at
+ *    screen sizes >= md.
  */
 
 .uhb-c-breadcrumb__item {  

@@ -71,7 +71,7 @@
 /**
  * Header global item
  *
- * 1. Remove default list-item marker.
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-c-header__global-item {
@@ -111,7 +111,7 @@
 /**
  * Header container
  *
- * 1. Adds 'margin-top' to header elements that follow eachother.
+ * 1. Sets the 'margin-top' property if a header child follows another element.
  */
 
 .uhb-c-header__container {
@@ -142,8 +142,9 @@
 /**
  * Header logo
  *
- * 1. 'Magic number' used for NHS logo sizing.
- * 2. 'Magic number' used for NHS logo text.
+ * 1. 'Magic numbers' used to set the 'height' and 'width' properties of the
+ *    NHS logo.
+ * 2. 'Magic number' used to set the sizing of the NHS logo text.
  */
 
 .uhb-c-header__logo {
@@ -233,7 +234,7 @@
 /**
  * Header search
  *
- * 1. Open state.
+ * 1. State hook for the open header search styles.
  */
 
 .uhb-c-header__search {
@@ -279,7 +280,8 @@
  * Header search open
  * 1. Fallback value for browsers that don't support CSS custom properties.
  * 2. Custom property used as progressive enhancement for themes.
- * 3. 'Magic number' used to position the open button.
+ * 3. 'Magic number' used to set the 'right' property and position the open
+ *    button.
  */
 
 .uhb-c-header__search-open {
@@ -314,8 +316,8 @@
 /**
  * Header search container
  *
- * 1. 'Magic number' to add 'padding-top'.
- * 2. Override properties to display navigation at xl.
+ * 1. 'Magic number' to set the 'padding-top' property so the buttons don't
+ *    overlap.
  */
 
  .uhb-c-header__search-container {
@@ -350,12 +352,11 @@
     width: uhb-width(6);
   }
 
-  // [2]
   @include uhb-media-query($from: 'xl') {
     padding: 0;
-    transform: translateX(0)!important;
+    transform: translateX(0) !important;
     transition: none;
-    visibility: visible!important;
+    visibility: visible !important;
     width: auto;
   }
 }
@@ -390,7 +391,7 @@
 /**
  * Header navigation
  *
- * 1. Open state.
+ * 1. State hook for the open header navigation styles.
  */
 
 .uhb-c-header__navigation {
@@ -468,8 +469,6 @@
 
 /**
  * Header navigation container
- *
- * 1. Override properties to display navigation at xl.
  */
 
 .uhb-c-header__navigation-container {
@@ -499,7 +498,6 @@
     width: uhb-width(6);
   }
 
-  // [1]
   @include uhb-media-query($from: 'xl') {
     transform: translateX(0) !important;
     transition: none;
@@ -538,7 +536,8 @@
 /**
  * Header navigation list
  *
- * 1. 'Magic number' to add 'padding-top'.
+ * 1. 'Magic number' to set the 'padding-top' property so the buttons don't
+ *    overlap.
  * 2. Fallback value for browsers that don't support CSS custom properties.
  * 3. Custom property used as progressive enhancement for themes.
  */
@@ -587,7 +586,7 @@
 /**
  * Header navigation item
  *
- * 1. Remove default list-item marker.
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-c-header__navigation-item {
@@ -645,7 +644,8 @@
  *
  * 1. Fallback value for browsers that don't support CSS custom properties.
  * 2. Custom property used as progressive enhancement for themes.
- * 3. Add negative margin to make the masthead overlap the next element.
+ * 3. Set the 'margin-bottom' property to a negative value to overlap the page
+ *    content.
  */
 
 .uhb-c-header__masthead {
@@ -758,7 +758,6 @@
  * White header
  *
  * Changes the header background colour to white.
- *
  */
 
 .uhb-c-header--white {
@@ -770,7 +769,6 @@
  * Transparent white header
  *
  * Changes the header background colour to transparent white.
- *
  */
 
 .uhb-c-header--transparent-white {

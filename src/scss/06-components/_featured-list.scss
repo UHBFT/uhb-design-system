@@ -3,7 +3,7 @@
    ========================================================================= */
 
 /**
- * The featured list component 
+ * The featured list component adds extra emphasis to a list.
  *
  * @demo
  * https://uhb.nhs.uk/design-system/components/content/featured-list.htm
@@ -17,9 +17,10 @@
 /**
  * Featured list
  *
- * 1. Add 'margin-top' to the featured list component if it follows another
- *    element.
- * 2. Add 'margin-top' to an element if it follows the featured list component.
+ * 1. Sets the 'margin-top' property if the featured list component follows
+ *    another element.
+ * 2. Sets the 'margin-top' property of an element if it follows the featured
+ *    list component.
  */
 
 .uhb-c-featured-list {
@@ -38,7 +39,8 @@
 /**
  * Featured list item
  *
- * 1. Make content equal height if the featured list is split into columns.
+ * 1. Set the 'display' property to 'flex' to create equal height list items.
+ * 2. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-c-featured-list__item {
@@ -47,7 +49,7 @@
   padding-left: 0;
 
   &::before {
-    content: none;
+    content: none; // [2]
   }
 }
 
@@ -57,7 +59,7 @@
  *
  * 1. Fallback value for browsers that don't support CSS custom properties.
  * 2. Custom property used as progressive enhancement for themes.
- * 3. Add ordered list counter.
+ * 3. Add the custom ordered list counter.
  */
 
 .uhb-c-featured-list__content {

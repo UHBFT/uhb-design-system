@@ -15,9 +15,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $calendar-cell-size:  $uhb-icon-size * 2;
 $calendar-event-size: $uhb-icon-size * 1.5;
@@ -47,7 +47,7 @@ $calendar-event-size: $uhb-icon-size * 1.5;
 /**
  * Calendar day
  *
- * 1. Current calendar day styles.
+ * 1. State hook for the current calendar day styles.
  */
 
 .uhb-c-calendar__day {
@@ -84,7 +84,7 @@ $calendar-event-size: $uhb-icon-size * 1.5;
   align-items: center;
   background-color: $uhb-color-white;
   border-radius: 50%;
-  box-shadow: $uhb-box-shadow-button;
+  box-shadow: $uhb-global-box-shadow-button;
   color: $uhb-color-primary; // [2]
   color: var(--color-primary); // [3]
   display: flex;

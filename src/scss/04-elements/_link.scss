@@ -8,12 +8,11 @@
  * 1. Add custom focus styles to all a elements.
  * 2. Fallback value for browsers that don't support CSS custom properties.
  * 3. Custom property used as progressive enhancement for themes.
- * 4. Display the URL for print.
+ * 4. Set the 'content' property to display the link URL for print.
  * 5. Use pt unit for print.
  */
 
- 
-@use 'sass:math' as *;
+
 @use '01-settings' as *;
 @use '02-tools' as *;
  

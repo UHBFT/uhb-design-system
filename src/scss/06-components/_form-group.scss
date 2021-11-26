@@ -18,8 +18,8 @@
 /**
  * Form group
  *
- * 1. Add 'margin-top' to the form group component if it follows another
- *    form group component.
+ * 1. Sets the 'margin-top' property if the form group component if it follows
+ *    another form group component
  */
 
 .uhb-c-form-group {
@@ -39,7 +39,7 @@
 /**
  * Form group error
  *
- * Indicate a validation error on a form group.
+ * Indicates a validation error on a form group.
  */
 
 .uhb-c-form-group--error {

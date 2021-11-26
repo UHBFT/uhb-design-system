@@ -18,7 +18,7 @@
 /**
  * Settings
  *
- * 1. Combines the default hb-o-section padding, uhb-c-card padding and border
+ * 1. Combines the default uhb-o-section padding, uhb-c-card padding and border
  *    width.
  */
 
@@ -30,8 +30,7 @@ $overlap-padding-xl: uhb-spacing(7) + uhb-spacing(5) + $uhb-global-border-width;
 /**
  * Overlap
  *
- * 1. Use !important to override padding-top and ensure overlap works as
- *    intended.
+ * 1. Use !important to override the 'padding-top' property of any element.
  */
 
 .uhb-o-overlap {
