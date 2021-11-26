@@ -50,7 +50,8 @@
 /**
  * Footer vision
  *
- * 1. 'Magic number' used for vision logo sizing.
+ * 1. 'Magic numbers' used to set the 'height' and 'width' properties of the
+ *    vision logo.
  */
 
 .uhb-c-footer__vision {
@@ -83,6 +84,8 @@
 
 /**
  * Footer social item
+ *
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-c-footer__social-item {
@@ -91,7 +94,7 @@
   padding-left: 0;
 
   &::before {
-    content: none;
+    content: none; // [1]
   }
 
   &:last-child {
@@ -123,7 +126,8 @@
 /**
  * Footer nav item
  *
- * 1. Current footer navigation item styles.
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
+ * 2. State hook for the current footer item styles.
  */
 
 .uhb-c-footer__nav-item {
@@ -133,14 +137,14 @@
   padding-left: 0;
 
   &::before {
-    content: none;
+    content: none; // [1]
   }
 
   &:last-child {
     margin-right: 0;
   }
 
-  // [1]
+  // [2]
   &.is-current {
     .uhb-c-footer__nav-link {
       @include uhb-link-current;

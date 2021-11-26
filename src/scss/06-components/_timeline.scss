@@ -7,7 +7,7 @@
  * order.
  *
  * @demo
- * https://uhb.nhs.uk/design-system/components/content/timelibe.htm
+ * https://uhb.nhs.uk/design-system/components/content/timeline.htm
  */
 
 
@@ -15,9 +15,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $timeline-point-size: 12px;
 
@@ -25,8 +25,10 @@ $timeline-point-size: 12px;
 /**
  * Timeline
  *
- * 1. Add 'margin-top' to the timeline component if it follows another element.
- * 2. Add 'margin-top' to an element if it follows the timeline component.
+ * 1. Sets the 'margin-top' property if the timeline component follows another
+ *    element.
+ * 2. Sets the 'margin-top' property of an element if it follows the timeline
+ *    component.
  */
 
 .uhb-c-timeline {
@@ -43,12 +45,16 @@ $timeline-point-size: 12px;
 /**
  * Timeline item
  *
- * 1. 'Magic number' to horizontally position the timeline point.
- * 2. 'Magic number' to vertically position the timeline point.
- * 3. Height is equal to 100% + the margin-bottom of a timeline item so the
- *    line connects to the next items point.
- * 4. 'Magic number' to horizontally position the timeline line.
- * 5. 'Magic number' to vertically position the timeline line.
+ * 1. 'Magic number' to set the 'left' property and horizontally position the
+ *    timeline point.
+ * 2. 'Magic number' to set the 'top' property and vertically position the
+ *    timeline point.
+ * 3. Set the 'height' property to be equal to 100% + the 'margin-bottom'
+ *    property of a timeline item so the line connects to the next items point.
+ * 4. 'Magic number' to set the 'left' property and horizontally position the
+ *    timeline line.
+ * 5. 'Magic number' to set the 'top' property and vertically position the
+ *    timeline line.
  */
 
 .uhb-c-timeline__item {

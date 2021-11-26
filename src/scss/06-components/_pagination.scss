@@ -15,9 +15,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $pagination-link-size-xs: 40px; 
 $pagination-link-size-md: 48px;
@@ -56,7 +56,8 @@ $pagination-link-size-md: 48px;
 /**
  * Pagination item
  *
- * 1. Sets the current pagination item styles.
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
+ * 2. State hook for Sets the current pagination item styles.
  */
 
 .uhb-c-pagination__item {
@@ -65,10 +66,10 @@ $pagination-link-size-md: 48px;
   padding-left: uhb-spacing(3);
   
   &::before {
-    content: none;
+    content: none; // [1]
   }
 
-  // [1]
+  // [2]
   &.is-current {
     .uhb-c-pagination__link {
       @include uhb-link-current;

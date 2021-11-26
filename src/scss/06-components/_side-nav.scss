@@ -15,9 +15,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $side-nav-a-to-z-width-xs:     40px;
 $side-nav-a-to-z-width-md:     48px;
@@ -28,6 +28,8 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 
 /**
  * Side nav
+ *
+ * 1. State hook to
  */
 
 .uhb-c-side-nav {
@@ -43,21 +45,23 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 /**
  * Side nav toggle
  *
- * 1. Hide side nav toggle at print.
- * 2. Remove browser-specific styling. 
- * 3. Set an explicit minimum-height to reduce cross-browser inconsistencies
- *    with line-height.
- * 4. Fallback value for browsers that don't support CSS custom properties.
- * 5. Custom property used as progressive enhancement for themes.
- * 6. Fill entire height (+ border width) of input if the page to accomodate
- *    for long page titles.
- * 7. Remove pointer events on the pseudo-elements to allow the button element
- *    to be clicked through them.
- * 8. Create a square container for the chevron icon that matches the height.
- * 9. Vertically center the chevron in case the min-height of the button is
- *    suppased.
- * 10. Hide side nav toggle input on screen sizes >= xl when the list becomes
- *    visible.
+ * 1.  Hide side nav toggle for print.
+ * 2.  Set the 'appearance' property to 'none' to remove browser-specific
+ *     styling. 
+ * 3.  Set the 'minimum-height' to allow long page titles to take up multiple
+ *     lines.
+ * 4.  Fallback value for browsers that don't support CSS custom properties.
+ * 5.  Custom property used as progressive enhancement for themes.
+ * 6.  Set the 'min-height' property to allow the pseudo-element to fill entire
+ *     height + border width of the input.
+ * 7.  Set the 'pointer-events' property to 'none' to allow the button element
+ *     to be clicked through the pseudo-element.
+ * 8.  Set the 'width' property to create a square container for the chevron
+ *     icon.
+ * 9.  Set the 'transform' property to vertically center the chevron.
+ * 10. 'Magic number' used to set the right 'padding' property.
+ * 11. Set the 'display' property to 'none' to hide side nav toggle input on
+ *     screen sizes >= xl.
  */
 
 .uhb-c-side-nav__toggle {
@@ -72,7 +76,7 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   cursor: pointer;
   min-height: $side-nav-toggle-height-xs; // [3]
   margin-top: 0;
-  padding: uhb-spacing(1) 64px uhb-spacing(1) uhb-spacing(3);
+  padding: uhb-spacing(1) uhb-spacing(9) uhb-spacing(1) uhb-spacing(3);
   position: relative;
   text-align: left;
   width: 100%;
@@ -107,7 +111,7 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 
   @include uhb-media-query($from: 'md') {
     min-height: $side-nav-toggle-height-md; // [3]
-    padding: uhb-spacing(2) 72px uhb-spacing(2) uhb-spacing(4); // [1]
+    padding: uhb-spacing(2) 72px uhb-spacing(2) uhb-spacing(4); // [10]
 
     &::before {
       width: 48px; // [8]
@@ -119,7 +123,7 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   }
 
   @include uhb-media-query($from: 'xl') {
-    display: none; // [10]
+    display: none; // [11]
   }
 }
 
@@ -129,8 +133,10 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
  *
  * 1. Fallback value for browsers that don't support CSS custom properties.
  * 2. Custom property used as progressive enhancement for themes.
- * 3. Force height on viewports >= xl to override styles set with JavaScript.
- * 4. Force overflow on viewports >= xl to override styles set with JavaScript.
+ * 3. Use '!important' to override the inline 'height' property set by
+ *    JavaScript.
+ * 4. Use '!important' to override the inline 'overflow' property set by
+ *    JavaScript.
  */
 
 .uhb-c-side-nav__container {
@@ -143,8 +149,8 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   }
 
   @include uhb-media-query($from: 'xl') {
-    height: auto!important; // [3]
-    overflow: visible!important; // [4]
+    height: auto !important; // [3]
+    overflow: visible !important; // [4]
   }
 }
 
@@ -152,8 +158,8 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 /**
  * Side nav list
  *
- * 1. Add styles for list active state.
- * 2. Force visibility on viewports >= xl to override styles set with
+ * 1. State hook for the current side nav list styles.
+ * 2. Use '!important' to override the inline 'display' property set by
  *    JavaScript.
  */
 
@@ -174,7 +180,7 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   }
 
   @include uhb-media-query($from: 'xl') {
-    visibility: visible!important; // [2]
+    visibility: visible !important; // [2]
   }
 }
 
@@ -182,7 +188,8 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 /**
  * Side nav item
  *
- * 1. Add styles for item active state.
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
+ * 2. State hook for the current side nav item styles.
  */
 
 .uhb-c-side-nav__item {
@@ -190,10 +197,10 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   padding-left: 0;
 
   &::before {
-    content: none;
+    content: none; // [1]
   }
 
-  // [1]
+  // [2]
   &.is-current {
     > .uhb-c-side-nav__link {
       &::after {
@@ -224,7 +231,8 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 /**
  * Side nav link
  *
- * 1. Rotates the icon of child pages to signify related content.
+ * 1. Set the 'transform' property to rotates the icon of child pages to point
+ *    down.
  */
 
 .uhb-c-side-nav__link {
@@ -249,6 +257,8 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
 
 /**
  * A to Z side nav
+ *
+ * Adds set link sizes to create single letter A-Z items.
  */
 
 .uhb-c-side-nav--a-to-z {

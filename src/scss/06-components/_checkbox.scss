@@ -10,14 +10,15 @@
  * https://uhb.nhs.uk/design-system/components/forms/checkbox.htm
  */
 
+
 @use 'sass:math' as *;
 @use '01-settings' as *;
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $checkbox-border-width:     div($uhb-global-border-width, 2);
 $checkbox-input-size:       $uhb-icon-size;
@@ -26,6 +27,8 @@ $checkbox-input-tick-width: $uhb-global-border-width;
 
 /**
  * Checkbox item
+ *
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-c-checkbox__item {
@@ -33,7 +36,7 @@ $checkbox-input-tick-width: $uhb-global-border-width;
   position: relative;
 
   &::before {
-    content: none;
+    content: none; // [1]
   }
 }
 
@@ -61,13 +64,16 @@ $checkbox-input-tick-width: $uhb-global-border-width;
 /**
  * Checkbox label
  *
- * 1. 'Magic number' to set the height of checked state tick icon.
- * 2. 'Magic number' to horizontally position the checked state tick icon. 
- * 3. Hides the checked state tick icon by default. 
- * 4. 'Magic number' to vertically position the checked state tick icon.
- * 5. 'Magic number' to set the width of checked state tick icon.
+ * 1. 'Magic number' to set the 'height' property of the checked state.
+ * 2. 'Magic number' to set the 'left' property and horizontally position the
+ *    checked state. 
+ * 3. Set the 'opacity' property to '0' to visually hide the checked state.
+ * 4. 'Magic number' to set the 'top' property and vertically position the
+ *    checked state.
+ * 5. 'Magic number' to set the 'width' property of the checked state.
  * 6. Apply custom focus styles to the label if the input is focused.
- * 7. Make the checked state tick visible if the input is selected.
+ * 7. Set the 'opacity' property to '1' to show the checked state when the
+ *    input is checked.
  */
 
 .uhb-c-checkbox__label {

@@ -15,9 +15,9 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $select-border-width: $uhb-global-border-width;
 $select-height-xs:    $uhb-form-element-height-default;
@@ -29,11 +29,13 @@ $select-height-md:    $uhb-form-element-height-md;
  *
  * 1. Fallback value for browsers that don't support CSS custom properties.
  * 2. Custom property used as progressive enhancement for themes.
- * 3. Remove pointer events to allow the select to be clicked through the 
- *    pseudo-elements. 
+ * 3. Set the 'pointer-events' property to 'none' to allow the button element
+ *    to be clicked through the pseudo-element.
  * 4. Add chevron icon.
- * 5. 'Magic number' to horizontally position the chevron icon.
- * 6. 'Magic number' to vertically position the chevron icon.
+ * 5. 'Magic number' used to set the 'right' property and horizontally position
+ *    the chevron icon.
+ * 6. 'Magic number' used to set the 'bottom' property and vertically position
+ *    the chevron icon.
  */
 
 .uhb-c-select {
@@ -88,9 +90,11 @@ $select-height-md:    $uhb-form-element-height-md;
 /**
  * Select input
  *
- * 1. Remove browser-specific styling.
- * 2. Set an explicit height to reduce cross-browser inconsistencies with
- *    line-height.
+ * 1. Set the 'appearance' property to 'none' to remove browser-specific
+ *    styling.
+ * 2. Set the 'height' property to an exact value to stop cross-browser
+ *    inconsistencies with the 'line-height' property.
+ * 3. Remove the Internet Explorer select element icon.
  */
 
 .uhb-c-select__input {
@@ -107,7 +111,7 @@ $select-height-md:    $uhb-form-element-height-md;
   width: 100%;
   z-index: 0;
 
-  // [1]
+  // [3]
   &::-ms-expand {
     display: none;
   }
@@ -131,8 +135,7 @@ $select-height-md:    $uhb-form-element-height-md;
 /*
  * Inverse select
  *
- * Change the colours of the select toggle to allow it to ve used over a
- * solid backgroubd colour.
+ * Inverses the colours of the select toggle.
  */
 
 .uhb-c-select--inverse {

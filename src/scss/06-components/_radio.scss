@@ -10,14 +10,15 @@
  * https://uhb.nhs.uk/design-system/components/forms/radio.htm
  */
 
+
 @use 'sass:math' as *;
 @use '01-settings' as *;
 @use '02-tools' as *;
 
  
-/**
- * Settings
- */
+//
+// Settings
+//
 
 $radio-border-width:       div($uhb-global-border-width, 2);
 $radio-input-size:         $uhb-icon-size;
@@ -26,6 +27,8 @@ $radio-input-checked-size: div($radio-input-size, 2);
 
 /**
  * Radio item
+ *
+ * 1. Set the 'content' property to 'none' to remove custom list-item marker.
  */
 
 .uhb-c-radio__item {
@@ -33,7 +36,7 @@ $radio-input-checked-size: div($radio-input-size, 2);
   position: relative;
 
   &::before {
-    content: none;
+    content: none; // [1]
   }
 }
 
@@ -61,10 +64,12 @@ $radio-input-checked-size: div($radio-input-size, 2);
 /**
  * Radio label
  *
- * 1. Hide the checked state dot by default. 
- * 2. 'Magic number' uto position the checked state dot.
+ * 1. Set the 'opacity' property to '0' to visually hide the checked state.
+ * 2. 'Magic number' to set the 'transform' property and center the checked
+ *    state.
  * 3. Apply custom focus styles to the label if the input is focused.
- * 4. Make the checked state dot visible if the input is selected.
+ * 4. Set the 'opacity' property to '1' to show the checked state when the
+ *    input is checked.
  */
 
 .uhb-c-radio__label {
@@ -110,13 +115,13 @@ $radio-input-checked-size: div($radio-input-size, 2);
   }
 }
 
-.uhb-c-radio__input:focus+.uhb-c-radio__label {
+.uhb-c-radio__input:focus + .uhb-c-radio__label {
   &::before {
     @include uhb-focused-radio; // [3]
   }
 }
 
-.uhb-c-radio__input:checked+.uhb-c-radio__label {
+.uhb-c-radio__input:checked + .uhb-c-radio__label {
   &::after {
     opacity: 1; // [4]
   }

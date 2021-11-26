@@ -7,7 +7,7 @@
  * within the viewport when the maximum width is reached.
  *
  * @demo
- * https://www.uhb.nhs.uk/design-system/foundation/layout.htm
+ * https://www.uhb.nhs.uk/design-system/foundation/containers.htm
  */
 
 
@@ -18,9 +18,9 @@
 /**
  * Container
  *
- * 1. Limit the width of the container.
- * 2. Center the container and remove the margins when the xl breakpoint is
- *    reached.
+ * 1. Set the 'max-width' property to limit the width of the container.
+ * 2. Set the 'margin-left' and 'margin-right' properties to center the
+ *    container.
  */
 
 .uhb-o-container {

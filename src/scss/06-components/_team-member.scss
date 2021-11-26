@@ -7,7 +7,7 @@
  * details.
  *
  * @demo
- * https://uhb.nhs.uk/design-system/components/content/video.htm
+ * https://uhb.nhs.uk/design-system/components/content/team-member.htm
  */
 
 
@@ -15,13 +15,13 @@
 @use '02-tools' as *;
 
 
-/**
- * Settings
- */ 
+//
+// Settings
+// 
 
 $team-member-image-size-default: 120px;
-$team-member-image-size-md: 160px;
-$team-member-image-size-xl: 200px;
+$team-member-image-size-md:      160px;
+$team-member-image-size-xl:      200px;
 
 
 /**

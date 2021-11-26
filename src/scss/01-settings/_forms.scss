@@ -8,10 +8,10 @@
 //
 
 
-@use "sass:math";
+@use "sass:math" as *;
 @use 'global' as *;
 
 
-$uhb-form-border-width:           math.div($uhb-global-border-width, 2);
+$uhb-form-border-width:           div($uhb-global-border-width, 2);
 $uhb-form-element-height-default: 40px;
 $uhb-form-element-height-md:      48px;

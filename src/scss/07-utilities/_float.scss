@@ -12,10 +12,15 @@
 @use '02-tools' as *;
 
 
+//
+// Settings
+//
+
 $float-properties: (
   left,
   right
 );
+
 
 @each $property in $float-properties {
   .uhb-u-float-#{$property} {

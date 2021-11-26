@@ -12,11 +12,16 @@
 @use '02-tools' as *;
 
 
+//
+// Settings
+//
+
 $text-align-directions: (
   center,
   left,
   right
 );
+
 
 @each $direction in $text-align-directions {
   .uhb-u-text-align-#{$direction} {

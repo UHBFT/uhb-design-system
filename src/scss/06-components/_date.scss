@@ -37,8 +37,9 @@
 /**
  * Date item
  *
- * 1. Add a '/' separator to all date item inputs other than the last child.
- * 2. 'Magic number' to vertically position the '/' separator.
+ * 1. Add a separator between all date item inputs other than the last child.
+ * 2. 'Magic number' to set the 'bottom' property and vertically position the
+ *    separator.
  */
 
 .uhb-c-date__item {
@@ -105,7 +106,8 @@
 /**
  * Date input
  *
- * 1. Override the default 'margin-top' property of the input component.
+ * 1. Use '!important' to override the 'margin-top' property of the input
+ *    component.
  */
 
 .uhb-c-date__input {

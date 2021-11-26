@@ -5,12 +5,10 @@
 /**
  * Applies styles that are shared By multiple elements.
  *
- * 1. Set margin-top on text elements if they follow another element.
- * 2. Set body font-size on text elements.
+ * 1. Sets the 'margin-top' property if the element follows another element.
  */
 
 
-@use 'sass:math';
 @use '01-settings' as *;
 @use '02-tools' as *;
 
@@ -35,5 +33,5 @@ p,
 dl,
 ol,
 ul {
-  @include uhb-font-size('body'); // [2]
+  @include uhb-font-size('body');
 }

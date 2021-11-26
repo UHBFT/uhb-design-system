@@ -32,20 +32,21 @@
 /**
  * HTML
  *
- * 1. Sets vertical scrollbar to always be visible and prevent jumps between
- *    pages without enough content to fill the them.
- * 2. Disable scroll state.
+ * 1. Set background properties to allow cover sized images to be placed behind
+ *    content.
+ * 2. Set 'overflow-y' to 'scroll' so the vertical scroll bar is always visible.
+ * 3. State hook to lock the page scroll.
  */
 
 html {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover !important;
+  background-position: center; // [1]
+  background-repeat: no-repeat; // [1]
+  background-size: cover; // [1]
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll; // [1]
+  overflow-y: scroll; // [2]
   
-  // [2]
+  // [3]
   &.is-locked {
     margin: 0;
     height: 100%;
@@ -64,13 +65,14 @@ html {
  *
  * 1. Set 'display' property to 'flex' to allow the uhb-o-page object to fill
  *     all remaining space.
- * 2. Force the body to always be 100% viewport height.
+ * 2. Set 'min-height' property to '100%' so the body fills the entire viewport
+ *    height.
  */
 
 body {
   color: $uhb-color-text;
   display: flex; // [1]
-  flex-direction: column; // [1]
+  flex-direction: column;
   font-family: $uhb-font-family;
   font-size: $uhb-global-font-size;
   font-weight: $uhb-font-weight-light;

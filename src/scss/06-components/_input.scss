@@ -17,9 +17,10 @@
 /** 
  * Input
  *
- * 1. Remove browser-specific styling.
- * 2. Set an explicit height to reduce cross-browser inconsistencies with
- *    line-height.
+ * 1. Set the 'appearance' property to 'none' to remove browser-specific
+ *    styling.
+ * 2. Set the 'height' property to an exact value to stop cross-browser
+ *    inconsistencies with the 'line-height' property.
  */
 
 .uhb-c-input {

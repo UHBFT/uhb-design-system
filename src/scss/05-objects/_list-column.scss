@@ -17,7 +17,7 @@
 /**
  * List columns
  *
- * 1. Remove 'margin-top' from the second child at md.
+ * 1. Remove the 'margin-top' property from the second child at md.
  */
 
 .uhb-o-list-columns {
@@ -47,7 +47,7 @@
  *
  * Splits a list into 3 columns.
  *
- * 1. Remove 'margin-top' from the third child at lg.
+ * 1. Remove 'margin-top' property from the third child at lg.
  */
 
 .uhb-o-list-columns--3 {
@@ -66,10 +66,10 @@
 /**
  * 4 column list
  *
- * Splits a list into 4 columns
+ * Splits a list into 4 columns.
  *
- * 1. Remove 'margin-top' from the third child at lg.
- * 2. Remove 'margin-top' from the fourth child at xl.
+ * 1. Remove the 'margin-top' property from the third child at lg.
+ * 2. Remove the 'margin-top' property from the fourth child at xl.
  */
 
 .uhb-o-list-columns--4 {
@@ -98,7 +98,7 @@
 /**
  * Spaced column list
  *
- * Adds spacing inbetween list items
+ * Adds spacing inbetween list items.
  */
 
 .uhb-o-list-columns--spaced {

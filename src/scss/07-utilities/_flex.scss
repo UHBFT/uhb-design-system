@@ -3,7 +3,7 @@
    ========================================================================= */
 
 /**
- * The flex utility classes set flexbox properties of an element at any
+ * The flex utility classes set the flexbox properties of an element at any
  * breakpoint.
  */
 
@@ -11,15 +11,27 @@
 @use '01-settings' as *;
 @use '02-tools' as *;
 
-/**
- * Align items
- */
 
- $flex-align-properties: (
+//
+// Settings
+//
+
+$flex-align-properties: (
   top:    flex-start,
   middle: center,
   bottom: flex-end
 );
+
+$flex-justify-properties: (
+  left:   flex-start,
+  center: center,
+  right:  flex-end
+);
+
+
+/**
+ * Align items
+ */
 
 @each $class-name, $property in $flex-align-properties {
   @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
@@ -41,12 +53,6 @@
 /**
  * Justify content
  */
-
-$flex-justify-properties: (
-  left:   flex-start,
-  center: center,
-  right:  flex-end
-);
 
 @each $class-name, $property in $flex-justify-properties {
   @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {

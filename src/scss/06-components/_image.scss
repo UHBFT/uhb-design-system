@@ -17,9 +17,10 @@
 /** 
  * Image
  *
- * 1. Add 'margin-top' to the image component if it follows another
+ * 1. Sets the 'margin-top' property if the image component follows another
  *    element.
- * 2. Add 'margin-top' to an element if it follows the image component.
+ * 2. Sets the 'margin-top' property of an element if it follows the image
+ *    component.
  */
 
 .uhb-c-image {

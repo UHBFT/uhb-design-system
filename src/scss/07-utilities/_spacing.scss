@@ -11,6 +11,19 @@
 @use '01-settings' as *;
 @use '02-tools' as *; 
 
+
+//
+// Settings
+//
+
+$spacing-directions: (
+  'top',
+  'right',
+  'bottom',
+  'left'
+);
+
+
 ///
 /// Generates resposnive spacing utility classes for margin or padding
 ///
@@ -19,13 +32,6 @@
 /// @example scss
 ///   @include _uhb-generate-spacing-utilities('margin');
 ///
-
-$spacing-directions: (
-  'top',
-  'right',
-  'bottom',
-  'left'
-);
 
 @mixin uhb-generate-spacing-utilities($property) {
   @each $spacing-point, $responsive-scale in $uhb-spacing-responsive-scale {
@@ -46,6 +52,7 @@ $spacing-directions: (
     }
   }  
 }
+
 
 @include uhb-generate-spacing-utilities('margin');
 @include uhb-generate-spacing-utilities('padding');

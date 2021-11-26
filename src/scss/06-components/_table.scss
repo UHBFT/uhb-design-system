@@ -3,11 +3,13 @@
    ========================================================================= */
 
 /**
- * The table component...
+ * The table component is used to display large amoiunts of data in rows and
+ * columns.
  *
  * @demo
  * https://uhb.nhs.uk/design-system/components/content/table.htm
  */
+
 
 @use 'sass:math' as *;
 @use '01-settings' as *;
@@ -24,33 +26,34 @@ $table-border-width: div($uhb-global-border-width, 2);
 /*
  * Table responsive cell
  *
- * 1. Add border-bottom to each td to match style of tr.
- * 2. display: table to position pseduo-element and responsive cell.
- * 3. Fallback value used for browsers that don't support CSS custom properties.
- * 4. CSS custom property used as progressive enhancement for themes.
- * 5. Set 'data-table-heading' attribute as pseudo-element content.
- * 6. Align text content to the top of the pseudo-element.
- * 7. Give pseudo-element a width regardless of text content length.
+ * 1. Set the 'display' property to 'table' to position the pseduo-element and
+ *    responsive cell.
+ * 2. Fallback value used for browsers that don't support CSS custom properties.
+ * 3. CSS custom property used as progressive enhancement for themes.
+ * 4. Set the 'content' property to the contain the 'data-table-heading'
+ *    attributes content.
+ * 5. Set the 'width' property to '40%' so all table headings are the same
+ *    width.
  */
 
 .uhb-c-table__responsive-heading {
-  border-bottom: $table-border-width solid $uhb-color-white; // [1]
+  border-bottom: $table-border-width solid $uhb-color-white;
   border-right: 0;
-  display: table; // [2]
+  display: table; // [1]
   width: 100%;
 
   &::before {
     @include uhb-font-size('body');
-    background-color: $uhb-color-primary; // [3]
-    background-color: var(--color-primary); // [4]
+    background-color: $uhb-color-primary; // [2]
+    background-color: var(--color-primary); // [3]
     border-right: $table-border-width solid $uhb-color-white;
     color: $uhb-color-white;
-    content: attr(data-table-heading); // [5]
+    content: attr(data-table-heading); // [4]
     display: table-cell;
     font-weight: $uhb-font-weight-bold;
     padding: uhb-spacing(2) uhb-spacing(1);
-    vertical-align: top; // [6] 
-    width: 40%; // [7] 
+    vertical-align: top;
+    width: 40%; // [5]
   }
 
   &:last-child {
@@ -62,14 +65,13 @@ $table-border-width: div($uhb-global-border-width, 2);
 /*
  * Table responsive content
  *
- * 1. display: table cell for positioning in td.
- * 2. Fill the width of the td.
+ * 1. Set the 'display' property to 'table' to position the responsive cell.
  */
 
 .uhb-c-table__responsive-cell {
   display: table-cell; // [1]
   padding: uhb-spacing(2) uhb-spacing(1);
-  width: 100%; // [2]
+  width: 100%;
 }
 
 
@@ -81,7 +83,7 @@ $table-border-width: div($uhb-global-border-width, 2);
 /**
  * Responsive table
  *
- * 1. Applies responsive styles to a table.
+ * Makes a table responsive.
  */
 
 .uhb-c-table--responsive {
@@ -104,214 +106,55 @@ $table-border-width: div($uhb-global-border-width, 2);
 
 
 /**
- * Static table at small
+ * Static tables
  *
- * Reverts back to a static tablle at sm.
- *
- * 1. Undo visually-hidden mixin.
- */
-
- .uhb-c-table--static\@sm {
-  @include uhb-media-query($from: 'sm') {
-    width: auto;
-  }
-}
-
-.uhb-c-table--static\@sm thead {
-  @include uhb-media-query ($from: 'sm') {
-    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
-    margin-right: 0;
-  }
-}
-
-.uhb-c-table--static\@sm tr {
-  @include uhb-media-query ($from: 'sm') {
-    border-bottom: $table-border-width solid $uhb-color-white;
-    display: table-row;
-    margin-bottom: 0;
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
-.uhb-c-table--static\@sm .uhb-c-table__responsive-heading {
-  @include uhb-media-query($from: 'sm') {
-    border-bottom: 0;
-    border-right: $table-border-width solid $uhb-color-white;
-    display: table-cell;
-    width: auto;
-    
-    &::before {
-      display: none;
-    }
-  }
-}
-
-.uhb-c-table--static\@sm .uhb-c-table__responsive-cell {
-  @include uhb-media-query($from: 'sm') {
-    padding: 0;
-  }
-}
-
-
-/**
- * Static table at medium
- *
- * Reverts back to a static tablle at md.
+ * Reverts a table back to a static table at any breakpoint.
  *
  * 1. Undo visually-hidden mixin.
  */
 
-.uhb-c-table--static\@md {
-  @include uhb-media-query($from: 'md') {
-    width: auto;
-  }
-}
-
-.uhb-c-table--static\@md thead {
-  @include uhb-media-query ($from: 'md') {
-    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
-    margin-right: 0;
-  }
-}
-
-.uhb-c-table--static\@md tr {
-  @include uhb-media-query ($from: 'md') {
-    border-bottom: $table-border-width solid $uhb-color-white;
-    display: table-row;
-    margin-bottom: 0;
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
-.uhb-c-table--static\@md .uhb-c-table__responsive-heading {
-  @include uhb-media-query($from: 'md') {
-    border-bottom: 0;
-    border-right: $table-border-width solid $uhb-color-white;
-    display: table-cell;
-    width: auto;
+@each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
+  @if ($breakpoint-name != null) {
+    @include uhb-media-query($from: $breakpoint-name) {
+      .uhb-c-table--static\@sm {
+        width: auto;
+      }
+      
+      
+      .uhb-c-table--static\@#{$breakpoint-name} thead {
+        @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
+        margin-right: 0;
+      }
+      
+      
+      .uhb-c-table--static\@#{$breakpoint-name} tr {
+        border-bottom: $table-border-width solid $uhb-color-white;
+        display: table-row;
+        margin-bottom: 0;
     
-    &::before {
-      display: none;
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+      
+      
+      .uhb-c-table--static\@#{$breakpoint-name} .uhb-c-table__responsive-heading {
+        border-bottom: 0;
+        border-right: $table-border-width solid $uhb-color-white;
+        display: table-cell;
+        width: auto;
+        
+        &::before {
+          display: none;
+        }
+      }
+      
+      
+      .uhb-c-table--static\@#{$breakpoint-name} .uhb-c-table__responsive-cell {
+        padding: 0;
+      }
     }
-  }
-}
-
-.uhb-c-table--static\@md .uhb-c-table__responsive-cell {
-  @include uhb-media-query($from: 'md') {
-    padding: 0;
-  }
-}
-
-
-/**
- * Static table at large
- *
- * Reverts back to a static tablle at lg.
- *
- * 1. Undo visually-hidden mixin.
- */
-
- .uhb-c-table--static\@lg {
-  @include uhb-media-query($from: 'lg') {
-    width: auto;
-  }
-}
-
-.uhb-c-table--static\@lg thead {
-  @include uhb-media-query ($from: 'lg') {
-    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
-    margin-right: 0;
-  }
-}
-
-.uhb-c-table--static\@lg tr {
-  @include uhb-media-query ($from: 'lg') {
-    border-bottom: $table-border-width solid $uhb-color-white;
-    display: table-row;
-    margin-bottom: 0;
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
-.uhb-c-table--static\@lg .uhb-c-table__responsive-heading {
-  @include uhb-media-query($from: 'lg') {
-    border-bottom: 0;
-    border-right: $table-border-width solid $uhb-color-white;
-    display: table-cell;
-    width: auto;
-    
-    &::before {
-      display: none;
-    }
-  }
-}
-
-.uhb-c-table--static\@lg .uhb-c-table__responsive-cell {
-  @include uhb-media-query($from: 'lg') {
-    padding: 0;
-  }
-}
-
-
-/**
- * Static table at extra large
- *
- * Reverts back to a static tablle at xl.
- *
- * 1. Undo visually-hidden mixin.
- */
-
- .uhb-c-table--static\@xl {
-  @include uhb-media-query($from: 'xl') {
-    width: auto;
-  }
-}
-
-.uhb-c-table--static\@xl thead {
-  @include uhb-media-query ($from: 'xl') {
-    @include uhb-visually-shown($display-property: 'table-header-group'); // [1]
-    margin-right: 0;
-  }
-}
-
-.uhb-c-table--static\@xl tr {
-  @include uhb-media-query ($from: 'xl') {
-    border-bottom: $table-border-width solid $uhb-color-white;
-    display: table-row;
-    margin-bottom: 0;
-
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-}
-
-.uhb-c-table--static\@xl .uhb-c-table__responsive-heading {
-  @include uhb-media-query($from: 'xl') {
-    border-bottom: 0;
-    border-right: $table-border-width solid $uhb-color-white;
-    display: table-cell;
-    width: auto;
-    
-    &::before {
-      display: none;
-    }
-  }
-}
-
-.uhb-c-table--static\@xl .uhb-c-table__responsive-cell {
-  @include uhb-media-query($from: 'xl') {
-    padding: 0;
-  }
+  } 
 }
 
 
@@ -334,7 +177,7 @@ $table-border-width: div($uhb-global-border-width, 2);
 /**
  * Striped table
  *
- * Adds stripes to any tbody table rows.
+ * Adds stripes to any tbody rows.
  */
 
 .uhb-c-table--striped tbody tr:nth-child(odd) td {

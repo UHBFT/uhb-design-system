@@ -4,9 +4,6 @@
 
 /**
  * The page object contains landmark layout areas of a page.
- *
- * @demo
- * 
  */
 
 
@@ -40,9 +37,10 @@
 /**
  * Page side bar
  *
- * 1. Add margin-top to the page side bar container if it follows the page
- *    content container.
- * 2. Remove margin-top when the content and side bar containers are not stacked.
+ * 1. Sets the 'margin-top' property if the side bar container follows the page
+ *    container.
+ * 1. Remove the 'margin-top' property at xl when the sidebar and content are
+ *    not stacked.
  */
 
 .uhb-o-page__side-bar {
@@ -65,9 +63,10 @@
 /**
  * Page main
  *
- * 1. Add margin-top to the page content container if it follows the page side
+ * 1. Sets the 'margin-top' property if the content container follows the side
  *    bar container.
- * 2. Remove margin-top when the content and side bar containers are not stacked.
+ * 1. Remove the 'margin-top' property at xl when the sidebar and content are
+ *    not stacked.
  */
 
 .uhb-o-page__content {

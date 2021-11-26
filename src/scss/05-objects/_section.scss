@@ -24,10 +24,8 @@
 
 /**
  * Section content
- *
- * 1. Remove the 'margin-top' property from the first child.
  */
 
 .uhb-o-section__content {
-  @include uhb-first-child-margin; // [1]
+  @include uhb-first-child-margin;
 }

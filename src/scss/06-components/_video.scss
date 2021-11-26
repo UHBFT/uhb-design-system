@@ -18,8 +18,10 @@
 /** 
  * Video
  *
- * 1. Add 'margin-top' to the video component if it follows another element.
- * 2. Add 'margin-top' to an element if it follows the video component.
+ * 1. Sets the 'margin-top' property if the video component follows another
+ *    element.
+ * 2. Sets the 'margin-top' property of an element if it follows the video
+ *    component.
  */
 
 .uhb-c-video {
@@ -108,8 +110,9 @@
 /** 
  * Video transcript inner
  *
- * 1. Adds a max-height to stop the transcript filling the whole page.
- * 2. Allows the transcript text to scroll inside the fixed height container.
+ * 1. Set the 'max-height' value to stop the transcript filling a large space.
+ * 2. Set the 'overflow-y' property to 'scroll' to allows the transcript text
+ *    to scroll inside the fixed height container.
  */
 
 .uhb-c-video__transcript-inner {

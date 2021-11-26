@@ -18,9 +18,10 @@
 /**
  * Accordion
  *
- * 1. Add 'margin-top' to the accordion component if it follows another
+ * 1. Sets the 'margin-top' property if the accordion component follows another
  *    element.
- * 2. Add 'margin-top' to an element if it follows the accordion component.
+ * 2. Sets the 'margin-top' property of an element if it follows the accordion
+ *    component.
  */
 
 .uhb-c-accordion {
@@ -39,8 +40,9 @@
 /**
  * Accordion item
  *
- * 1. Expanded accordion item styles.
- * 2. Hide vertical rect of the icon to create minus icon.
+ * 1. State hook to set expanded accordion item styles.
+ * 2. Set the 'transform' property to hide the vertical rect of the '+' icon to
+ *    create a '-' icon.
  */
 
 .uhb-c-accordion__item {
@@ -70,8 +72,8 @@
 /**
  * Accordion toggle
  *
- * 1. Remove padding for print.
- * 2. Hide icon for print.
+ * 1. Remove the 'padding' property for print.
+ * 2. Hide the icon for print.
  */
 
 .uhb-c-accordion__toggle {
@@ -114,7 +116,7 @@
 /**
  * Accordion content
  *
- * 1. Force content to be displayed for print.
+ * 1. Use '!important' to force the content to be displayed for print.
  */
 
 .uhb-c-accordion__content {
@@ -132,7 +134,7 @@
 /**
  * Accordion content inner
  *
- * 1. Force content to be displayed for print.
+ * 1. Use '!important' to force the content to be displayed for print.
  */
 
 .uhb-c-accordion__content-inner {
