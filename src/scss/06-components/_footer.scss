@@ -147,9 +147,19 @@
   // [2]
   &.is-current {
     .uhb-c-footer__nav-link {
-      @include uhb-link-current;
+      @include uhb-link-state-current;
     }
   }
+}
+
+
+/**
+ * Footer nav link
+ */
+
+.uhb-c-footer__nav-link {
+  @include uhb-font-size('body-small');
+  @include uhb-link;
 }
 
 

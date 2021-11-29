@@ -77,7 +77,7 @@
  */
 
 .uhb-c-accordion__toggle {
-  @include uhb-link-primary($display: 'flex');
+  @include uhb-link($display: 'flex');
 
   @include uhb-media-query($media-type: 'print') {
     padding: 0 !important; // [1]

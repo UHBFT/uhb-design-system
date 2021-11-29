@@ -19,7 +19,7 @@
  */
 
 .uhb-c-link {
-  @include uhb-link-primary;
+  @include uhb-link;
 }
 
 
@@ -46,7 +46,7 @@
  */
 
 .uhb-c-link--inverse {
-  @include uhb-link-style-inverse;
+  @include uhb-link-inverse-colour;
 }
 
 

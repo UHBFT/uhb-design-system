@@ -5,6 +5,7 @@
 
 @use 'sass:math' as *;
 @use '01-settings' as *;
+@use '02-tools/functions' as *;
 @use 'transition' as *;
 @use 'media-query' as *;
 
@@ -28,7 +29,7 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///   }
 ///
 
-@mixin uhb-link-primary($display: 'inline-flex') {
+@mixin uhb-link($display: 'inline-flex') {
   @include uhb-transition('color');
   align-items: start;
   cursor: pointer;
@@ -38,11 +39,11 @@ $link-underline-width: div($uhb-global-border-width, 2);
   text-decoration: none;
 
   &:hover {
-    @include uhb-link-primary-hover;
+    @include uhb-link-state-hover;
   }
 
   &:active {
-    @include uhb-link-primary-active;
+    @include uhb-link-state-active;
   }
 
   &::before,
@@ -86,7 +87,7 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-colour-primary;
+///     @include uhb-link-primary-colour;
 ///   }
 ///
 
@@ -100,11 +101,11 @@ $link-underline-width: div($uhb-global-border-width, 2);
   text-decoration: none;
 
   &:hover {
-    @include uhb-link-inverse-hover;
+    @include uhb-link-inverse-state-hover;
   }
 
   &:active {
-    @include uhb-link-inverse-active;
+    @include uhb-link-inverse-state-active;
   }
 
   &:visited {
@@ -128,13 +129,22 @@ $link-underline-width: div($uhb-global-border-width, 2);
 
   &::after {
     @include uhb-transition(('background-color', 'opacity', 'width'));
-    opacity: 0.66;
+    opacity: .66;
     width: 0%;
   }
 
   @include uhb-media-query($from: 'md') {
     padding-left: uhb-spacing(2);
     padding-right: uhb-spacing(2);
+  }
+
+  .uhb-c-icon {
+    flex: 0 0 auto;
+    margin-right: uhb-spacing(1);
+
+    @include uhb-media-query($from: 'md') {
+      margin-right: uhb-spacing(2);
+    }
   }
 }
 
@@ -148,16 +158,21 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///   }
 ///
 
-@mixin uhb-link-style-primary {
+@mixin uhb-link-primary-colour {
   color: $uhb-color-primary;
   color: var(--color-primary);
 
   &:hover {
-    @include uhb-link-primary-hover;
+    
   }
 
   &:active {
-    @include uhb-link-primary-active;
+    color: $uhb-color-primary-active;
+    color: var(--color-primary-active);
+  }
+
+  &::after {
+    opacity: 1;
   }
 }
 
@@ -171,16 +186,14 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///   }
 ///
 
-@mixin uhb-link-style-inverse {
+@mixin uhb-link-inverse-colour {
   color: $uhb-color-white;
-  @include uhb-link-inverse-active;
-
-  &:hover {
-    @include uhb-link-inverse-hover;
-  }
 
   &:active {
-    @include uhb-link-inverse-active;
+    &::after {
+      background-color: $uhb-color-white;
+      opacity: 1;
+    }
   }
 
   &:visited {
@@ -198,11 +211,11 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-primary-hover
+///     @include uhb-link-state-hover
 ///   }
 ///
 
-@mixin uhb-link-primary-hover {
+@mixin uhb-link-state-hover {
   &::after {
     width: 100%;
   }
@@ -214,14 +227,14 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-primary-active
+///     @include uhb-link-state-active
 ///   }
 ///
 
-@mixin uhb-link-primary-active {
- color: $uhb-color-primary-active;
- color: var(--color-primary-active);
-
+@mixin uhb-link-state-active {
+  color: $uhb-color-primary-active;
+  color: var(--color-primary-active);
+   
   &::after {
     background-color: $uhb-color-primary-active;
     background-color: var(--color-primary-active);
@@ -231,16 +244,16 @@ $link-underline-width: div($uhb-global-border-width, 2);
 }
 
 
-///
+ ///
 /// Adds hover styles to an inverse link.
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-inverse-hover
+///     @include uhb-link-inverse-state-hover
 ///   }
 ///
 
-@mixin uhb-link-inverse-hover {
+@mixin uhb-link-inverse-state-hover {
   &::after {
     opacity: .66;
     width: 100%;
@@ -253,15 +266,14 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-inverse-active
+///     @include uhb-link-inverse-state-active
 ///   }
 ///
 
-@mixin uhb-link-inverse-active {
-  color: $uhb-color-white !important;
+@mixin uhb-link-inverse-state-active {
+  color: $uhb-color-white;
 
   &::after {
-    background-color: $uhb-color-white !important;
     opacity: 1;
   }
 }
@@ -272,14 +284,13 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-current
+///     @include uhb-link-state-current
 ///   }
 ///
 
-@mixin uhb-link-current { 
-   &::after {
-     opacity: 1;
-     width: 100%;
-   }
- }
-
+@mixin uhb-link-state-current { 
+  &::after {
+    opacity: 1;
+    width: 100%;
+  }
+}

@@ -27,13 +27,13 @@
 
   &:hover {
     .uhb-c-shortcut__link {
-      @include uhb-link-primary-hover;
+      @include uhb-link-state-hover;
     }
   }
 
   &:active {
     .uhb-c-shortcut__link {
-      @include uhb-link-primary-active;
+      @include uhb-link-state-active;
     }
   }
 }
@@ -56,5 +56,6 @@
 
 .uhb-c-shortcut__link {
   @include uhb-font-size('body');
+  @include uhb-link;
   text-align: center;
 }
