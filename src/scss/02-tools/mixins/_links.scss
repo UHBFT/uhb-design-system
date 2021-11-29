@@ -87,7 +87,7 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///
 /// @example scss
 ///   .element {
-///     @include uhb-link-colour-primary;
+///     @include uhb-link-primary-colour;
 ///   }
 ///
 
@@ -158,7 +158,7 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///   }
 ///
 
-@mixin uhb-link-colour-primary {
+@mixin uhb-link-primary-colour {
   color: $uhb-color-primary;
   color: var(--color-primary);
 
@@ -186,7 +186,7 @@ $link-underline-width: div($uhb-global-border-width, 2);
 ///   }
 ///
 
-@mixin uhb-link-colour-inverse {
+@mixin uhb-link-inverse-colour {
   color: $uhb-color-white;
 
   &:active {

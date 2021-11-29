@@ -113,6 +113,16 @@ $timeline-point-size: 12px;
 }
 
 
+/**
+ * Timeline heading
+ */
+
+.uhb-c-timeline__link {
+  @include uhb-font-size('body');
+  @include uhb-link;
+}
+
+
 
 
 /* MODIFIERS
@@ -132,6 +142,6 @@ $timeline-point-size: 12px;
   }
 
   .uhb-c-timeline__link {
-    @include uhb-link-style-inverse;
+    @include uhb-link-inverse-colour;
   }
 }

@@ -81,6 +81,7 @@
 
 .uhb-c-card__link {
   @include uhb-font-size('body');
+  @include uhb-link;
 }
 
 
@@ -113,13 +114,13 @@
 .uhb-c-card--clickable:not(.uhb-c-card.uhb-c-card--primary):not(.uhb-c-card.uhb-c-card--dark-primary) {
   &:hover {
     .uhb-c-card__link {
-      @include uhb-link-primary-hover;
+      @include uhb-link-state-hover;
     }
   }
 
   &:active {
     .uhb-c-card__link {
-      @include uhb-link-primary-active;
+      @include uhb-link-state-active;
     }
   }
 }
@@ -129,13 +130,13 @@
 .uhb-c-card--clickable.uhb-c-card--dark-primary {
   &:hover {
     .uhb-c-card__link {
-      @include uhb-link-inverse-hover;
+      @include uhb-link-inverse-state-hover;
     }
   }
 
   &:active {
     .uhb-c-card__link {
-      @include uhb-link-inverse-active;
+      @include uhb-link-inverse-state-active;
     }
   }
 }
@@ -183,7 +184,7 @@ $card-overlap-margin-xl: uhb-spacing(7) + uhb-spacing(5) + $uhb-global-border-wi
   }
 
   .uhb-c-card__link {
-    @include uhb-link-style-inverse;
+    @include uhb-link-inverse-colour;
   }
 }
 
@@ -208,6 +209,6 @@ $card-overlap-margin-xl: uhb-spacing(7) + uhb-spacing(5) + $uhb-global-border-wi
   }
 
   .uhb-c-card__link {
-    @include uhb-link-style-inverse;
+    @include uhb-link-inverse-colour;
   }
 }

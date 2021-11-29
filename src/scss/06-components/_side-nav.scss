@@ -239,7 +239,7 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   width: 100%;
 
   @include uhb-media-query($to: 'xl') {
-    @include uhb-link-style-inverse;
+    @include uhb-link-inverse-colour;
   }
 
   .uhb-c-icon--chevron-right {

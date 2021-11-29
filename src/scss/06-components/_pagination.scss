@@ -72,7 +72,7 @@ $pagination-link-size-md: 48px;
   // [2]
   &.is-current {
     .uhb-c-pagination__link {
-      @include uhb-link-current;
+      @include uhb-link-state-current;
     }
   }
 
