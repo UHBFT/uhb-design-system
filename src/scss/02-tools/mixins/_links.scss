@@ -5,6 +5,7 @@
 
 @use 'sass:math' as *;
 @use '01-settings' as *;
+@use '02-tools/functions' as *;
 @use 'transition' as *;
 @use 'media-query' as *;
 
