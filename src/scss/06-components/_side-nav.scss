@@ -236,6 +236,7 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
  */
 
 .uhb-c-side-nav__link {
+  @include uhb-link;
   width: 100%;
 
   @include uhb-media-query($to: 'xl') {

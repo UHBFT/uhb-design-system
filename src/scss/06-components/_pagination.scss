@@ -91,6 +91,7 @@ $pagination-link-size-md: 48px;
  */
 
 .uhb-c-pagination__link {
+  @include uhb-link;
   justify-content: center;
   height: $pagination-link-size-xs;
   width: $pagination-link-size-xs;
