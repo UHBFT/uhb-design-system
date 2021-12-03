@@ -95,7 +95,7 @@ $link-underline-width: div($uhb-global-border-width, 2);
   align-items: start;
   color: $uhb-color-white;
   cursor: pointer;
-  display: $display;  
+  display: #{$display};  
   padding: uhb-spacing(2) uhb-spacing(1);
   position: relative;
   text-decoration: none;
