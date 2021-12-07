@@ -111,6 +111,8 @@ $block-quote-icon-size:     $uhb-icon-size * 2;
  */
 
  .uhb-c-block-quote--left {
+  @include uhb-responsive-margin(7, 'bottom');
+
   @include uhb-media-query($from: 'sm') {
     float: left;
     margin-right: $uhb-grid-gutter-default;
@@ -135,6 +137,8 @@ $block-quote-icon-size:     $uhb-icon-size * 2;
  */
 
 .uhb-c-block-quote--right {
+  @include uhb-responsive-margin(7, 'bottom');
+  
   @include uhb-media-query($from: 'sm') {
     float: right;
     margin-left: $uhb-grid-gutter-default;
