@@ -1,0 +1,24 @@
+/* ============================================================================
+   06-COMPONENTS -> #BACKGROUND IMAGE
+   ========================================================================= */
+
+/**
+ * The background image component allows you to include a full page 
+ * background image that shows through the header.
+ *
+ * @demo
+ * https://www.uhb.nhs.uk/
+ */
+
+ 
+ @use '01-settings' as *;
+ @use '02-tools' as *;
+
+.uhb-c-bg-image {
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
