@@ -275,6 +275,13 @@
       transition: none;
     }
   }
+
+  &.foi-requests {
+      @include uhb-media-query($from: 'xl') {
+        width: uhb-width(12);
+    }
+  }
+
 }
 
 
