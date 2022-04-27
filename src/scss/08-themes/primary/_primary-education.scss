@@ -1,0 +1,23 @@
+/* ==========================================================================
+   08 - THEMES / PRIMARY / EDUCATION
+   ========================================================================== */
+
+  
+   @use '01-settings' as *; 
+   @use '02-tools' as *;
+   
+   
+   .uhb-t-primary-education {
+     --global-bar-color: #{$uhb-color-blue};
+     --global-bar-highlight-color: #{$uhb-color-purple};
+     --global-bar-highlight-item-color: #{$uhb-color-bright-blue};
+     --header-wash-color: #{$uhb-color-bright-blue};
+     --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-purple)};
+     --color-primary: #{$uhb-color-purple};
+     --color-primary-hover: #{$uhb-color-dark-red};
+     --color-primary-active: #{$uhb-color-darkest-red};
+   
+     .uhb-c-pull-quote::before {
+       background-image: url(uhb-replace-string($uhb-icon-speech-marks, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-emergency-services-red}", '#', '%23')));;
+     }
+   }
