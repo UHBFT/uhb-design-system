@@ -10,6 +10,6 @@
   --color-border: #{$uhb-color-light-blue};
   
   ul > li::before {
-    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-light-blue}", '#', '%23')));;
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-light-blue}", '#', '%23')));
   }
 }

@@ -27,5 +27,7 @@
   },
   "sasslintConfig": ".sass-lint.yml",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "gulp-sass": "^5.1.0"
+  }
 }
