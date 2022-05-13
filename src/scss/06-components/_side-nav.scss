@@ -125,6 +125,11 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   @include uhb-media-query($from: 'xl') {
     display: none; // [11]
   }
+
+  &.bg-wht {
+    background-color: $uhb-color-white;
+  }
+  
 }
 
 
