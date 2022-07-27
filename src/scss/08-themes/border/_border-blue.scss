@@ -1,0 +1,15 @@
+/* ==========================================================================
+   08 - THEMES / BORDER / BLUE
+   ========================================================================== */
+
+
+@use '01-settings' as *; 
+
+
+.uhb-t-border-blue {
+  --color-border: #{$uhb-color-blue};
+  
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-blue}", '#', '%23')));
+  }
+}
