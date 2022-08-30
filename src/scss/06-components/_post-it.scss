@@ -94,3 +94,18 @@
 .uhb-c-post-it--warning {
 	border-left-color: $uhb-color-warm-yellow;
 }
+
+
+/**
+ * Multicoloured post-it
+ *
+ * Changes the post-it to a specific colour.
+ */
+
+ .uhb-c-post-it--aqua-green {
+	border-left-color: $uhb-color-aqua-green;
+}
+
+.uhb-c-post-it--orange {
+	border-left-color: $uhb-color-orange;
+}

@@ -1,0 +1,29 @@
+/* ============================================================================
+   07-UTILITIES -> #GRADIENT
+   ========================================================================= */
+
+/**
+ * The gradient utility classes set the 'background-color' property of an
+ * element to a gradient from the list rather than a solid colour.
+ */
+
+
+@use '01-settings' as *; 
+
+//
+// NHS colour gradients
+//
+
+$gradient-pink-orange: $uhb-color-pink, $uhb-color-orange;
+
+
+@mixin gradient($direction, $gradient-colours) { 
+  background: -webkit-linear-gradient($direction, $gradient-colours);
+  background: -moz-linear-gradient($direction, $gradient-colours);
+  background: -o-linear-gradient($direction, $gradient-colours);
+  background: linear-gradient($direction, $gradient-colours);  
+}
+
+.uhb-u-gradient-pink-orange {
+  @include gradient(left, $gradient-pink-orange);
+}
