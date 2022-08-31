@@ -10,6 +10,10 @@
 @use '01-settings' as *; 
 
 
+.uhb-u-color-aqua-green {
+  color: $uhb-color-aqua-green !important;
+}  
+
 .uhb-u-color-black {
   color: $uhb-color-black !important;
 }
@@ -20,6 +24,10 @@
 
 .uhb-u-color-light-blue {
   color: $uhb-color-light-blue !important;
+}
+
+.uhb-u-color-orange {
+  color: $uhb-color-orange !important;
 }
 
 .uhb-u-color-pink {

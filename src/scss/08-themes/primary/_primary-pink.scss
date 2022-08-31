@@ -1,0 +1,22 @@
+/* ==========================================================================
+   08 - THEMES / PRIMARY / PINK
+   ========================================================================== */
+
+
+    @use '01-settings' as *; 
+    @use '02-tools' as *;
+
+
+    .uhb-t-primary-pink {
+      --global-bar-color: #{$uhb-color-dark-aqua-green};
+      --global-bar-highlight-color: #{$uhb-color-darkest-aqua-green};
+      --global-bar-highlight-item-color: #{$uhb-color-aqua-green};
+      --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-primary)};
+      --color-primary: #{$uhb-color-pink};
+      --color-primary-hover: #{$uhb-color-dark-pink};
+      --color-primary-active: #{$uhb-color-darkest-pink};
+
+      .uhb-c-pull-quote::before {
+        background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-pink}', '#', '%23' )));
+      }
+    }

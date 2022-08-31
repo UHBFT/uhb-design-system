@@ -1,0 +1,15 @@
+/* ==========================================================================
+   08 - THEMES / BORDER / ORANGE
+   ========================================================================== */
+
+
+@use '01-settings' as *; 
+
+
+.uhb-t-border-orange {
+  --color-border: #{$uhb-color-orange};
+
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-orange}", '#', '%23')));
+  }
+}
