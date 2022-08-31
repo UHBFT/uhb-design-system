@@ -1,0 +1,13 @@
+/* ==========================================================================
+   08 - THEMES / BUTTON AQUA GREEN  
+   ========================================================================== */
+
+
+@use '01-settings' as *; 
+
+
+.uhb-t-button-aqua-green {
+  --color-action-button: #{$uhb-color-aqua-green};
+  --color-action-button-hover: #{$uhb-color-dark-aqua-green};
+  --color-action-button-active: #{$uhb-color-darkest-aqua-green};
+}
