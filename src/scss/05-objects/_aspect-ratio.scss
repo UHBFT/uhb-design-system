@@ -60,6 +60,14 @@ $aspect-ratio-map: (
 }
 
 
+/**
+ * Aspect ratio for Vimeo content
+ */
+
+.uhb-o-aspect-vimeo {
+  padding: 56.25% 0 0 0;
+  position: relative;
+}
 
 
 /* MODIFIERS
