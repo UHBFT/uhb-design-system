@@ -282,6 +282,7 @@
     }
   }
 
+  @include uhb-print-hide;
 }
 
 
@@ -437,6 +438,8 @@
       transition: none;
     }
   }
+
+  @include uhb-print-hide;
 }
 
 
@@ -473,6 +476,8 @@
   @include uhb-media-query($from: 'xl') {
     display: none;
   }
+
+  @include uhb-print-hide;
 }
 
 
@@ -670,6 +675,12 @@
   color: $uhb-color-white;
   margin-bottom: - (uhb-spacing(5) + $uhb-global-border-width); // [3]
   padding: uhb-spacing(3);
+
+  @include uhb-media-query($media-type: 'print') {
+    border-bottom: 0; 
+    box-shadow: none;
+    padding: uhb-spacing(0);
+  }  
 
   & > *:last-child {
     margin-bottom: 0;

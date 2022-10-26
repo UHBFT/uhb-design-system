@@ -23,6 +23,8 @@
   background-color: $uhb-color-pale-grey;
   border-top: $uhb-global-border-width solid $uhb-color-border;
   border-top-color: var(--color-border);
+
+  @include uhb-print-hide; // [1]
 }
 
 
