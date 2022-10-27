@@ -276,11 +276,11 @@
     }
   }
 
-  &.foi-requests {
-      @include uhb-media-query($from: 'xl') {
-        width: uhb-width(12);
+  &.xl-search-width {
+    @include uhb-media-query($from: 'xl') {
+      width: uhb-width(12);
     }
-  }
+  } 
 
   @include uhb-print-hide;
 }
@@ -368,6 +368,19 @@
     transition: none;
     visibility: visible !important;
     width: auto;
+  }
+
+  &.uhb-c-header--search-inline {
+    background-color: $uhb-color-pale-grey;
+    display: block;
+    left: 0;
+    overflow-y: visible;
+    padding: 0;
+    position: relative;
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    width: uhb-width(12);
+    z-index: 0;
   }
 }
 
@@ -873,5 +886,13 @@
       background-color: var(--global-bar-highlight-item-color)!important; // [2]
       width: 100%;
     }
+  }
+}
+
+.uhb-c-header__navigation-list--single-item {
+  padding-top: uhb-spacing(0);
+
+  .uhb-c-header__navigation-item:last-child {
+    margin-top: uhb-spacing(0);
   }
 }

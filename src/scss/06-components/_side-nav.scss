@@ -109,6 +109,10 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
     z-index: 2;
   }
 
+  &.switch-color-bright-blue::before {
+    background-color: $uhb-color-bright-blue;
+  }
+
   @include uhb-media-query($from: 'md') {
     min-height: $side-nav-toggle-height-md; // [3]
     padding: uhb-spacing(2) 72px uhb-spacing(2) uhb-spacing(4); // [10]
@@ -125,11 +129,6 @@ $side-nav-toggle-height-md:    $uhb-form-element-height-md;
   @include uhb-media-query($from: 'xl') {
     display: none; // [11]
   }
-
-  &.bg-wht {
-    background-color: $uhb-color-white;
-  }
-  
 }
 
 
