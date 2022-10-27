@@ -43,4 +43,8 @@
   .uhb-c-related-links__heading {
     @include uhb-font-size('h6');
   }
+
+  @include uhb-media-query($media-type: 'print') { 
+    padding-left: uhb-spacing(0);
+  }  
 }

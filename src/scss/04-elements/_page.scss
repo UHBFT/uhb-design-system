@@ -80,4 +80,8 @@ body {
   min-height: 100%; // [2]
   line-height: $uhb-global-line-height;
   overflow-x: hidden;
+
+  @include uhb-media-query($media-type: 'print') {
+    display: block;
+  }
 }

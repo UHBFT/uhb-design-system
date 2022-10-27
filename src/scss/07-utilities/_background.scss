@@ -11,12 +11,20 @@
 @use '01-settings' as *; 
 
 
-.uhb-u-background-grey {
-  background-color: $uhb-color-pale-grey !important;
+.uhb-u-background-blue {
+  background-color: $uhb-color-blue !important;
+}
+
+.uhb-u-background-bright-blue {
+  background-color: $uhb-color-bright-blue !important;
 }
 
 .uhb-u-background-dark-grey {
   background-color: $uhb-color-dark-grey !important;
+}
+
+.uhb-u-background-grey {
+  background-color: $uhb-color-pale-grey !important;
 }
 
 .uhb-u-background-primary {
