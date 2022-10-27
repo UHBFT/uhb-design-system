@@ -1,0 +1,15 @@
+/* ============================================================================
+   07-UTILITIES -> #SPAN
+   ========================================================================= */
+  
+/**
+ * The span utility for extra inline styling.
+ */
+
+
+@use '02-tools'as *; 
+
+
+.uhb-u-category-count {
+  margin-left: uhb-spacing(2);
+}

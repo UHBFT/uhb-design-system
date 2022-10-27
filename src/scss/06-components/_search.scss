@@ -42,6 +42,7 @@ $search-input-height-md:      $uhb-form-element-height-md;
  *    half of the inputs height.
  * 3. Set the 'height' property to an exact value to stop cross-browser
  *    inconsistencies with the 'line-height' property.
+ * 4. Option to change the placeholder text colour.
  */
 
 .uhb-c-search__input {
@@ -78,6 +79,18 @@ $search-input-height-md:      $uhb-form-element-height-md;
     border-radius: div($search-input-height-md, 2); // [2]
     height: $search-input-height-md; // [3]
     padding: uhb-spacing(2) uhb-spacing(9) uhb-spacing(2) uhb-spacing(4);
+  }
+}
+
+.uhb-c-search-placeholder {
+  // [4]
+  &::placeholder {
+    color: $uhb-color-dark-grey;
+    opacity: 1;
+  }
+
+  &::-ms-input-placeholder {
+    color: $uhb-color-dark-grey;
   }
 }
 

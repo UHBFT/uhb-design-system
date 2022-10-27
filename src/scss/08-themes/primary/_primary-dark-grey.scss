@@ -13,8 +13,8 @@
   --global-bar-highlight-item-color: #{$uhb-color-bright-blue};
   --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-primary)};
   --color-primary: #{$uhb-color-dark-grey};
-  --color-primary-hover: #{$uhb-color-blue};
-  --color-primary-active: #{$uhb-color-dark-blue};
+  --color-primary-hover: #{$uhb-color-darkest-grey};
+  --color-primary-active: #{$uhb-color-black};
 
   .uhb-c-pull-quote::before {
     background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-emergency-services-red}', '#', '%23' )));
