@@ -33,10 +33,6 @@
     margin-top: 0;
   }
 
-  & > :first-child {
-    margin-top: 0;
-  }
-
   @include uhb-media-query($from: 'md') {
     padding-left: uhb-spacing(6);
   }
