@@ -4,12 +4,13 @@
 
 
 @use '01-settings' as *; 
+@use '02-tools' as *;
 
 
 .uhb-t-border-black {
   --color-border: #{$uhb-color-black};
   
   ul > li::before {
-    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-black}", '#', '%23')));
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-black}', '#', '%23' )));
   }
 }
