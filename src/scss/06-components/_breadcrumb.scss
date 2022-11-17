@@ -113,6 +113,10 @@ $breadcrumb-icon-size: $uhb-icon-size;
 .uhb-c-breadcrumb__link {
   color: $uhb-color-dark-grey; // [1]
 
+  &:visited {
+    color: inherit;
+  }
+
   &:hover {
     color: $uhb-color-black;
   }

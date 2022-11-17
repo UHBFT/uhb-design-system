@@ -4,15 +4,14 @@
 
 
 @use '01-settings' as *; 
+@use '02-tools' as *;
 
 
 .uhb-t-border-aqua-green {
   --color-border: #{$uhb-color-aqua-green};
 
-   ul > li::before {
-    /* background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-aqua-green}", '#', '%23' ))); */
-    
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M8.465 2.1L5.636 4.93 12.707 12l-7.07 7.071L8.464 21.9l9.9-9.899-9.9-9.9z" fill="%2300A499" /%3E%3C/svg%3E');
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-aqua-green}", '#', '%23' )));
     
   } 
 }

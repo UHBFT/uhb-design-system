@@ -16,7 +16,7 @@
   --color-primary-hover: #{$uhb-color-blue};
   --color-primary-active: #{$uhb-color-dark-blue};
 
-  .uhb-c-pull-quote::before {
-    background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-emergency-services-red}', '#', '%23' )));
+  .uhb-c-block-quote__quote::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-bright-blue}', '#', '%23' )));
   }
 }
