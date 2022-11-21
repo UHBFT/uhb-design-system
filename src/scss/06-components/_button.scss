@@ -218,14 +218,14 @@ $button-border-radius:  12px;
  */
 
 .uhb-c-button--facebook {
-  background-color: #005EB8;
+  background-color: $uhb-color-blue;
 
   &:hover {
-    background-color: darken(#005EB8, 10%);
+    background-color: darken($uhb-color-blue, 10%);
   }
 
   &:active {
-    background-color: darken(#005EB8, 15%);
+    background-color: darken($uhb-color-blue, 15%);
   }
 
   .uhb-c-icon {
@@ -235,14 +235,14 @@ $button-border-radius:  12px;
 
 
 .uhb-c-button--instagram {
-  background-color: #AE2573;
+  background-color: $uhb-color-pink;
 
   &:hover {
-    background-color: darken(#AE2573, 10%);
+    background-color: darken($uhb-color-pink, 10%);
   }
 
   &:active {
-    background-color: darken(#AE2573, 15%);
+    background-color: darken($uhb-color-pink, 15%);
   }
 
   .uhb-c-icon {
@@ -286,14 +286,14 @@ $button-border-radius:  12px;
 
 
 .uhb-c-button--twitter {
-  background-color: #0072CE;
+  background-color: $uhb-color-bright-blue;
 
   &:hover {
-    background-color: darken(#0072CE, 10%);
+    background-color: darken($uhb-color-bright-blue, 10%);
   }
 
   &:active {
-    background-color: darken(#0072CE, 15%);
+    background-color: darken($uhb-color-bright-blue, 15%);
   }
 
   .uhb-c-icon {
@@ -303,14 +303,14 @@ $button-border-radius:  12px;
 
 
 .uhb-c-button--youtube {
-  background-color: #DA291C;
+  background-color: $uhb-color-emergency-services-red;
 
   &:hover {
-    background-color: darken(#DA291C, 10%);
+    background-color: darken($uhb-color-emergency-services-red, 10%);
   }
 
   &:active {
-    background-color: darken(#DA291C, 15%);
+    background-color: darken($uhb-color-emergency-services-red, 15%);
   }
 
   .uhb-c-icon {
