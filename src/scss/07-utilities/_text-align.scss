@@ -25,14 +25,14 @@ $text-align-directions: (
 
 @each $direction in $text-align-directions {
   .uhb-u-text-align-#{$direction} {
-    display: #{$direction};
+    text-align: #{$direction};
   }
 
   @each $breakpoint-name, $breakpoint-value in $uhb-breakpoints {
     @if ($breakpoint-name != null) {
       @include uhb-media-query($from: $breakpoint-name) {
         .uhb-u-text-align-#{$direction}\@#{$breakpoint-name} {
-          display: #{$direction};
+          text-align: #{$direction};
         }
       }
     }
