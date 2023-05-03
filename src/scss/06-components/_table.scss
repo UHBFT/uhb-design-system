@@ -183,3 +183,55 @@ $table-border-width: div($uhb-global-border-width, 2);
 .uhb-c-table--striped tbody tr:nth-child(odd) td {
   background-color: $uhb-color-white;
 }
+
+/**
+ * Team profile and listing tables
+ *
+ * Sets table styles on full profile page and listing page.
+ */
+
+ .uhb-c-table--profile th, 
+ .uhb-c-table--profile td {
+  background-color: transparent;
+  color: $uhb-color-text;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+ }
+
+ .uhb-c-table--profile th {
+   padding-bottom: 0;
+   @include uhb-media-query($from: "md") {
+    padding-bottom: uhb-spacing(1);
+  }
+ }
+
+ .uhb-c-table--profile td {
+  padding-bottom: uhb-spacing(3);
+  @include uhb-media-query($from: "md") {
+    padding-bottom: uhb-spacing(4);
+  }
+}
+
+.uhb-c-table--listing th, 
+.uhb-c-table--listing td {
+ background-color: transparent;
+ color: $uhb-color-text;
+ padding-left: 0;
+ padding-right: 0;
+ padding-top: 0;
+}
+
+.uhb-c-table--listing th {
+  padding-bottom: 0;
+  @include uhb-media-query($from: "md") {
+   padding-bottom: uhb-spacing(1);
+ }
+}
+
+.uhb-c-table--listing td {
+ padding-bottom: uhb-spacing(2);
+ @include uhb-media-query($from: "md") {
+   padding-bottom: uhb-spacing(3);
+ }
+}
