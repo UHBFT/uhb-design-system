@@ -31,13 +31,22 @@ $team-member-image-size-xl:      200px;
  * 2. Custom property used as progressive enhancement for themes.
  */
 
-.uhb-c-team-member__image {
+ .uhb-c-team-member__image {
   border: $uhb-global-border-width solid $uhb-color-border; // [1]
   border-color: var(--color-border); // [2]
   border-radius: 50%;
   box-shadow: $uhb-global-box-shadow;
   height: $team-member-image-size-default;
   width: $team-member-image-size-default;
+
+  @include uhb-media-query($from: 'xl') {
+    height: $team-member-image-size-md;
+    width: $team-member-image-size-md;
+  }
+}
+
+.uhb-c-team-member__image-profile {
+  @extend .uhb-c-team-member__image;
 
   @include uhb-media-query($from: 'md') {
     height: $team-member-image-size-md;
@@ -48,7 +57,7 @@ $team-member-image-size-xl:      200px;
     height: $team-member-image-size-xl;
     width: $team-member-image-size-xl;
   }
-}
+ }
 
 
 /**
