@@ -20,6 +20,7 @@
 // 
 
 $team-member-image-size-default: 120px;
+$team-member-image-size-sm:      60px;
 $team-member-image-size-md:      160px;
 $team-member-image-size-xl:      200px;
 
@@ -91,4 +92,21 @@ $team-member-image-size-xl:      200px;
   color: $uhb-color-primary; // [1]
   color: var(--color-primary); // [2]
   display: block;
+}
+
+
+
+
+
+.uhb-c-team-member__contact-details {
+  @include uhb-font-size('h6');
+  margin-bottom: uhb-spacing(3);
+  margin-top: uhb-spacing(3);
+}
+
+.uhb-c-team-member__contact-site,
+.uhb-c-team-member__contact-sect,
+.uhb-c-team-member__contact-sect-phone,
+.uhb-c-team-member__contact-sect-email {
+  margin-top: uhb-spacing(2);
 }
