@@ -14,7 +14,9 @@
 // NHS colour gradients
 //
 
+$gradient-dark-pink-pink: $uhb-color-dark-pink, $uhb-color-pink;
 $gradient-pink-orange: $uhb-color-pink, $uhb-color-orange;
+$gradient-pink-dark-pink: $uhb-color-pink, $uhb-color-dark-pink;
 
 
 @mixin gradient($direction, $gradient-colours) { 
@@ -24,6 +26,14 @@ $gradient-pink-orange: $uhb-color-pink, $uhb-color-orange;
   background: linear-gradient($direction, $gradient-colours);  
 }
 
+.uhb-u-gradient-dark-pink-pink {
+  @include gradient(left, $gradient-dark-pink-pink);
+}
+
 .uhb-u-gradient-pink-orange {
   @include gradient(left, $gradient-pink-orange);
+}
+
+.uhb-u-gradient-pink-dark-pink {
+  @include gradient(left, $gradient-pink-dark-pink);
 }

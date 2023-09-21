@@ -1,0 +1,16 @@
+/* ==========================================================================
+   08 - THEMES / BORDER / DARK PINK
+   ========================================================================== */
+
+
+@use '01-settings' as *; 
+@use '02-tools' as *;
+
+
+.uhb-t-border-dark-pink {
+  --color-border: #{$uhb-color-dark-pink};
+  
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-pink}", '#', '%23')));
+  }
+}

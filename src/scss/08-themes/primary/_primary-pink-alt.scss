@@ -1,0 +1,22 @@
+/* ==========================================================================
+   08 - THEMES / PRIMARY / PINK ALT
+   ========================================================================== */
+
+
+   @use '01-settings' as *; 
+   @use '02-tools' as *;
+
+
+   .uhb-t-primary-pink-alt {
+     --global-bar-color: #{$uhb-color-pink};
+     --global-bar-highlight-color: #{$uhb-color-pink};
+     --global-bar-highlight-item-color: #{$uhb-color-dark-pink};
+     --color-primary-rgb: #{uhb-hex-to-rgb($uhb-color-primary)};
+     --color-primary: #{$uhb-color-pink};
+     --color-primary-hover: #{$uhb-color-dark-pink};
+     --color-primary-active: #{$uhb-color-darkest-pink};
+
+     .uhb-c-block-quote__quote::before {
+       background-image: url(uhb-replace-string($uhb-icon-chevron-right, '%%COLOUR%%', uhb-replace-string('#{$uhb-color-pink}', '#', '%23' )));
+     }
+   }
