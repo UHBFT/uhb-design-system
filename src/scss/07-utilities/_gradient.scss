@@ -15,6 +15,7 @@
 //
 
 $gradient-dark-pink-pink: $uhb-color-dark-pink, $uhb-color-pink;
+$gradient-pink-aqua-green: $uhb-color-pink, $uhb-color-aqua-green;
 $gradient-pink-orange: $uhb-color-pink, $uhb-color-orange;
 $gradient-pink-dark-pink: $uhb-color-pink, $uhb-color-dark-pink;
 
@@ -28,6 +29,10 @@ $gradient-pink-dark-pink: $uhb-color-pink, $uhb-color-dark-pink;
 
 .uhb-u-gradient-dark-pink-pink {
   @include gradient(left, $gradient-dark-pink-pink);
+}
+
+.uhb-u-gradient-pink-aqua-green {
+  @include gradient(left, $gradient-pink-aqua-green);
 }
 
 .uhb-u-gradient-pink-orange {

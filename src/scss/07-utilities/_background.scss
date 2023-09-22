@@ -11,6 +11,10 @@
 @use '01-settings' as *; 
 
 
+.uhb-u-background-aqua-green {
+  background-color: $uhb-color-aqua-green !important;
+}
+
 .uhb-u-background-blue {
   background-color: $uhb-color-blue !important;
 }
