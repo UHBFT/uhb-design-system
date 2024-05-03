@@ -1,0 +1,57 @@
+/* ============================================================================
+   06-COMPONENTS -> #ACCORDION
+   ========================================================================= */
+
+/**
+ * ReachDeck accessibility toolbar.
+ *
+*/
+
+
+@use '01-settings' as *;
+@use '02-tools' as *;
+
+
+/**
+ * ReachDeck
+ *
+ * 1. Sets the 'margin-top' property if the accordion component follows another
+ *    element.
+ * 2. Sets the 'margin-top' property of an element if it follows the accordion
+ *    component.
+ */
+
+ .gw-launchpad-icon-button--light {
+  background-color: $uhb-color-warm-yellow !important;
+  transition-duration: $uhb-global-transition-duration !important;
+  transition-timing-function: $uhb-global-transition-timing !important;
+
+  &:hover {
+    background-color: $uhb-color-orange !important;
+  }
+
+  &::after {
+    border: solid;
+    border-color: $uhb-color-dark-grey;
+    border-radius: 50px;
+    border-width: 2px;
+    content: '';
+    height: 46px;
+    position: absolute;
+    width: 46px;
+  }
+
+ }
+
+ #__ba_floatingLaunch.positionStyle {
+  border-radius: 50px;
+  box-shadow: $uhb-global-box-shadow-button;
+  content: '';
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition-duration: $uhb-global-transition-duration;
+  transition-timing-function: $uhb-global-transition-timing;
+  width: 54px;
+ }
