@@ -24,24 +24,22 @@
  */
 
 .uhb-c-notice {
-  @include uhb-responsive-padding(5, ('bottom', 'top'));
+  @include uhb-first-child-margin;
+  @include uhb-responsive-padding(5);
 	background-color: $uhb-color-blue;
 	color: $uhb-color-white;
+	box-shadow: $uhb-global-box-shadow;
 
-  &:first-of-type {
-    padding-top: 72px; // [1]
-  }
+  * + & {
+		@include uhb-responsive-margin(7, 'top'); // [1]
+	}
 
-  @include uhb-media-query($from: 'md') {
-    &:first-of-type {
-      padding-top: 96px; // [2]
-    }
-  }
+	& + * {
+		@include uhb-responsive-margin(7, 'top'); // [2]
+	}
 
-  @include uhb-media-query($from: 'xl') {
-    &:first-of-type {
-      padding-top: 32px; // [2]
-    }
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-white}", '#', '%23')));
   }
 }
 
@@ -92,4 +90,8 @@
 .uhb-c-notice--warning {
 	background-color: $uhb-color-warm-yellow;
 	color: $uhb-color-dark-grey;
+
+  ul > li::before {
+    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-dark-grey}", '#', '%23')));
+  }
 }
