@@ -24,36 +24,70 @@
  */
 
 .uhb-c-notice {
-  @include uhb-first-child-margin;
+  background-color: $uhb-color-blue;
+  box-shadow: $uhb-global-box-shadow;
+  color: $uhb-color-white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;
+  position: relative;
+  width: 100%;
+} 
+
+
+/**
+* Notice image
+*
+* 1. Prevents the notice image from losing aspect ratio.
+* 2. Fills the full width of the notice.
+*/
+
+.uhb-c-notice__image {
+  flex: 0 0 auto; // [1]
+  width: 100%; // [2]
+}
+  
+  
+/**
+* Notice content
+*
+* 1. Set the 'flex' property to allow the notice content to fill up all
+*    remaining space in the card.
+*/
+  
+.uhb-c-notice__content {
   @include uhb-responsive-padding(5);
-	background-color: $uhb-color-blue;
-	color: $uhb-color-white;
-	box-shadow: $uhb-global-box-shadow;
-
-  * + & {
-		@include uhb-responsive-margin(7, 'top'); // [1]
+  flex: 1 0 auto; // [1]
+  
+	ul > li::before {
+		background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-white}", '#', '%23'))) !important;
 	}
 
-	& + * {
-		@include uhb-responsive-margin(7, 'top'); // [2]
-	}
-
-  ul > li::before {
-    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-white}", '#', '%23')));
-  }
+}
+  
+  
+/**
+* Notice heading
+*/
+  
+.uhb-c-notice__heading {
+  @include uhb-font-size('h6');
+  color: $uhb-color-white;
 }
 
 
 /**
- * Notice heading
- */
+* Notice footer
+*/
+  
+.uhb-c-notice__footer {
+  @include uhb-responsive-padding(5, ('bottom', 'left', 'right'));
 
-.uhb-c-notice__heading {
-	@include uhb-font-size('h6');
-	color: inherit;
+    .uhb-c-button {
+	  margin-top: 0;
+	}
 }
-
-
 
 
 /* MODIFIERS
@@ -66,7 +100,19 @@
  */
 
 .uhb-c-notice--alert {
-	background-color: $uhb-color-emergency-services-red;
+  background-color: $uhb-color-emergency-services-red;
+
+  .uhb-c-button--inverse {
+	color: $uhb-color-emergency-services-red;
+
+	&:active {
+	  color: $uhb-color-dark-red;
+	}
+
+	&:visited {
+	  color: $uhb-color-emergency-services-red;
+	}
+  }
 }
 
 
@@ -77,7 +123,19 @@
  */
 
 .uhb-c-notice--announcement {
-	background-color: $uhb-color-dark-green;
+  background-color: $uhb-color-dark-green;
+
+    .uhb-c-button--inverse {
+	  color: $uhb-color-dark-green;
+
+	  &:active {
+	    color: $uhb-color-darkest-green;
+	  }
+  
+	  &:visited {
+	    color: $uhb-color-dark-green;
+	  }
+	}
 }
 
 
@@ -88,10 +146,36 @@
  */
 
 .uhb-c-notice--warning {
-	background-color: $uhb-color-warm-yellow;
-	color: $uhb-color-dark-grey;
+  background-color: $uhb-color-warm-yellow;
+  color: $uhb-color-dark-grey;
 
-  ul > li::before {
-    background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-dark-grey}", '#', '%23')));
-  }
+    .uhb-c-notice__heading {
+	  color: $uhb-color-dark-grey;
+	}
+
+	.uhb-c-button--inverse {
+	  background-color: $uhb-color-dark-grey;
+	  color: $uhb-color-white;
+
+	  &:hover {
+		background-color: $uhb-color-darkest-grey;
+	  }
+	
+	  &:active {
+		background-color: $uhb-color-black;
+		color: $uhb-color-paler-grey;
+	  }
+	
+	  &:visited {
+		color: $uhb-color-white;
+	  }
+	}
+
+    .uhb-c-notice__content {
+		
+		  ul > li::before {
+			  background-image: url(uhb-replace-string($uhb-icon-chevron-right, "%%COLOUR%%", uhb-replace-string("#{$uhb-color-dark-grey}", '#', '%23'))) !important;
+		  }
+	  
+	  }
 }
