@@ -30,7 +30,7 @@ $button-border-radius:  12px;
  * 3. Custom property used as progressive enhancement for themes.
  * 4. Set the 'box-shadow' property on the '::before' pseuo-element to reduce
  *    re-paints during animations.
- * 5 State hook for active button styles.
+ * 5. State hook for active button styles.
  * 6. State hook for disabled button styles.
  * 7. 'Magic number' used to set the vertical 'padding' property.
  */
@@ -178,6 +178,25 @@ $button-border-radius:  12px;
   &:visited {
     color: $uhb-color-primary; // [1]
     color: var(--color-primary); // [2]
+  }
+}
+
+
+.uhb-c-button--emergency-services-red {
+  background-color: $uhb-color-emergency-services-red;
+  color: $uhb-color-white;
+
+  &:hover {
+    background-color: $uhb-color-dark-red;
+  }
+
+  &:active {
+    background-color: $uhb-color-darkest-red;
+    color: $uhb-color-white; 
+  }
+
+  &:visited {
+    color: $uhb-color-white;
   }
 }
 

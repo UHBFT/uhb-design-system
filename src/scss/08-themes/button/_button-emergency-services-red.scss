@@ -1,0 +1,13 @@
+/* ==========================================================================
+   08 - THEMES / BUTTON EMERGENCY SERVICES RED
+   ========================================================================== */
+
+
+@use '01-settings' as *; 
+
+
+.uhb-t-button-emergency-services-red {
+  --color-action-button: #{$uhb-color-emergency-services-red};
+  --color-action-button-hover: #{$uhb-color-dark-red};
+  --color-action-button-active: #{$uhb-color-darkest-red};
+}
